@@ -1,0 +1,91 @@
+doctype 5
+html(ng-app="candy")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport",content="width=device-width, initial-scale=1.0")
+    meta(name="generator",content="#{sys.name}",version="#{sys.version}")
+    block meta
+        meta(name="keywords",content="#{site.name}")
+        meta(name="description",content="#{site.desc}")
+    title 
+        block title
+            |#{site.name}
+    link(rel='shortcut icon',type="image/x-icon",href="/images/favicon.ico")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/duoshuo.css')
+  body
+    block header
+        .bar.clearfix
+            .c1
+            .c2
+            .c3
+            .c4
+            .c5
+            .c6
+            .c7
+            .c8
+            .c9
+            .c10
+            .c11
+            .c12
+        #header(ng-controller="candy.ctrlers.board.list")
+            #ihd.container.clearfix
+                .row
+                    .col-lg-12
+                      #logo.clearfix.fn-left
+                        h1.clearfix
+                            a(href="/").logo #{site.name}
+                                span.desc #{site.desc}
+                            a(ng-click="ls()",href="#boards",ng-class="'open-' + open").boards-dropdown
+                                i(ng-class="arrow")
+                        ul.boards-index.clearfix(ng-show="open")
+                            li.board-name(ng-repeat="board in boards")
+                                a(ng-href="/board/{{board.url}}")
+                                    i.icon-chevron-right
+                                    |{{board.name}}
+    block banner
+        include banner
+    #cnt
+        #icnt.container.clearfix
+          .row
+              block main
+                .col-lg-9
+                    block content
+                .col-lg-3
+                    block sidebar
+                        include sidebar
+    block footer
+      #footer
+        #ft.clearfix
+            #ift.container.clearfix.copyright &copy; #{new Date().getFullYear()} 『#{site.name}』 #{site.desc} | Powered by 
+                    a(href="https://github.com/turingou/candy",title="npm install candy").candy #{sys.name} 
+                    |@ #{sys.version}
+
+    //- libs
+    script(src="/javascripts/lib/jquery-1.10.2.min.js")
+    script(src="/javascripts/lib/bootstrap.min.js")
+    script(src="/javascripts/lib/angular.min.js")
+    script(src="/javascripts/lib/angular-resource.min.js")
+    //- angular app
+    script(src="/javascripts/candy.js")
+    script(src="/javascripts/store.js")
+    //- duoshuo comments configs
+    script.
+        var duoshuoQuery = {
+            short_name: "#{site.duoshuo.short_name}",
+            theme: 'none',
+            sso: { 
+               login: "#{href}/signin/",
+               logout: "#{href}/signout/"
+            }
+        };
+        (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';ds.async = true;
+            ds.src = 'http://static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0] 
+            || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+    //- custom js
+    block js

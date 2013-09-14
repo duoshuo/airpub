@@ -5,8 +5,6 @@ the missing blog system for geek and coder by [turing](https://npmjs.org/~turing
 ### Installation
 ````
 $ npm install mua
-// or install globally
-$ sudo npm install mua -g
 ````
 
 ### Example

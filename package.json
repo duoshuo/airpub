@@ -1,23 +1,42 @@
 {
   "name": "mua",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "the missing blog system for geek and coder",
-  "main": "index.js",
+  "main": "app.js",
+  "author": "turing <o.u.turing@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "./node_modules/mocha/bin/mocha ./test/test.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/turingou/mua.git"
+  },
+  "bugs": {
+    "url": "https://github.com/turingou/mua/issues"
   },
   "keywords": [
     "mua",
     "blog",
     "cms"
   ],
-  "author": "turing",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/turingou/mua/issues"
+  "dependencies": {
+    "duoshuo":"*",
+    "express": "3.3.1",
+    "jade": "*",
+    "less-middleware": "*",
+    "connect-mongo":"*",
+    "mongoose": "*",
+    "async": "*",
+    "underscore" : "*",
+    "moment": "*",
+    "marked": "*",
+    "highlight.js": "*",
+    "winston": "*"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
   }
 }

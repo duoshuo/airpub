@@ -4,3 +4,5 @@ node_modules
 psd
 thumb
 *.log
+**/duoshuo-embed.css
+public/uploads

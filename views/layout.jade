@@ -15,19 +15,6 @@ html(ng-app="candy")
     link(rel='stylesheet', href='/stylesheets/duoshuo.css')
   body
     block header
-        .bar.clearfix
-            .c1
-            .c2
-            .c3
-            .c4
-            .c5
-            .c6
-            .c7
-            .c8
-            .c9
-            .c10
-            .c11
-            .c12
         #header(ng-controller="candy.ctrlers.board.list")
             #ihd.container.clearfix
                 .row
@@ -58,7 +45,7 @@ html(ng-app="candy")
       #footer
         #ft.clearfix
             #ift.container.clearfix.copyright &copy; #{new Date().getFullYear()} 『#{site.name}』 #{site.desc} | Powered by 
-                    a(href="https://github.com/turingou/candy",title="npm install candy").candy #{sys.name} 
+                    a(href="#{sys.repository.url}",title="npm install #{sys.name}").candy #{sys.name} 
                     |@ #{sys.version}
 
     //- libs

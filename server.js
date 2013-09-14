@@ -1,11 +1,11 @@
 var Server = require('./app').server;
 
 new Server({
-    name: 'Candy', // 站点名称
-    url: 'http://candy.com', // 站点url
-    desc: 'some desc', // 站点描述
+    name: 'mua', // 站点名称
+    url: 'http://mua.io', // 站点url
+    desc: 'the missing blog system for geek and coder', // 站点描述
     database: {
-        name: 'candy'
+        name: 'mua'
     },
     duoshuo: { 
         short_name: 'candydemo', // 多说 short_name

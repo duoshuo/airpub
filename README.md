@@ -1,6 +1,6 @@
 ## mua ![npm](https://badge.fury.io/js/mua.png)
 
-the missing blog system for geek and coder by [turing](https://npmjs.org/~turing) 
+the next generation blog platform for everyone. simple, flexible, sexy and lovely.
 
 ### Installation
 ````
@@ -9,7 +9,14 @@ $ npm install mua
 
 ### Example
 ````javascript
-var mua = require('mua');
+var Mua = require('mua');
+var myBlog = new Mua({
+    name: 'myblog',
+    desc: 'hello world',
+    database: {
+        name: 'mua'
+    }
+}).run(8080);
 ````
 
 ### API

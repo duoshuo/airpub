@@ -22,7 +22,7 @@ var configModel = new Schema({
     }
 });
 
-// users
+// users 
 var userModel = new Schema({
     nickname: String,
     email: String,

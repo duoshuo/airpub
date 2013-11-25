@@ -5,13 +5,15 @@
 // GET     /:id/edit  ->  edit
 // PUT     /:id       ->  update
 // DELETE  /:id       ->  destroy
+var moment = require('moment');
 
 exports = module.exports = function($ctrlers) {
     return {
         index: function(req, res, next) {
             $ctrlers.article.page(1, 10, {}, function(err, articles) {
-                res.json({
-                    articles: articles
+                res.render('home',{
+                    articles: articles,
+                    moment: moment
                 });
             });
         },

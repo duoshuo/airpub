@@ -1,0 +1,42 @@
+extends ../layout
+
+block title
+    | 注册 / Sign up
+
+block content
+    #signup.sign.content
+        .container
+            .row
+                .col-lg-6(ng-controller="maker.ctrlers.sign")
+                    h2
+                        | 注册
+                        span.subdesc / Sign up
+                    form(method="POST",name="signForm",ng-submit="signup()")
+                        .form-group
+                            label(for="email") 邮箱 
+                                span.subdesc / email
+                            input(type="email",name="email",id="email",ng-model="user.email",required).form-control
+                            span.helper.label.label-danger(ng-show="signForm.email.$invalid") 请填写 Email
+                        .form-group
+                            label(for="password") 密码 
+                                span.subdesc / password
+                            input(type="password",name="password",id="password",ng-model="user.password",ng-minlength="6",required).form-control
+                            span.helper.label.label-danger(ng-show="signForm.password.$invalid") 密码应不少于6位
+                        .form-group
+                            label(for="passwordConfirm") 确认密码 
+                                span.subdesc / password confirm
+                            input(type="password",name="passwordConfirm",id="passwordConfirm",ng-model="user.passwordConfirm", ng-change="checkPassword()", required).form-control
+                            span.helper.label.label-danger(ng-show="signForm.passwordConfirm.$dirty && signForm.passwordConfirm.$error.dontMatch") 输入相同的密码
+                        //- .form-group
+                        //-     label(for="invitation") 邀请码 
+                        //-         span.subdesc / invitation
+                        //-     input(type="invitation",name="invitation",id="invitation",ng-model="user.invitation",ng-init="user.invitation = '#{invitation}'",required).form-control
+                        //-     span.helper.label.label-danger(ng-show="signForm.invitation.$invalid") 内测阶段，您需要使用邀请码注册
+                        .form-group    
+                            button(ng-disabled="signForm.$invalid || signForm.passwordConfirm.$dirty && signForm.passwordConfirm.$error.dontMatch || stat == 'disabled'").btn.btn-danger#signup-submit 注册 / Sign up
+                            span.help-inline(ng-show="msg") {{msg}}
+                //- .col-lg-6
+                //-     h2 
+                //-         | 社会化登录
+                //-         span.subdesc / sign in via social networks
+                //-     .ds-login

@@ -1,0 +1,318 @@
+@import url('./lib/bootstrap.min.css');
+@import url('./lib/font-awesome.min.css');
+@font-face {
+  font-family: 'Oxygen';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oxygen'), local('Oxygen-Regular'), url(/font/logo.woff) format('woff');
+}
+
+@key: #C0392B;
+@sub: #E74C3C;
+@nav: #34495E;
+@bg: #f5f5f5;
+@link: #2980B9;
+@hover: #3498DB;
+
+.btn {
+    border-radius: 0;
+}
+
+#header {
+    background-color: @sub;
+    color: #fff;
+    position: relative;
+    #logo {
+        background-color: @sub;
+        padding: 5px 15px 10px 16px;
+        margin-bottom: 70px;
+        // box-shadow: 0px 1px 3px #444;
+        h1 {
+            font-size: 40px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding: 10px 0;
+            text-shadow: 4px 0px 0px @key;
+            font-family: 'Oxygen', sans-serif;
+            position: relative;
+            span {
+                padding-right: 10px;
+            }
+        }
+        .dot {
+            width: 14px;
+            height: 14px;
+            text-indent: -9999em;
+            border-radius: 14px;
+            background-color: #fff;
+            display: block;
+            position: absolute;
+            left: 112px;
+            top: 34px;
+            line-height: 0.01;
+            box-shadow: 4px 0px 0px @key;
+            &:hover {
+                background-color: @bg;
+            }
+        }
+    }
+    .desc {
+        padding-left: 20px;
+        font-size: 24px;
+        padding-top: 25px; 
+        font-family: 'Oxygen', sans-serif;
+        text-shadow: 1px 1px 1px #444;
+    }
+}
+
+.content {
+    .title {
+        h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-shadow: 3px 0px 0px #fff;
+        }
+    }
+}
+
+#nav {
+    background-color: @nav;
+    li {
+        margin-left: 0;
+        a {
+            display: block;
+            color: #fff;
+            i {
+                padding-right: 10px;
+            }
+            &:hover {
+                border-radius: 0;
+                background-color: @nav + #444;
+                color: #fff;
+            }
+        }
+        &.current {
+            a {
+                background-color: @bg;
+                border-radius: 0;
+                color: @nav;
+                box-shadow: inset 0px 3px 5px #ddd;
+            }
+        }
+    }
+    .user {
+        position: relative;
+        a {
+            padding: 0;
+            padding-right: 10px;
+            overflow: hidden;
+            border-radius: 0;
+        }
+    }
+    .avatar-mini {
+        width: 40px;
+        height: 40px;
+        float: left;
+        margin-right: 10px;
+    }
+    .name {
+        float: left;
+        line-height: 40px;
+    }
+    .dropdown {
+        &.open {
+            a.dropdown-toggle {
+                background-color: @bg !important;
+                color: @nav;
+                box-shadow: inset 0px 3px 5px #ddd;
+                &:hover {
+                    background-color: @bg;
+                }
+            }
+        }
+    }
+    .dropdown-menu {
+        background-color: @bg;
+        font-size: 12px;
+        border-radius: 0;
+        box-shadow: none;
+        margin-top: 0px;
+        border-top: 0;
+        margin-right: 0px;
+        min-width: 100px !important;
+        width: 101%;
+        margin-right: -1px;
+        box-shadow: 1px 2px 1px #ddd;
+        padding-bottom: 1px;
+        a {
+            display: block;
+            padding: 10px 12px;
+            color: @nav;
+            border-bottom: 1px dashed #ddd;
+            &:hover {
+                background-color: @bg;
+                color: #444;
+            }
+        }
+    }
+}
+
+.article {
+    background-color: @bg;
+    padding: 5px 0;
+    opacity: 0.85;
+    .entry {
+        h4 {
+            font-size: 14px;
+            .from {
+                color : #999;
+                font-size: 12px;
+                padding-left: 4px;
+            }
+            a {
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+        i.vote {
+            padding-right: 10px;
+            font-size: 20px;
+            line-height: 1;
+        }
+        .meta {
+            padding-left: 20px;
+            font-size: 12px;
+            color: #999;
+            margin-top: -4px;
+            padding-bottom: 5px;
+            a {
+                color: #999;
+            }
+            i.fa {
+                padding-left: 10px;
+                padding-right: 0px;
+            }
+            i.number {
+                font-style: normal;
+                padding-left: 3px;
+            }
+        }
+    }
+    &.no1 {
+        opacity: 1;
+    }
+    &.no2 {
+        opacity: 0.95;
+    }
+    &.no3 {
+        opacity: 0.9;
+    }
+    &:hover {
+        opacity: 1;
+    }
+}
+
+#footer {
+    padding: 12px 0;
+    color: #999;
+    font-size: 12px;
+    border-top: 1px solid #ddd;
+    a {
+        color : #999;
+    }
+}
+
+.bgr {
+    position: absolute;
+    z-index: -99;
+    background: url(/images/bgr.png);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+
+// sign
+.sign, .pub-news {
+    background-color: @bg;
+    padding: 15px 0;
+    h2 {
+        font-size: 18px;
+        margin-top: 0px;
+        padding: 20px 0px 10px;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 20px;
+        span {
+            font-size: 14px;
+            color: #999;
+            padding-left: 8px;
+        }
+    }
+    form {
+        padding-bottom: 25px;
+        input, textarea {
+            border-radius: 0;
+            padding: 10px 5px;
+            &:focus {
+                border-color: @nav !important;
+                box-shadow: none !important;
+            }
+        }
+        textarea {
+            height: 150px;
+            padding: 5px;
+            overflow: auto;
+        }
+        .form-error {
+            input {
+                border-color: red;
+            }
+        }
+    }
+    .form-group {
+        position: relative;
+    }
+    .helper {
+        position: absolute;
+        right: 5px;
+        top: 32px;
+        z-index: 9;
+        display: block;
+        padding: 5px 10px;
+        border-radius: 0;
+    }
+    .help-inline {
+        color: @key;
+        font-size: 12px;
+        padding-left: 10px;
+    }
+    span.subdesc {
+        color: #999;
+        font-size: 12px;
+    }
+}
+
+.error {
+    background-color: @bg;
+    padding: 40px 0;
+}
+
+// news
+.news {
+    background-color: @bg;
+}
+
+.news-single {
+    padding: 20px 0;
+    background-color: @bg;
+    h3.title {
+        font-size: 20px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    a.url {
+        font-size: 12px;
+    }
+}

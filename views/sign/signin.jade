@@ -1,0 +1,32 @@
+extends ../layout
+
+block title
+    | 登录 / Sign in
+
+block content
+    #signin.sign.content
+        .container
+            .row
+                .col-lg-6(ng-controller="maker.ctrlers.sign")
+                    h2
+                        | 登录
+                        span.subdesc / Sign in
+                    form(method="POST",name="signForm",ng-submit="signin()")
+                        .form-group
+                            label(for="email") 邮箱 
+                                span.subdesc / email
+                            input(type="email",name="email",id="email",ng-model="user.email", required).form-control
+                            span.helper.label.label-danger(ng-show="signForm.email.$invalid") 请填写 Email
+                        .form-group
+                            label(for="password") 密码 
+                                span.subdesc / password
+                            input(type="password",name="password",id="password",ng-model="user.password",ng-minlength="6",required).form-control
+                            span.helper.label.label-danger(ng-show="signForm.password.$invalid") 请填写密码
+                        .form-group
+                            button(type="submit",ng-disabled="signForm.$invalid || stat == 'disabled'").btn.btn-danger#signin-submit 登录 / Sign in
+                            span.help-inline(ng-show="msg") {{msg}}
+                //- .col-lg-6
+                //-     h2
+                //-         | 社会化登录
+                //-         span.subdesc / sign in via social networks
+                //-     .ds-login

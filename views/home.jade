@@ -1,0 +1,35 @@
+extends layout
+
+block content
+    #home.news.content(ng-controller="articles")
+        - if (articles && articles.length > 0)
+            - each article,index in articles
+                .article.clearfix(class="no#{index + 1}")
+                    .container
+                        .row
+                            .col-lg-12
+                                .entry
+                                    h4 
+                                        a(href="javascript:void(0);",ng-click="vote('#{article._id}')")
+                                            i.vote.fa.fa-caret-up
+                                        a(href="#{article.url}",target="_blank")
+                                            | #{article.title}
+                                    .meta.clearfix
+                                        span.points #{article.views} 
+                                        | points 
+                                        | by 
+                                        span.date!= moment(article.pubdate).fromNow() 
+                                        span.comments
+                                            a(href="/article/#{article._id}") 
+                                                i.fa.fa-comments
+                                                i.number(data-thread-key="#{article._id}",data-count-type="comments") 
+                                                | comments
+        - else
+            .no-entry.article
+                .container
+                    .row
+                        .col-lg-12
+                            .entry
+                                h4 Sorry, No entry...
+
+block js

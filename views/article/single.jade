@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+    #new.news-single.content
+        .container
+            .row
+                .col-lg-12
+                    h3.title #{news.title} 
+                        - if (news.url)
+                            a(href="#{news.url}",class="url") #{news.url}
+                    - if (news.content)
+                        .entry.clearfix #{news.content}
+                    #comments.comments.clearfix
+                        .ds-thread
+block js
+    //- duoshuo comments configs
+    script.
+        var duoshuoQuery = {
+            short_name: "#{site.duoshuo.short_name}",
+            //- theme: 'none',
+            sso: { 
+               login: "#{url}/signin/social",
+               logout: "#{url}/signout/social"
+            }
+        };
+    script(type="text/javascript",src="http://static.duoshuo.com/embed.js",charset="UTF-8",async)

@@ -1,78 +1,85 @@
 doctype 5
-html(ng-app="candy")
+html(ng-app="maker")
   head
     meta(charset="utf-8")
     meta(name="viewport",content="width=device-width, initial-scale=1.0")
-    meta(name="generator",content="#{sys.name}",version="#{sys.version}")
-    block meta
-        meta(name="keywords",content="#{site.name}")
-        meta(name="description",content="#{site.desc}")
     title 
         block title
-            |#{site.name}
+            | #{site.name}
     link(rel='shortcut icon',type="image/x-icon",href="/images/favicon.ico")
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='/stylesheets/duoshuo.css')
+    link(rel='stylesheet', href='/css/style.css')
   body
     block header
-        #header(ng-controller="candy.ctrlers.board.list")
-            #ihd.container.clearfix
+        #header
+            .container
+                .row.clearfix
+                    .col-lg-12.col-sm-12
+                        #logo.pull-left
+                            h1 #{site.name}
+                        .desc.pull-left #{site.desc}
+            .bgr
+    block nav
+        #nav
+            .container
+                .row
+                    .col-lg-9.col-sm-9
+                        .nav
+                            ul.clearfix.nav.nav-pills
+                                li(class="#{currentPage == '/' ? 'current' : ''}")
+                                    a(href="/") 
+                                        i.fa.fa-align-justify
+                                        |创客新闻 / Maker News
+                                li(class="#{currentPage == '/news/lastest' ? 'current' : ''}")
+                                    a(href="/news/lastest") 
+                                        i.fa.fa-clock-o
+                                        |最近 / Lastest
+                                li(class="#{currentPage == '/news/new' ? 'current' : ''}")
+                                    a(href="/news/new") 
+                                        i.fa.fa-plus
+                                        |发布 / Submit
+                    .col-lg-3.col-sm-3
+                        - if (user)
+                            - var name = user.email ? user.email : user.duoshuo.user_id
+                            .user
+                                ul.nav.nav-pills.clearfix
+                                    li.nav.pull-right.dropdown
+                                        a(data-toggle="dropdown",href="#").clearfix.dropdown-toggle
+                                            - if (user.avatar)
+                                                img(src="#{user.avatar}",alt="#{name}").avatar-mini
+                                            - else 
+                                                img(src="http://www.gravatar.com/avatar/#{user.avatarHash}",alt="#{name}").avatar-mini
+                                            span.name #{name}
+                                        ul.dropdown-menu(role="menu",aria-labelledby="dLabel")
+                                            //- li: a(href="/user/#{user._id}") 我的VC / Maker Home
+                                            li: a(href="/signout") 登出
+                        - else
+                            .sign-nav.clearfix
+                                ul.clearfix.nav.nav-pills
+                                    li#signin(class="#{currentPage == '/signin' ? 'current' : ''}")
+                                        a(href="/signin") 登录
+                                    li#signip(class="#{currentPage == '/signup' ? 'current' : ''}")
+                                        a(href="/signup") 注册
+    block content
+    block footer
+        #footer
+            .container
                 .row
                     .col-lg-12
-                      #logo.clearfix.fn-left
-                        h1.clearfix
-                            a(href="/").logo #{site.name}
-                                span.desc #{site.desc}
-                            a(ng-click="ls()",href="#boards",ng-class="'open-' + open").boards-dropdown
-                                i(ng-class="arrow")
-                        ul.boards-index.clearfix(ng-show="open")
-                            li.board-name(ng-repeat="board in boards")
-                                a(ng-href="/board/{{board.url}}")
-                                    i.icon-chevron-right
-                                    |{{board.name}}
-    block banner
-        include banner
-    #cnt
-        #icnt.container.clearfix
-          .row
-              block main
-                .col-lg-9
-                    block content
-                .col-lg-3
-                    block sidebar
-                        include sidebar
-    block footer
-      #footer
-        #ft.clearfix
-            #ift.container.clearfix.copyright &copy; #{new Date().getFullYear()} 『#{site.name}』 #{site.desc} | Powered by 
-                    a(href="#{sys.repository.url}",title="npm install #{sys.name}").candy #{sys.name} 
-                    |@ #{sys.version}
-
-    //- libs
-    script(src="/javascripts/lib/jquery-1.10.2.min.js")
-    script(src="/javascripts/lib/bootstrap.min.js")
-    script(src="/javascripts/lib/angular.min.js")
-    script(src="/javascripts/lib/angular-resource.min.js")
-    //- angular app
-    script(src="/javascripts/candy.js")
-    script(src="/javascripts/store.js")
-    //- duoshuo comments configs
+                        .footer &copy; #{ new Date().getFullYear() } #{site.name} . #{site.desc}
+    
+    script(src="/js/lib/jquery/jquery-1.10.2.min.js")
+    script(src="/js/lib/jquery.backstretch.min.js")
+    script(src="/js/lib/bootstrap/bootstrap.min.js")
+    script(src="/js/lib/angular/angular.min.js")
+    script(src="/js/lib/angular/angular-resource.min.js")
+    script(src="/js/lib/angular/angular-store.js")
+    script(src="/js/app.js")
     script.
-        var duoshuoQuery = {
-            short_name: "#{site.duoshuo ? site.duoshuo.short_name : ''}",
-            theme: 'none',
-            sso: { 
-               login: "#{href}/signin/",
-               logout: "#{href}/signout/"
-            }
-        };
-        (function() {
-            var ds = document.createElement('script');
-            ds.type = 'text/javascript';ds.async = true;
-            ds.src = 'http://static.duoshuo.com/embed.js';
-            ds.charset = 'UTF-8';
-            (document.getElementsByTagName('head')[0] 
-            || document.getElementsByTagName('body')[0]).appendChild(ds);
-        })();
-    //- custom js
+        $("#header").backstretch([
+            "/images/home.jpg",
+            "/images/index.jpg"    
+        ], {
+            duration: 4000,
+            fade: true
+        });
     block js

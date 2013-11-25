@@ -27,9 +27,11 @@
     "duoshuo":"*",
     "async": "*",
     "underscore" : "*",
+    "mails": "*",
     "moment": "*",
     "marked": "*",
-    "highlight.js": "*"
+    "highlight.js": "*",
+    "member": "*"
   },
   "devDependencies": {
     "mocha": "*",

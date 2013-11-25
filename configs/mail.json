@@ -1,0 +1,10 @@
+{
+    "from": "Yourname <mail@YourDomain>",
+    "host": "smtp.demo.com",
+    "port": 25,
+    "use_authentication": true,
+    "auth": {
+        "user": "demo@demo.com",
+        "pass": "pass"
+    }
+}

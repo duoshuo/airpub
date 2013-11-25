@@ -1,6 +1,7 @@
 {
     "name": "mua",
     "desc": "the missing blog platform built upon love",
+    "creator": "o.u.turing@gmail.com",
     "database": {
         "name": "mua_new"
     },

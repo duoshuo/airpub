@@ -10,26 +10,21 @@ block content
                             .col-lg-12
                                 .entry
                                     h4 
-                                        a(href="javascript:void(0);")
-                                            i.vote.fa.fa-caret-up
-                                        a(href="#{article.url}",target="_blank")
+                                        a(href="/article/#{article.url}",target="_blank")
                                             | #{article.title}
                                     .meta.clearfix
-                                        span.points #{article.views} 
-                                        | points 
-                                        | by 
+                                        span.points #{article.views} views 
                                         span.date!= moment(article.pubdate).fromNow() 
                                         span.comments
                                             a(href="/article/#{article._id}") 
                                                 i.fa.fa-comments
                                                 i.number(data-thread-key="#{article._id}",data-count-type="comments") 
                                                 | comments
+                                    .contents.clearfix #{article.content}...
         - else
             .no-entry.article
                 .container
                     .row
                         .col-lg-12
                             .entry
-                                h4 Sorry, No entry...
-
-block js
+                                h4 Sorry, Nothing here...

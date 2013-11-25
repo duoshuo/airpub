@@ -11,6 +11,9 @@ module.exports = function(app, $ctrlers) {
     // home
     app.get('/', article($ctrlers).index);
 
+    // page
+    app.get('/page/:page', article($ctrlers).page);
+
     // sign in
     app.get('/signin', sign.in);
     app.post('/signin', sign.login($ctrlers));

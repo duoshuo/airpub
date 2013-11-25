@@ -31,7 +31,8 @@
     "moment": "*",
     "marked": "*",
     "highlight.js": "*",
-    "member": "*"
+    "member": "*",
+    "pinyinjs": "*"
   },
   "devDependencies": {
     "mocha": "*",

@@ -10,40 +10,27 @@ html(ng-app="maker")
     link(rel='stylesheet', href='/css/style.css')
   body
     block header
-        #header
+        #header.admin-panel
             .container
                 .row.clearfix
-                    .col-lg-12.col-sm-12
-                        #logo.pull-left
-                            h1 #{site.name}
-                                span.desc #{site.desc}
-    block nav
-        #nav
-            .container
-                .row
                     .col-lg-9.col-sm-9
-                        .nav
-                            ul.clearfix.nav.nav-pills
-                                li(class="#{currentPage == '/' ? 'current' : ''}")
-                                    a(href="/") 
-                                        i.fa.fa-align-justify
-                                        |首页
-                                li(class="#{currentPage == '/news/new' ? 'current' : ''}")
-                                    a(href="/article/new") 
-                                        i.fa.fa-plus
-                                        |写新文章 / Submit
-                    .col-lg-3.col-sm-3
+                        #logo.pull-left
+                            h1 
+                                a(href="/") #{site.name}
+                                span.desc #{site.desc}
+                    .col-lg-3.col-sm-3.clearfix
                         - if (user)
-                            - var name = user.email ? user.email : user.duoshuo.user_id
+                            - var name = user.nickname ? user.nickname : user.email
                             .user
                                 ul.nav.nav-pills.clearfix
+                                    - if (user.type == 'admin' || user.type == 'creator')
+                                        li.post.pull-right
+                                            a(href="/article/new")
+                                                i.fa.fa-plus
+                                                | 写新文章
                                     li.nav.pull-right.dropdown
                                         a(data-toggle="dropdown",href="#").clearfix.dropdown-toggle
-                                            - if (user.avatar)
-                                                img(src="#{user.avatar}",alt="#{name}").avatar-mini
-                                            - else 
-                                                img(src="http://www.gravatar.com/avatar/#{user.avatarHash}",alt="#{name}").avatar-mini
-                                            span.name #{name}
+                                            img(src="http://www.gravatar.com/avatar/#{user.avatarHash}",alt="#{name}").avatar-mini
                                         ul.dropdown-menu(role="menu",aria-labelledby="dLabel")
                                             li: a(href="/signout") 登出
                         - else
@@ -53,6 +40,8 @@ html(ng-app="maker")
                                         a(href="/signin") 登录
                                     li#signip(class="#{currentPage == '/signup' ? 'current' : ''}")
                                         a(href="/signup") 注册
+    block banner
+        #banner.banner(data-src="/images/banner.jpg")
     block content
     block footer
         #footer
@@ -62,10 +51,14 @@ html(ng-app="maker")
                         .footer &copy; #{ new Date().getFullYear() } #{site.name} . #{site.desc}
     
     script(src="/js/lib/jquery/jquery-1.10.2.min.js")
-    //- script(src="/js/lib/jquery.backstretch.min.js")
+    script(src="/js/lib/jquery.backstretch.min.js")
     script(src="/js/lib/bootstrap/bootstrap.min.js")
     script(src="/js/lib/angular/angular.min.js")
     script(src="/js/lib/angular/angular-resource.min.js")
     script(src="/js/lib/angular/angular-store.js")
     script(src="/js/app.js")
+    script.
+        $("#banner").backstretch($('#banner').attr('data-src'), {
+            duration: 4000
+        });
     block js

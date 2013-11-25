@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-    #new.pub-news.content(ng-controller="maker.ctrlers.news")
+    #new.pub-news.content(ng-controller="maker.ctrlers.article")
         .container
             .row
                 .col-lg-8
@@ -9,17 +9,12 @@ block content
                         .form-group
                             label(for="title") 标题 
                                 span.subdesc / title
-                            input(type="text",placeholder="",name="title",id="title",ng-model="news.title",ng-minlength="5",required).form-control
-                            span.helper.label.label-danger(ng-show="submitForm.title.$invalid") 标题应不少于5个字
+                            input(type="text",placeholder="",name="title",id="title",ng-model="article.title",ng-minlength="1",required).form-control
+                            span.helper.label.label-danger(ng-show="submitForm.title.$invalid") 标题应不少于1个字
                         .form-group
-                            label(for="url") 链接 
-                                span.subdesc / url
-                            input(type="url",placeholder="",name="url",id="url",ng-model="news.url",required).form-control
-                            span.helper.label.label-danger(ng-show="submitForm.url.$invalid") 请填写规范的URL
-                        //- .form-group
-                        //-     label(for="contents") 内容 
-                        //-         span.subdesc / contents
-                        //-     textarea(placeholder="",name="contents",id="contents",ng-model="news.contents").form-control
+                            label(for="content") 内容 
+                                span.subdesc / content
+                            textarea(placeholder="",name="content",id="content",ng-model="article.content").form-control
                         .form-group
                             button(type="submit",ng-disabled="submitForm.$invalid").btn.btn-success 提交 / Submit
                             span.help-inline(ng-show="msg") {{msg}}

@@ -5,13 +5,23 @@
 // GET     /:id/edit  ->  edit
 // PUT     /:id       ->  update
 // DELETE  /:id       ->  destroy
-var moment = require('moment');
+var moment = require('moment'),
+    pinyin = require('pinyinjs');
 
 exports = module.exports = function($ctrlers) {
     return {
         index: function(req, res, next) {
             $ctrlers.article.pageByPubdate(1, 10, {}, function(err, articles) {
-                res.render('home',{
+                res.render('home', {
+                    articles: articles,
+                    moment: moment
+                });
+            });
+        },
+        page: function(req, res, next) {
+            var page = req.params.page && !isNaN(parseInt(req.params.page)) ? parseInt(req.params.page) : 1;
+            $ctrlers.article.pageByPubdate(page, 10, {}, function(err, articles) {
+                res.render('home', {
                     articles: articles,
                     moment: moment
                 });
@@ -28,7 +38,13 @@ exports = module.exports = function($ctrlers) {
             if (res.locals.user) {
                 var baby = req.body.article;
                 if (baby) {
+                    baby.author = [];
                     baby.author.push(res.locals.user._id);
+                    if (!baby.url) {
+                        baby.url = pinyin(baby.title, {
+                            style: pinyin.STYLE_NORMAL
+                        })[0][0];
+                    }
                     $ctrlers.article.create(baby, function(err, b) {
                         console.log(b);
                         res.json({
@@ -48,8 +64,9 @@ exports = module.exports = function($ctrlers) {
             if (url) {
                 $ctrlers.article.findOne({
                     url: url
-                }, function(err, article) {
+                }).populate('author').exec(function(err, article) {
                     if (!err) {
+                        console.log(article);
                         res.render('article/single', {
                             article: article
                         });

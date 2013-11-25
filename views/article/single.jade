@@ -1,22 +1,29 @@
 extends ../layout
 
 block content
-    #new.news-single.content
+    #new.article-title.content
         .container
             .row
                 .col-lg-12
-                    h3.title #{news.title} 
-                        - if (news.url)
-                            a(href="#{news.url}",class="url") #{news.url}
-                    - if (news.content)
-                        .entry.clearfix #{news.content}
-                    #comments.comments.clearfix
-                        .ds-thread
+                    h3.title #{article.title} 
+    #article.article-content
+        .container
+            .row
+                .col-lg-8 
+                    .entry #{article.content}
+                .col-lg-4
+                    #sidebar.sidebar
+                        - if (article.author)
+                            - each author in article.author
+                                img(src="http://www.gravatar.com/avatar/#{author.avatarHash}").avatar-middle
+                                h4.author #{author.email}
+    #comments.comments.clearfix
+        .ds-thread
 block js
     //- duoshuo comments configs
     script.
         var duoshuoQuery = {
-            short_name: "#{site.duoshuo.short_name}",
+            short_name: "#{site.duoshuo ? site.duoshuo.short_name : ''}",
             //- theme: 'none',
             sso: { 
                login: "#{url}/signin/social",

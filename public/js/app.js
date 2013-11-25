@@ -2,24 +2,16 @@ window.maker = angular.module('maker', ['store']);
 
 // global ctrlers
 maker.ctrlers = {
-    news: function($scope, Store) {
+    article: function($scope, Store) {
         $scope.submit = function() {
-            Store.news.save({
-                news: $scope.news
+            Store.article.save({
+                article: $scope.article
             }, function(result) {
                 if (result.stat == 'ok') {
-                    window.location.href = '/news/' + result.news._id;
+                    window.location.href = '/article/' + result.article.url;
                 } else {
                     $scope.msg = result.msg;
                 }
-            });
-        }
-        $scope.vote = function(id) {
-            Store.news.vote({
-                id: id,
-                vote: true
-            }, function(result){
-                console.log(result);
             });
         }
     },

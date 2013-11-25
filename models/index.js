@@ -29,7 +29,10 @@ module.exports = function($db, $Schema) {
     var articleModel = new $Schema({
         title: String,
         content: String,
-        url: String,
+        url: {
+            type: String,
+            unique: true
+        },
         views: {
             type: Number,
             default: 0
@@ -38,10 +41,10 @@ module.exports = function($db, $Schema) {
             type: Date,
             default: Date.now
         },
-        author: {
+        author: [{
             type: $Schema.Types.ObjectId,
             ref: 'author'
-        },
+        }],
         tags: [{
             type: $Schema.Types.ObjectId,
             ref: 'tag'

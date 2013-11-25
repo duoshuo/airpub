@@ -5,6 +5,14 @@ module.exports = function($models, $Ctrler) {
         article = new $Ctrler($models.article),
         tag = new $Ctrler($models.tag);
 
+    article.pageByPubdate = function(page, perpage, query, callback) {
+        var cursor = this.page(page, perpage, query);
+        console.log(cursor);
+        cursor.query.populate('author').sort('-pubdate').exec(function(err, articles){
+            callback(err, articles, cursor.pager);
+        });
+    };
+
     article.checkAuthor = function(user, articleID, callback) {
         if (article.checkId(articleID)) {
             article.findById(articleID, function(err, ar) {

@@ -10,7 +10,7 @@ var moment = require('moment');
 exports = module.exports = function($ctrlers) {
     return {
         index: function(req, res, next) {
-            $ctrlers.article.page(1, 10, {}, function(err, articles) {
+            $ctrlers.article.pageByPubdate(1, 10, {}, function(err, articles) {
                 res.render('home',{
                     articles: articles,
                     moment: moment

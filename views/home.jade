@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    #home.news.content(ng-controller="articles")
+    #home.news.content
         - if (articles && articles.length > 0)
             - each article,index in articles
                 .article.clearfix(class="no#{index + 1}")
@@ -10,7 +10,7 @@ block content
                             .col-lg-12
                                 .entry
                                     h4 
-                                        a(href="javascript:void(0);",ng-click="vote('#{article._id}')")
+                                        a(href="javascript:void(0);")
                                             i.vote.fa.fa-caret-up
                                         a(href="#{article.url}",target="_blank")
                                             | #{article.title}

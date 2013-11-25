@@ -16,8 +16,7 @@ html(ng-app="maker")
                     .col-lg-12.col-sm-12
                         #logo.pull-left
                             h1 #{site.name}
-                        .desc.pull-left #{site.desc}
-            .bgr
+                                span.desc #{site.desc}
     block nav
         #nav
             .container
@@ -28,15 +27,11 @@ html(ng-app="maker")
                                 li(class="#{currentPage == '/' ? 'current' : ''}")
                                     a(href="/") 
                                         i.fa.fa-align-justify
-                                        |创客新闻 / Maker News
-                                li(class="#{currentPage == '/news/lastest' ? 'current' : ''}")
-                                    a(href="/news/lastest") 
-                                        i.fa.fa-clock-o
-                                        |最近 / Lastest
+                                        |首页
                                 li(class="#{currentPage == '/news/new' ? 'current' : ''}")
-                                    a(href="/news/new") 
+                                    a(href="/article/new") 
                                         i.fa.fa-plus
-                                        |发布 / Submit
+                                        |写新文章 / Submit
                     .col-lg-3.col-sm-3
                         - if (user)
                             - var name = user.email ? user.email : user.duoshuo.user_id
@@ -50,7 +45,6 @@ html(ng-app="maker")
                                                 img(src="http://www.gravatar.com/avatar/#{user.avatarHash}",alt="#{name}").avatar-mini
                                             span.name #{name}
                                         ul.dropdown-menu(role="menu",aria-labelledby="dLabel")
-                                            //- li: a(href="/user/#{user._id}") 我的VC / Maker Home
                                             li: a(href="/signout") 登出
                         - else
                             .sign-nav.clearfix
@@ -68,18 +62,10 @@ html(ng-app="maker")
                         .footer &copy; #{ new Date().getFullYear() } #{site.name} . #{site.desc}
     
     script(src="/js/lib/jquery/jquery-1.10.2.min.js")
-    script(src="/js/lib/jquery.backstretch.min.js")
+    //- script(src="/js/lib/jquery.backstretch.min.js")
     script(src="/js/lib/bootstrap/bootstrap.min.js")
     script(src="/js/lib/angular/angular.min.js")
     script(src="/js/lib/angular/angular-resource.min.js")
     script(src="/js/lib/angular/angular-store.js")
     script(src="/js/app.js")
-    script.
-        $("#header").backstretch([
-            "/images/home.jpg",
-            "/images/index.jpg"    
-        ], {
-            duration: 4000,
-            fade: true
-        });
     block js

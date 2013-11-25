@@ -10,22 +10,19 @@
   border-radius: 0;
 }
 #header {
-  background-color: #e74c3c;
+  background-color: #444444;
   color: #fff;
   position: relative;
 }
 #header #logo {
-  background-color: #e74c3c;
-  padding: 5px 15px 10px 16px;
-  margin-bottom: 70px;
+  background-color: #444444;
+  padding: 0px 15px 5px 0px;
 }
 #header #logo h1 {
-  font-size: 40px;
+  font-size: 20px;
   margin-top: 0px;
   margin-bottom: 0px;
-  padding: 10px 0;
-  text-shadow: 4px 0px 0px #c0392b;
-  font-family: 'Oxygen', sans-serif;
+  padding: 5px 0;
   position: relative;
 }
 #header #logo h1 span {
@@ -49,9 +46,8 @@
 }
 #header .desc {
   padding-left: 20px;
-  font-size: 24px;
+  font-size: 12px;
   padding-top: 25px;
-  font-family: 'Oxygen', sans-serif;
   text-shadow: 1px 1px 1px #444;
 }
 .content .title h3 {

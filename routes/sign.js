@@ -23,15 +23,15 @@ exports.create = function($ctrlers) {
         if (!req.session.user) {
             var baby = req.body.user;
             if (baby) {
-                $ctrlers.user.findOne({
+                $ctrlers.author.findOne({
                     email: baby.email
                 }, function(err, u) {
                     if (!err) {
                         if (!u) {
                             baby.password = md5(baby.password);
                             baby.avatarHash = md5(baby.email);
-                            if (creators && creator === baby.email) baby.type = 'creator';
-                            $ctrlers.user.create(baby, function(err, baby) {
+                            if (creator && creator === baby.email) baby.type = 'creator';
+                            $ctrlers.author.create(baby, function(err, baby) {
                                 if (!err) {
                                     req.session.user = baby;
                                     res.json({
@@ -64,7 +64,7 @@ exports.login = function($ctrlers) {
     return function(req, res, next) {
         if (!req.session.user) {
             if (req.body.email && req.body.password) {
-                $ctrlers.user.findOne({
+                $ctrlers.author.findOne({
                     email: req.body.email
                 }, function(err, u) {
                     if (!err) {

@@ -1,0 +1,10 @@
+{
+    "name": "mua",
+    "desc": "the missing blog platform built upon love",
+    "database": {
+        "name": "mua_new"
+    },
+    "public": "./public",
+    "views": "./views",
+    "uploads": "./public/uploads"
+}

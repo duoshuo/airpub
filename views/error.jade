@@ -1,0 +1,7 @@
+extends layout
+
+block content
+    #error.clearfix
+        h3 #{code} 
+        - if (error)
+            p.error-detail #{error.toString()}

@@ -59,7 +59,7 @@ html(ng-app="candy")
     //- duoshuo comments configs
     script.
         var duoshuoQuery = {
-            short_name: "#{site.duoshuo.short_name}",
+            short_name: "#{site.duoshuo ? site.duoshuo.short_name : ''}",
             theme: 'none',
             sso: { 
                login: "#{href}/signin/",

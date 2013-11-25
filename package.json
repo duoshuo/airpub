@@ -1,7 +1,7 @@
 {
   "name": "mua",
   "version": "0.0.1",
-  "description": "the missing blog system for geek and coder",
+  "description": "the missing blog platform built upon love",
   "main": "app.js",
   "author": "turing <o.u.turing@gmail.com>",
   "license": "MIT",
@@ -22,18 +22,14 @@
     "cms"
   ],
   "dependencies": {
+    "mua-wordpress": "*",
+    "express-scaffold": ">= 0.1.0",
     "duoshuo":"*",
-    "express": "3.3.1",
-    "jade": "*",
-    "less-middleware": "*",
-    "connect-mongo":"*",
-    "mongoose": "*",
     "async": "*",
     "underscore" : "*",
     "moment": "*",
     "marked": "*",
-    "highlight.js": "*",
-    "winston": "*"
+    "highlight.js": "*"
   },
   "devDependencies": {
     "mocha": "*",

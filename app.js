@@ -13,4 +13,8 @@ var server = require('express-scaffold'),
     models = require('./models/index');
 
 // create mua server
-new server(configs).models(models).ctrlers(ctrlers).routes(routes).run();
+new server(configs)
+    .models(models)
+    .ctrlers(ctrlers)
+    .routes(routes)
+    .run();

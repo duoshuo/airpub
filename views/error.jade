@@ -1,10 +1,16 @@
 extends layout
 
+block title 
+    - if (code)
+        | #{code}
+    - else
+        | Error
+
 block content
     #error.clearfix.error
         .container
-                .row
-                    .col-lg-12
-                        h3 #{code} 
-                        - if (error)
-                            p.error-detail #{error.toString()}
+            .row
+                .col-lg-12
+                    h3 #{code} 
+                    - if (error)
+                        p.error-detail #{error.toString()}

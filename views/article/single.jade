@@ -1,24 +1,22 @@
 extends ../layout
 
 block content
-    #new.article-title.content
-        .container
-            .row
-                .col-lg-12
-                    h3.title #{article.title} 
     #article.article-content
         .container
             .row
-                .col-lg-8 
-                    .entry #{article.content}
-                .col-lg-4
-                    #sidebar.sidebar
-                        - if (article.author)
-                            - each author in article.author
-                                img(src="http://www.gravatar.com/avatar/#{author.avatarHash}").avatar-middle
-                                h4.author #{author.email}
-    #comments.comments.clearfix
-        .ds-thread
+                .col-lg-8.col-lg-offset-2
+                    .row
+                        .col-lg-12
+                            h3.title #{article.title}
+                            .meta.clearfix
+                            .entry #{article.content}
+                            .author
+                                - if (article.author)
+                                    - each author in article.author
+                                        img(src="http://www.gravatar.com/avatar/#{author.avatarHash}").avatar-middle
+                        
+                            #comments.comments.clearfix
+                                .ds-thread
 block js
     //- duoshuo comments configs
     script.

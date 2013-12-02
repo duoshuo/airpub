@@ -1,10 +1,10 @@
 extends ../layout
 
 block content
-    #new.pub-news.content(ng-controller="maker.ctrlers.article")
+    #new.pub-news.content(ng-controller="mua.ctrlers.article")
         .container
             .row
-                .col-lg-8
+                .col-lg-8.col-lg-offset-2
                     form(method="POST",name="submitForm",ng-submit="submit()")
                         .form-group
                             label(for="title") 标题 

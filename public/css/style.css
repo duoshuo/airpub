@@ -43,7 +43,7 @@
   width: 40px;
   height: 40px;
   opacity: 1;
-  border-radius: 40px;
+  border-radius: 3px;
   box-shadow: 0px 0px 10px #444;
   position: absolute;
   z-index: 99;
@@ -56,7 +56,7 @@
   top: 15px;
   left: auto !important;
   background-color: #000;
-  border-radius: 45px;
+  border-radius: 3px;
   box-shadow: inset 0px 0px 10px #444;
 }
 #header .dropdown-menu a {
@@ -70,6 +70,7 @@
 }
 #header .dropdown-menu a:hover {
   background-color: transparent !important;
+  color: #fff;
 }
 .banner {
   height: 250px;
@@ -138,18 +139,25 @@
 }
 .article-content .entry {
   padding-top: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 40px;
 }
 .article-content .entry p {
   font-size: 14px;
   margin-bottom: 15px;
 }
+.article-content .author {
+  margin-top: -45px;
+  padding-bottom: 30px;
+}
 .article-content .author img {
-  width: 55px;
-  height: 55px;
-  border-radius: 55px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
   box-shadow: 0px 0px 10px #ddd;
   display: block;
-  margin: 20px auto ;
+  margin: 20px auto;
+  background-color: #fff;
 }
 .sidebar .avatar-middle {
   width: 70px;
@@ -217,7 +225,7 @@
 }
 .sign form textarea,
 .pub-news form textarea {
-  height: 150px;
+  height: 300px;
   padding: 5px;
   overflow: auto;
 }

@@ -7,6 +7,10 @@
                 img(src="http://www.gravatar.com/avatar/#{user.avatarHash}",alt="#{name}").avatar-mini
             ul.dropdown-menu(role="menu",aria-labelledby="dLabel")
                 li
+                    a(href="/article/new")
+                        i.fa.fa-plus-square-o
+                        |写新文章
+                li
                     a(href="/signout")
                         i.fa.fa-power-off
                         |登出

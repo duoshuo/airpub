@@ -1,11 +1,12 @@
-@import url('./lib/bootstrap.min.css');
-// @import url('./lib/font-awesome.min.css');
+@import url('./bootstrap.min.css');
+@import url('./font-awesome.min.css');
 @import url('./typo.css');
+
 @font-face {
   font-family: 'Vibur';
   font-style: normal;
   font-weight: 400;
-  src: local('Vibur'), url(http://themes.googleusercontent.com/static/fonts/vibur/v4/r1wjHVoJektUOshkwbHY9qCWcynf_cDxXwCLxiixG1c.woff) format('woff');
+  src: local('Vibur'), url('../fonts/logo.woff') format('woff');
 }
 
 @key: #C0392B;
@@ -20,16 +21,16 @@
 }
 
 #header {
-    h1.logo {
-        font-size: 44px;
-        margin: 0px;
-        padding: 10px 0px 0px 25px;
+    .logo {
         position: relative;
-        font-family: 'Vibur', cursive;
-        text-shadow: 0px 0px 3px #444;
-        line-height: 1.0;
-        span {
-            padding-right: 10px;
+        z-index: 9;
+        h1 {
+            font-size: 44px;
+            margin: 0px;
+            padding: 10px 0px 0px 25px;
+            font-family: 'Vibur', cursive;
+            text-shadow: 0px 0px 3px #444;
+            line-height: 1.0;
         }
         a {
             color: #f5f5f5;
@@ -41,57 +42,43 @@
             }
         }
     }
-    .user {
+    .options {
+        font-size: 16px;
+        margin-right: 20px;
+        margin-top: 20px;
+        font-weight: normal;
         position: relative;
-        a {
-            display: block;
-            line-height: 40px;
-            padding: 0px 10px;
-            overflow: hidden;
-            border-radius: 0;
-            i {
-                padding-right: 8px;
-            }
-        }
+        z-index: 10;
     }
     .avatar-mini {
         width: 40px;
         height: 40px;
-    }
-    .name {
-        float: left;
-        line-height: 40px;
-    }
-    .dropdown {
-        &.open {
-            a.dropdown-toggle {
-                background-color: @bg !important;
-                color: @nav;
-                &:hover {
-                    background-color: @bg;
-                }
-            }
-        }
+        opacity: 1;
+        border-radius: 40px;
+        box-shadow: 0px 0px 10px #444;
+        position: absolute;
+        z-index: 99;
+        right: 0px;
     }
     .dropdown-menu {
-        background-color: @bg;
-        font-size: 12px;
-        border-radius: 0;
-        box-shadow: none;
-        margin-top: 0px;
-        border-top: 0;
-        margin-right: 0px;
-        min-width: 100px !important;
-        width: 101%;
-        margin-right: -1px;
-        padding-bottom: 1px;
+        position: absolute;
+        z-index: 9;
+        right: 16px;
+        top: 15px;
+        left: auto !important;
+        background-color: #000;
+        border-radius: 45px;
+        box-shadow: inset 0px 0px 10px #444;
         a {
             display: block;
-            padding: 10px 12px;
-            color: @nav;
+            color: #f5f5f5;
+            padding: 9px 20px 9px 20px;
+            font-size: 12px;
+            i {
+                padding-right: 10px;
+            }
             &:hover {
-                background-color: @bg;
-                color: #444;
+                background-color: transparent !important;
             }
         }
     }
@@ -224,7 +211,6 @@
 
 // sign
 .sign, .pub-news {
-    background-color: @bg;
     padding: 15px 0;
     h2 {
         font-size: 18px;

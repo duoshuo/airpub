@@ -1,6 +1,6 @@
 ## mua ![npm](https://badge.fury.io/js/mua.png)
 
-the next generation blog platform for everyone. simple, flexible, sexy and lovely.
+the missing blog platform built upon love
 
 ### Installation
 ````

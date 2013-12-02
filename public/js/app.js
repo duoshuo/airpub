@@ -1,7 +1,7 @@
-window.maker = angular.module('maker', ['store']);
+window.mua = angular.module('mua', ['store']);
 
 // global ctrlers
-maker.ctrlers = {
+mua.ctrlers = {
     article: function($scope, Store) {
         $scope.submit = function() {
             Store.article.save({

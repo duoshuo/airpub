@@ -1,84 +1,75 @@
-@import url('lib/bootstrap.min.css');
+@import url('bootstrap.min.css');
+@import url('font-awesome.min.css');
 @import url('typo.css');
 @font-face {
   font-family: 'Vibur';
   font-style: normal;
   font-weight: 400;
-  src: local('Vibur'), url(http://themes.googleusercontent.com/static/fonts/vibur/v4/r1wjHVoJektUOshkwbHY9qCWcynf_cDxXwCLxiixG1c.woff) format('woff');
+  src: local('Vibur'), url('../fonts/logo.woff') format('woff');
 }
 .btn {
   border-radius: 0;
 }
-#header h1.logo {
+#header .logo {
+  position: relative;
+  z-index: 9;
+}
+#header .logo h1 {
   font-size: 44px;
   margin: 0px;
   padding: 10px 0px 0px 25px;
-  position: relative;
   font-family: 'Vibur', cursive;
   text-shadow: 0px 0px 3px #444;
   line-height: 1.0;
 }
-#header h1.logo span {
-  padding-right: 10px;
-}
-#header h1.logo a {
+#header .logo a {
   color: #f5f5f5;
   opacity: 0.8;
 }
-#header h1.logo a:hover {
+#header .logo a:hover {
   text-decoration: none;
   color: #fff;
   opacity: 1;
 }
-#header .user {
+#header .options {
+  font-size: 16px;
+  margin-right: 20px;
+  margin-top: 20px;
+  font-weight: normal;
   position: relative;
-}
-#header .user a {
-  display: block;
-  line-height: 40px;
-  padding: 0px 10px;
-  overflow: hidden;
-  border-radius: 0;
-}
-#header .user a i {
-  padding-right: 8px;
+  z-index: 10;
 }
 #header .avatar-mini {
   width: 40px;
   height: 40px;
-}
-#header .name {
-  float: left;
-  line-height: 40px;
-}
-#header .dropdown.open a.dropdown-toggle {
-  background-color: #f5f5f5 !important;
-  color: #34495e;
-}
-#header .dropdown.open a.dropdown-toggle:hover {
-  background-color: #f5f5f5;
+  opacity: 1;
+  border-radius: 40px;
+  box-shadow: 0px 0px 10px #444;
+  position: absolute;
+  z-index: 99;
+  right: 0px;
 }
 #header .dropdown-menu {
-  background-color: #f5f5f5;
-  font-size: 12px;
-  border-radius: 0;
-  box-shadow: none;
-  margin-top: 0px;
-  border-top: 0;
-  margin-right: 0px;
-  min-width: 100px !important;
-  width: 101%;
-  margin-right: -1px;
-  padding-bottom: 1px;
+  position: absolute;
+  z-index: 9;
+  right: 16px;
+  top: 15px;
+  left: auto !important;
+  background-color: #000;
+  border-radius: 45px;
+  box-shadow: inset 0px 0px 10px #444;
 }
 #header .dropdown-menu a {
   display: block;
-  padding: 10px 12px;
-  color: #34495e;
+  color: #f5f5f5;
+  padding: 9px 20px 9px 20px;
+  font-size: 12px;
+}
+#header .dropdown-menu a i {
+  padding-right: 10px;
 }
 #header .dropdown-menu a:hover {
-  background-color: #f5f5f5;
-  color: #444;
+  background-color: transparent !important;
 }
 .banner {
   height: 250px;
@@ -190,7 +181,6 @@
 }
 .sign,
 .pub-news {
-  background-color: #f5f5f5;
   padding: 15px 0;
 }
 .sign h2,

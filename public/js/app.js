@@ -4,6 +4,7 @@ window.mua = angular.module('mua', ['store']);
 mua.ctrlers = {
     article: function($scope, Store) {
         $scope.submit = function() {
+            $scope.article.content = $('#editor').html();
             Store.article.save({
                 article: $scope.article
             }, function(result) {

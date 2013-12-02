@@ -9,7 +9,7 @@ block content
                         .col-lg-12
                             h3.title #{article.title}
                             .meta.clearfix
-                            .entry #{article.content}
+                            .entry !{article.content}
                             .author
                                 - if (article.author)
                                     - each author in article.author

@@ -1,0 +1,15 @@
+{
+  "name": "pen",
+  "homepage": "https://github.com/sofish/pen",
+  "version": "0.0.1",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "54e7361ab43a6422f72ffcdfbb724e5a743d9298"
+  },
+  "_source": "git://github.com/sofish/pen.git",
+  "_target": "~0.0.1",
+  "_originalSource": "pen",
+  "_direct": true
+}

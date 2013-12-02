@@ -1,30 +1,29 @@
 extends layout
 
 block content
-    #home.news.content
-        - if (articles && articles.length > 0)
-            - each article,index in articles
-                .article.clearfix(class="no#{index + 1}")
-                    .container
-                        .row
-                            .col-lg-12
-                                .entry
-                                    h4 
-                                        a(href="/article/#{article.url}",target="_blank")
-                                            | #{article.title}
-                                    .meta.clearfix
-                                        span.points #{article.views} views 
-                                        span.date!= moment(article.pubdate).fromNow() 
-                                        span.comments
-                                            a(href="/article/#{article._id}") 
-                                                i.fa.fa-comments
-                                                i.number(data-thread-key="#{article._id}",data-count-type="comments") 
-                                                | comments
-                                    .contents.clearfix #{article.content}...
-        - else
-            .no-entry.article
-                .container
+    #home.content.clearfix
+        .container
+            .row
+                .col-lg-8.col-lg-offset-2
                     .row
                         .col-lg-12
-                            .entry
-                                h4 Sorry, Nothing here...
+                            - if (articles && articles.length > 0)
+                                - each article,index in articles
+                                    .article.clearfix
+                                        .entry
+                                            h3.title 
+                                                a(href="/article/#{article.url}",target="_blank")
+                                                    | #{article.title}
+                                            //- .meta.clearfix
+                                            //-     span.points #{article.views} views 
+                                            //-     span.date!= moment(article.pubdate).fromNow() 
+                                            //-     span.comments
+                                            //-         a(href="/article/#{article._id}") 
+                                            //-             i.fa.fa-comments
+                                            //-             i.number(data-thread-key="#{article._id}",data-count-type="comments") 
+                                            //-             | comments
+                                            .contents.clearfix #{article.content}...
+                            - else
+                                .no-entry.article
+                                    .entry
+                                        h3.title Sorry, Nothing here...

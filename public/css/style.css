@@ -1,57 +1,34 @@
 @import url('lib/bootstrap.min.css');
-@import url('lib/font-awesome.min.css');
+@import url('typo.css');
 @font-face {
-  font-family: 'Oxygen';
+  font-family: 'Vibur';
   font-style: normal;
   font-weight: 400;
-  src: local('Oxygen'), local('Oxygen-Regular'), url(/font/logo.woff) format('woff');
+  src: local('Vibur'), url(http://themes.googleusercontent.com/static/fonts/vibur/v4/r1wjHVoJektUOshkwbHY9qCWcynf_cDxXwCLxiixG1c.woff) format('woff');
 }
 .btn {
   border-radius: 0;
 }
-#header {
-  background-color: #2c3e50;
-  color: #fff;
+#header h1.logo {
+  font-size: 44px;
+  margin: 0px;
+  padding: 10px 0px 0px 25px;
   position: relative;
+  font-family: 'Vibur', cursive;
+  text-shadow: 0px 0px 3px #444;
+  line-height: 1.0;
 }
-#header #logo {
-  background-color: #2c3e50;
-  padding: 0px 15px 5px 0px;
-}
-#header #logo h1 {
-  font-size: 20px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding: 5px 0;
-  position: relative;
-}
-#header #logo h1 span {
+#header h1.logo span {
   padding-right: 10px;
 }
-#header #logo h1 a {
+#header h1.logo a {
+  color: #f5f5f5;
+  opacity: 0.8;
+}
+#header h1.logo a:hover {
+  text-decoration: none;
   color: #fff;
-}
-#header #logo .dot {
-  width: 14px;
-  height: 14px;
-  text-indent: -9999em;
-  border-radius: 14px;
-  background-color: #fff;
-  display: block;
-  position: absolute;
-  left: 112px;
-  top: 34px;
-  line-height: 0.01;
-  box-shadow: 4px 0px 0px #c0392b;
-}
-#header #logo .dot:hover {
-  background-color: #f5f5f5;
-}
-#header .desc {
-  padding-left: 20px;
-  font-size: 12px;
-  padding-top: 25px;
-  text-shadow: 1px 1px 1px #444;
+  opacity: 1;
 }
 #header .user {
   position: relative;
@@ -104,45 +81,15 @@
   color: #444;
 }
 .banner {
-  height: 350px;
-}
-.content .title h3 {
-  font-size: 20px;
-  margin-bottom: 20px;
-  text-shadow: 3px 0px 0px #fff;
-}
-#nav {
-  background-color: #34495e;
-}
-#nav li {
-  margin-left: 0;
-}
-#nav li a {
-  display: block;
-  color: #fff;
-}
-#nav li a i {
-  padding-right: 10px;
-}
-#nav li a:hover {
-  border-radius: 0;
-  background-color: #788da2;
-  color: #fff;
-}
-#nav li.current a {
-  background-color: #f5f5f5;
-  border-radius: 0;
-  color: #34495e;
-  box-shadow: inset 0px 3px 5px #ddd;
+  height: 250px;
 }
 .sidebar {
   border-left: 1px solid #ddd;
   padding-left: 20px;
 }
 .article {
-  background-color: #f5f5f5;
-  padding: 5px 0;
-  opacity: 0.85;
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
 }
 .article .entry h4 {
   font-size: 14px;
@@ -177,18 +124,6 @@
 .article .entry .meta i.number {
   font-style: normal;
   padding-left: 3px;
-}
-.article.no1 {
-  opacity: 1;
-}
-.article.no2 {
-  opacity: 0.95;
-}
-.article.no3 {
-  opacity: 0.9;
-}
-.article:hover {
-  opacity: 1;
 }
 .article-title {
   border-bottom: 1px solid #ddd;
@@ -225,6 +160,8 @@
   color: #999;
   font-size: 12px;
   border-top: 1px solid #ddd;
+  background-color: #f5f5f5;
+  margin-top: -1px;
 }
 #footer a {
   color: #999;
@@ -314,18 +251,14 @@
   background-color: #f5f5f5;
   padding: 40px 0;
 }
-.news {
-  background-color: #f5f5f5;
-}
-.news-single {
-  padding: 20px 0;
-  background-color: #f5f5f5;
-}
-.news-single h3.title {
+.title {
   font-size: 20px;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 15px;
 }
-.news-single a.url {
-  font-size: 12px;
+.title a {
+  color: #444;
+}
+.title a:hover {
+  text-decoration: none;
+  color: #000;
 }

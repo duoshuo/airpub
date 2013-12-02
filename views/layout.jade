@@ -10,39 +10,13 @@ html(ng-app="maker")
     link(rel='stylesheet', href='/css/style.css')
   body
     block header
-        #header.admin-panel
-            .container
-                .row.clearfix
-                    .col-lg-9.col-sm-9
-                        #logo.pull-left
-                            h1 
-                                a(href="/") #{site.name}
-                                span.desc #{site.desc}
-                    .col-lg-3.col-sm-3.clearfix
-                        - if (user)
-                            - var name = user.nickname ? user.nickname : user.email
-                            .user
-                                ul.nav.nav-pills.clearfix
-                                    - if (user.type == 'admin' || user.type == 'creator')
-                                        li.post.pull-right
-                                            a(href="/article/new")
-                                                i.fa.fa-plus
-                                                | 写新文章
-                                    li.nav.pull-right.dropdown
-                                        a(data-toggle="dropdown",href="#").clearfix.dropdown-toggle
-                                            img(src="http://www.gravatar.com/avatar/#{user.avatarHash}",alt="#{name}").avatar-mini
-                                        ul.dropdown-menu(role="menu",aria-labelledby="dLabel")
-                                            li: a(href="/signout") 登出
-                        - else
-                            .sign-nav.clearfix
-                                ul.clearfix.nav.nav-pills
-                                    li#signin(class="#{currentPage == '/signin' ? 'current' : ''}")
-                                        a(href="/signin") 登录
-                                    li#signip(class="#{currentPage == '/signup' ? 'current' : ''}")
-                                        a(href="/signup") 注册
-    block banner
-        #banner.banner(data-src="/images/banner.jpg")
+        #header.banner(data-src="/images/banner.jpg")
+            h1.logo
+                a(href="/") #{site.name}
     block content
+        #content.clearfix
+            block main
+            block sidebar
     block footer
         #footer
             .container
@@ -58,7 +32,7 @@ html(ng-app="maker")
     script(src="/js/lib/angular/angular-store.js")
     script(src="/js/app.js")
     script.
-        $("#banner").backstretch($('#banner').attr('data-src'), {
+        $(".banner").backstretch($('.banner').attr('data-src'), {
             duration: 4000
         });
     block js

@@ -1,10 +1,11 @@
 @import url('./lib/bootstrap.min.css');
-@import url('./lib/font-awesome.min.css');
+// @import url('./lib/font-awesome.min.css');
+@import url('./typo.css');
 @font-face {
-  font-family: 'Oxygen';
+  font-family: 'Vibur';
   font-style: normal;
   font-weight: 400;
-  src: local('Oxygen'), local('Oxygen-Regular'), url(/font/logo.woff) format('woff');
+  src: local('Vibur'), url(http://themes.googleusercontent.com/static/fonts/vibur/v4/r1wjHVoJektUOshkwbHY9qCWcynf_cDxXwCLxiixG1c.woff) format('woff');
 }
 
 @key: #C0392B;
@@ -19,48 +20,26 @@
 }
 
 #header {
-    background-color: @sub;
-    color: #fff;
-    position: relative;
-    #logo {
-        background-color: @sub;
-        padding: 0px 15px 5px 0px;
-        // box-shadow: 0px 1px 3px #444;
-        h1 {
-            font-size: 20px;
-            margin-top: 0px;
-            margin-bottom: 0px;
-            padding: 5px 0;
-            position: relative;
-            span {
-                padding-right: 10px;
-            }
-            a {
-                color : #fff;
-            }
+    h1.logo {
+        font-size: 44px;
+        margin: 0px;
+        padding: 10px 0px 0px 25px;
+        position: relative;
+        font-family: 'Vibur', cursive;
+        text-shadow: 0px 0px 3px #444;
+        line-height: 1.0;
+        span {
+            padding-right: 10px;
         }
-        .dot {
-            width: 14px;
-            height: 14px;
-            text-indent: -9999em;
-            border-radius: 14px;
-            background-color: #fff;
-            display: block;
-            position: absolute;
-            left: 112px;
-            top: 34px;
-            line-height: 0.01;
-            box-shadow: 4px 0px 0px @key;
+        a {
+            color: #f5f5f5;
+            opacity: 0.8;
             &:hover {
-                background-color: @bg;
+                text-decoration: none;
+                color: #fff;
+                opacity: 1;
             }
         }
-    }
-    .desc {
-        padding-left: 20px;
-        font-size: 12px;
-        padding-top: 25px;
-        text-shadow: 1px 1px 1px #444;
     }
     .user {
         position: relative;
@@ -119,45 +98,7 @@
 }
 
 .banner {
-    height: 350px;
-}
-
-.content {
-    .title {
-        h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            text-shadow: 3px 0px 0px #fff;
-        }
-    }
-}
-
-#nav {
-    background-color: @nav;
-    li {
-        margin-left: 0;
-        a {
-            display: block;
-            color: #fff;
-            i {
-                padding-right: 10px;
-            }
-            &:hover {
-                border-radius: 0;
-                background-color: @nav + #444;
-                color: #fff;
-            }
-        }
-        &.current {
-            a {
-                background-color: @bg;
-                border-radius: 0;
-                color: @nav;
-                box-shadow: inset 0px 3px 5px #ddd;
-            }
-        }
-    }
-    
+    height: 250px;
 }
 
 .sidebar {
@@ -166,9 +107,8 @@
 }
 
 .article {
-    background-color: @bg;
-    padding: 5px 0;
-    opacity: 0.85;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
     .entry {
         h4 {
             font-size: 14px;
@@ -206,18 +146,6 @@
                 padding-left: 3px;
             }
         }
-    }
-    &.no1 {
-        opacity: 1;
-    }
-    &.no2 {
-        opacity: 0.95;
-    }
-    &.no3 {
-        opacity: 0.9;
-    }
-    &:hover {
-        opacity: 1;
     }
 }
 
@@ -261,6 +189,8 @@
     color: #999;
     font-size: 12px;
     border-top: 1px solid #ddd;
+    background-color: #f5f5f5;
+    margin-top: -1px;
     a {
         color : #999;
     }
@@ -342,20 +272,14 @@
     padding: 40px 0;
 }
 
-// news
-.news {
-    background-color: @bg;
-}
-
-.news-single {
-    padding: 20px 0;
-    background-color: @bg;
-    h3.title {
-        font-size: 20px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-    a.url {
-        font-size: 12px;
+.title {
+    font-size: 20px;
+    margin-bottom: 15px;
+    a {
+        color: #444;
+        &:hover {
+            text-decoration: none;
+            color: #000;
+        }
     }
 }

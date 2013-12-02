@@ -7,7 +7,6 @@ module.exports = function($models, $Ctrler) {
 
     article.pageByPubdate = function(page, perpage, query, callback) {
         var cursor = this.page(page, perpage, query);
-        console.log(cursor);
         cursor.query.populate('author').sort('-pubdate').exec(function(err, articles){
             callback(err, articles, cursor.pager);
         });

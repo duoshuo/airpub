@@ -1,5 +1,8 @@
 extends ../layout
 
+block css
+    link(rel='stylesheet', href='/js/pen/src/pen.css')
+        
 block content
     #article.article-content
         .container
@@ -9,11 +12,13 @@ block content
                         .col-lg-12
                             h3.title #{article.title}
                             .meta.clearfix
-                            .entry !{article.content}
-                            .author
-                                - if (article.author)
+                            .entry.pen !{article.content}
+                            - if (article.author)
+                                .author
                                     - each author in article.author
                                         img(src="http://www.gravatar.com/avatar/#{author.avatarHash}").avatar-middle
+                                    - if (is.author)
+                                        a(href="/article/#{article.id}/edit") Edit
                         
                             #comments.comments.clearfix
                                 .ds-thread

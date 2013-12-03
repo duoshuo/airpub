@@ -301,3 +301,6 @@
 .post-article .editor:focus {
   border-color: #34495e !important;
 }
+.pen blockquote {
+  margin-left: 0 !important;
+}

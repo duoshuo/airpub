@@ -5,12 +5,25 @@
 // GET     /:id/edit  ->  edit
 // PUT     /:id       ->  update
 // DELETE  /:id       ->  destroy
+
 var moment = require('moment'),
-    pinyin = require('pinyinjs');
+    han = require('han');
+
+var isAuthor = function(user, authorList) {
+    if (authorList.length > 0) {
+        var idList = [];
+        authorList.forEach(function(author) {
+            idList.push(author._id.toString());
+        });
+        return idList.indexOf(user._id) > -1;
+    } else {
+        return false;
+    }
+};
 
 exports = module.exports = function($ctrlers) {
     return {
-        index: function(req, res, next) {
+        home: function(req, res, next) {
             $ctrlers.article.pageByPubdate(1, 10, {}, function(err, articles) {
                 res.render('home', {
                     articles: articles,
@@ -40,11 +53,7 @@ exports = module.exports = function($ctrlers) {
                 if (baby) {
                     baby.author = [];
                     baby.author.push(res.locals.user._id);
-                    if (!baby.url) {
-                        baby.url = pinyin(baby.title, {
-                            style: pinyin.STYLE_NORMAL
-                        })[0][0];
-                    }
+                    if (!baby.url) baby.url = han.letter(baby.title, '-');
                     $ctrlers.article.create(baby, function(err, b) {
                         console.log(b);
                         res.json({
@@ -66,9 +75,11 @@ exports = module.exports = function($ctrlers) {
                     url: url
                 }).populate('author').exec(function(err, article) {
                     if (!err) {
-                        console.log(article);
                         res.render('article/single', {
-                            article: article
+                            article: article,
+                            is: {
+                                author: isAuthor(res.locals.user, article.author)
+                            }
                         });
                     } else {
                         next(err);

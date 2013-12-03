@@ -1,0 +1,29 @@
+extends ../layout
+
+block css
+    link(rel='stylesheet', href='/js/pen/src/pen.css')
+
+block content
+    .pub-news.content(ng-controller="mua.ctrlers.article")
+        .container
+            .row
+                .col-lg-8.col-lg-offset-2
+                    form(method="POST",name="submitForm",ng-submit="submit('update')").post-article
+                        .form-group
+                            input(type="text",placeholder="#{article.title}",name="title",id="title",ng-model="article.title",ng-minlength="1",required,ng-init="article.title = '#{article.title}'").form-control.post-title
+                            span.helper.label.label-danger(ng-show="submitForm.title.$invalid") 标题应不少于1个字
+                        .form-group
+                            #editor.editor(name="content",contenteditable,ng-model="article.content") !#{article.content}
+                        .form-group
+                            button(type="submit",ng-disabled="submitForm.$invalid").btn.btn-success 写好了 / Submit
+                            span.help-inline(ng-show="msg") {{msg}}
+
+block js
+    //- editor
+    script(src="/js/pen/src/pen.js")
+    script(src="/js/pen/src/markdown.js")
+    script.
+        var editor = new Pen({
+                editor: document.getElementById('editor'),
+                stay: false
+            });

@@ -3,10 +3,11 @@ window.mua = angular.module('mua', ['store']);
 // global ctrlers
 mua.ctrlers = {
     article: function($scope, Store) {
-        $scope.submit = function() {
+        $scope.submit = function(update) {
             $scope.article.content = $('#editor').html();
             Store.article.save({
-                article: $scope.article
+                article: $scope.article,
+                update: update
             }, function(result) {
                 if (result.stat == 'ok') {
                     window.location.href = '/article/' + result.article.url;

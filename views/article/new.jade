@@ -13,9 +13,12 @@ block content
                             input(type="text",placeholder="Just writing something...",name="title",id="title",ng-model="article.title",ng-minlength="1",required).form-control.post-title
                             span.helper.label.label-danger(ng-show="submitForm.title.$invalid") 标题应不少于1个字
                         .form-group
-                            #editor.editor(name="content",contenteditable,ng-model="article.content") It's unsettling and maddening, because you're now going to have a lot of people get released to the street prematurely,says Middlesex County District attorney Gerry Leone, one of many hoping the state supreme court will curb the releases. That's a pretty bad way of looking at thi
+                            #editor.editor(name="content",contenteditable,ng-model="article.content") 
+                                h4 子标题
+                                p It's unsettling and maddening, because you're now going to have a lot of people get released to the street prematurely,says Middlesex County District attorney Gerry Leone, one of many hoping the state supreme court will curb the releases. That's a pretty bad way of looking at thi
+                                blockquote 引用
                         .form-group
-                            button(type="submit",ng-disabled="submitForm.$invalid").btn.btn-success 提交 / Submit
+                            button(type="submit",ng-disabled="submitForm.$invalid").btn.btn-success 写好了 / Submit
                             span.help-inline(ng-show="msg") {{msg}}
 
 block js

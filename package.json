@@ -32,7 +32,7 @@
     "marked": "*",
     "highlight.js": "*",
     "member": "*",
-    "pinyinjs": "*"
+    "han": "*"
   },
   "devDependencies": {
     "mocha": "*",

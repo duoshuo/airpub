@@ -9,7 +9,7 @@ module.exports = function(app, $ctrlers) {
     app.all('*', member.passport);
 
     // home
-    app.get('/', article($ctrlers).index);
+    app.get('/', article($ctrlers).home);
 
     // page
     app.get('/page/:page', article($ctrlers).page);

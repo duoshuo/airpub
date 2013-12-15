@@ -19,11 +19,13 @@ block content
                                 - if (is.author)
                                     #options.options.clearfix
                                         a(href="/article/#{article.id}/edit") 编辑
-                                        a(href="/article/#{article.id}") 删除
+                                        a(href="/article/#{article.id}/remove", ng-click="remove('#{article.id}')") 删除
                             .entry.pen !{article.content}                        
                             #comments.comments.clearfix
                                 .ds-thread
 block js
+    //- banner uploader
+    script(type="text/javascript",src="/js/uploader.js")
     //- duoshuo comments configs
     script.
         var duoshuoQuery = {

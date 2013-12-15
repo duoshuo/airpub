@@ -30,6 +30,13 @@ mua.ctrlers = {
                 });
             }
         }
+        $scope.destroy = function(id) {
+            Store.article.delete({
+                id: id
+            }, function(result){
+                console.log(result);
+            })
+        }
     },
     sign: function($scope, Store) {
         $scope.signin = function() {

@@ -1,12 +1,12 @@
 // define routes
-var member = require('member'),
-    article = require('./article'),
+var article = require('./article'),
     sign = require('./sign');
 
-module.exports = function(app, $ctrlers) {
+module.exports = function(app, $ctrlers, $middlewares) {
 
     // middlewares
-    app.all('*', member.passport);
+    app.all('*', $middlewares.passport.check());
+    app.locals.year = new Date().getFullYear();
 
     // home
     app.get('/', article($ctrlers).home);
@@ -23,7 +23,7 @@ module.exports = function(app, $ctrlers) {
     app.post('/signup', sign.create($ctrlers));
 
     // sign out
-    app.get('/signout', member.signout);
+    app.get('/signout', $middlewares.passport.signout);
 
     // article
     app.resource('article', article($ctrlers));

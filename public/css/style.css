@@ -1,12 +1,7 @@
 @import url('bootstrap.min.css');
 @import url('font-awesome.min.css');
 @import url('typo.css');
-@font-face {
-  font-family: 'Vibur';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Vibur'), url('../fonts/logo.woff') format('woff');
-}
+@import url('font.css');
 .btn {
   border-radius: 0;
 }
@@ -73,7 +68,7 @@
   color: #fff;
 }
 .banner {
-  height: 250px;
+  height: 400px;
 }
 .sidebar {
   border-left: 1px solid #ddd;

@@ -75,12 +75,16 @@ exports = module.exports = function($ctrlers) {
                     url: url
                 }).populate('author').exec(function(err, article) {
                     if (!err) {
-                        res.render('article/single', {
-                            article: article,
-                            is: {
-                                author: isAuthor(res.locals.user, article.author)
-                            }
-                        });
+                        if (article) {
+                            res.render('article/single', {
+                                article: article,
+                                is: {
+                                    author: res.locals.user ? isAuthor(res.locals.user, article.author) : false
+                                }
+                            });
+                        } else {
+                            next(new Error('404'));
+                        }
                     } else {
                         next(err);
                     }
@@ -113,10 +117,19 @@ exports = module.exports = function($ctrlers) {
                 $ctrlers.article.checkAuthor(res.locals.user, req.params.article, function(err, stat, article) {
                     if (!err) {
                         if (stat) {
-                            $ctrlers.article.update(req.params.article, req.body.article, function(err) {
+                            console.log(req.body.article);
+                            // 在不变更url的前提下
+                            $ctrlers.article.update(req.params.article, {
+                                $set: {
+                                    title: req.body.article.title,
+                                    content: req.body.article.content
+                                }
+                            }, function(err, article) {
+                                console.log(article);
                                 res.json({
-                                    stat: !err ? 'ok' : 'error'
-                                })
+                                    stat: !err ? 'ok' : 'error',
+                                    url: req.body.article.url
+                                });
                             })
                         } else {
                             next(new Error('authed users required'))
@@ -136,7 +149,8 @@ exports = module.exports = function($ctrlers) {
                         if (stat) {
                             $ctrlers.article.remove(req.params.article, function(err) {
                                 res.json({
-                                    stat: !err ? 'ok' : 'error'
+                                    stat: !err ? 'ok' : 'error',
+                                    articleID: req.params.article
                                 });
                             });
                         } else {

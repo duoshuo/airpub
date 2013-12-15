@@ -11,15 +11,16 @@ block content
                     .row
                         .col-lg-12
                             h3.title #{article.title}
-                            .meta.clearfix
-                            .entry.pen !{article.content}
-                            - if (article.author)
-                                .author
+                            .meta.clearfix.author
+                                - if (article.author)
                                     - each author in article.author
-                                        img(src="http://www.gravatar.com/avatar/#{author.avatarHash}").avatar-middle
-                                    - if (is.author)
-                                        a(href="/article/#{article.id}/edit") Edit
-                        
+                                        img(src="http://www.gravatar.com/avatar/#{author.avatarHash}").avatar-middle.pull-left
+                                        span.nickname #{author.nickname ? author.nickname : author.email}
+                                - if (is.author)
+                                    #options.options.clearfix
+                                        a(href="/article/#{article.id}/edit") 编辑
+                                        a(href="/article/#{article.id}") 删除
+                            .entry.pen !{article.content}                        
                             #comments.comments.clearfix
                                 .ds-thread
 block js
@@ -27,7 +28,6 @@ block js
     script.
         var duoshuoQuery = {
             short_name: "#{site.duoshuo ? site.duoshuo.short_name : ''}",
-            //- theme: 'none',
             sso: { 
                login: "#{url}/signin/social",
                logout: "#{url}/signout/social"

@@ -8,12 +8,13 @@ block content
         .container
             .row
                 .col-lg-8.col-lg-offset-2
-                    form(method="POST",name="submitForm",ng-submit="submit('update')").post-article
+                    form(method="POST",name="submitForm",ng-submit="submit('#{article.id}')").post-article
                         .form-group
+                            input(type="hidden",ng-init="article.url = '#{article.url}'")
                             input(type="text",placeholder="#{article.title}",name="title",id="title",ng-model="article.title",ng-minlength="1",required,ng-init="article.title = '#{article.title}'").form-control.post-title
                             span.helper.label.label-danger(ng-show="submitForm.title.$invalid") 标题应不少于1个字
                         .form-group
-                            #editor.editor(name="content",contenteditable,ng-model="article.content") !#{article.content}
+                            #editor.editor(name="content",contenteditable,ng-model="article.content") !{article.content}
                         .form-group
                             button(type="submit",ng-disabled="submitForm.$invalid").btn.btn-success 写好了 / Submit
                             span.help-inline(ng-show="msg") {{msg}}

@@ -1,5 +1,8 @@
 extends layout
 
+block css
+    link(rel='stylesheet', href='/js/pen/src/pen.css')
+        
 block content
     #home.content.clearfix
         .container
@@ -12,7 +15,7 @@ block content
                                     .article.clearfix
                                         .entry
                                             h3.title 
-                                                a(href="/article/#{article.url}",target="_blank")
+                                                a(href="/article/#{article.url}")
                                                     | #{article.title}
                                             //- .meta.clearfix
                                             //-     span.points #{article.views} views 
@@ -22,7 +25,7 @@ block content
                                             //-             i.fa.fa-comments
                                             //-             i.number(data-thread-key="#{article._id}",data-count-type="comments") 
                                             //-             | comments
-                                            .contents.clearfix #{article.content}...
+                                            .contents.clearfix.pen !{article.content}...
                             - else
                                 .no-entry.article
                                     .entry

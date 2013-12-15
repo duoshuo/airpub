@@ -132,11 +132,6 @@
 .article-content h3.title {
   margin-top: 20px;
 }
-.article-content .meta {
-  font-size: 12px;
-  color: #999;
-  line-height: 1.5;
-}
 .article-content .entry {
   padding-top: 10px;
   border-bottom: 1px solid #ddd;
@@ -146,17 +141,37 @@
   font-size: 14px;
   margin-bottom: 15px;
 }
-.article-content .author {
-  margin-top: -45px;
-  padding-bottom: 30px;
+.article-content .meta {
+  padding-bottom: 10px;
+  font-size: 12px;
+  color: #999;
+  line-height: 30px;
 }
-.article-content .author img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  box-shadow: 0px 0px 10px #ddd;
+.article-content .meta span {
+  margin-left: 10px;
+  float: left;
   display: block;
-  margin: 20px auto;
+}
+.article-content .meta .options {
+  float: left;
+  margin-left: 10px;
+}
+.article-content .meta .options a {
+  border: 1px solid #ddd;
+  margin-right: -1px;
+  padding: 6px 8px;
+  border-radius: 2px;
+  background-color: #f5f5f5;
+}
+.article-content .meta .options a:hover {
+  background-color: #ddd;
+  text-decoration: none;
+}
+.article-content .meta img.avatar-middle {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  display: block;
   background-color: #fff;
 }
 .sidebar .avatar-middle {
@@ -259,9 +274,10 @@
   font-size: 12px;
 }
 .title {
-  font-size: 20px;
+  font-size: 22px;
   margin-bottom: 15px;
-  text-align: center;
+  text-align: left;
+  font-weight: bold;
 }
 .title a {
   color: #444;

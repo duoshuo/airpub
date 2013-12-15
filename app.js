@@ -4,7 +4,7 @@
 // /_/ /_/ /_/\__,_/\__,_/  
 // 
 // @brief  : the missing blog platform built upon love
-// @author : 新浪微博@郭宇 [turingou](http://guoyu.me)
+// @author : [turingou](http://guoyu.me)
 
 var server = require('express-scaffold'),
     configs = require('./configs/app.json'),

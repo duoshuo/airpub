@@ -3,18 +3,32 @@ window.mua = angular.module('mua', ['store']);
 // global ctrlers
 mua.ctrlers = {
     article: function($scope, Store) {
-        $scope.submit = function(update) {
+        $scope.submit = function(articleID) {
             $scope.article.content = $('#editor').html();
-            Store.article.save({
-                article: $scope.article,
-                update: update
-            }, function(result) {
-                if (result.stat == 'ok') {
-                    window.location.href = '/article/' + result.article.url;
-                } else {
-                    $scope.msg = result.msg;
-                }
-            });
+            // 在不变更url的前提下
+            if (articleID) {
+                Store.article.update({
+                    id: articleID,
+                    article: $scope.article,
+                    url: $scope.article.url
+                }, function(result) {
+                    if (result.stat == 'ok') {
+                        window.location.href = '/article/' + result.url;
+                    } else {
+                        $scope.msg = result.msg;
+                    }
+                });
+            } else {
+                Store.article.save({
+                    article: $scope.article
+                }, function(result) {
+                    if (result.stat == 'ok') {
+                        window.location.href = '/article/' + result.article.url;
+                    } else {
+                        $scope.msg = result.msg;
+                    }
+                });
+            }
         }
     },
     sign: function($scope, Store) {

@@ -152,11 +152,6 @@
     h3.title {
         margin-top: 20px;
     }
-    .meta {
-        font-size: 12px;
-        color: #999;
-        line-height: 1.5;
-    }
     .entry {
         padding-top: 10px;
         border-bottom: 1px solid #ddd;
@@ -166,16 +161,36 @@
             margin-bottom: 15px;
         }
     }
-    .author {
-        margin-top: -45px;
-        padding-bottom: 30px;
-        img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50px;
-            box-shadow: 0px 0px 10px #ddd;
+    .meta {
+        padding-bottom: 10px;
+        font-size: 12px;
+        color: #999;
+        line-height: 30px;
+        span {
+            margin-left: 10px;
+            float: left;
             display: block;
-            margin: 20px auto;
+        }
+        .options {
+            float: left;
+            margin-left: 10px;
+            a {
+                border: 1px solid #ddd;
+                margin-right: -1px;
+                padding: 6px 8px;
+                border-radius: 2px;
+                background-color: #f5f5f5;
+                &:hover {
+                    background-color: #ddd;
+                    text-decoration: none;
+                }
+            }
+        }
+        img.avatar-middle {
+            width: 30px;
+            height: 30px;
+            border-radius: 30px;
+            display: block;
             background-color: #fff;
         }
     }
@@ -275,9 +290,10 @@
 }
 
 .title {
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 15px;
-    text-align: center;
+    text-align: left;
+    font-weight: bold;
     a {
         color: #444;
         &:hover {

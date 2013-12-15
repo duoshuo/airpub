@@ -1,3 +1,0 @@
-{
-    "production": ":remote-addr|:date|:method|:url|:status|:res[content-length]|:response-time|\":referrer\"|\":user-agent\""
-}

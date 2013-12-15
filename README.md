@@ -7,20 +7,16 @@ the missing blog platform built upon love
 $ npm install mua
 ````
 
-### Example
-````javascript
-var Mua = require('mua');
-var myBlog = new Mua({
-    name: 'myblog',
-    desc: 'hello world',
-    database: {
-        name: 'mua'
-    }
-}).run(8080);
-````
+### Quick Start
+Go to [guides and documents](http://mua.io).
 
-### API
-check this file: `index.js`
+### Example
+````
+$ git clone https://github.com/turingou/mua.git
+$ cd mua
+$ vi ./configs/app.json
+$ node app.js
+````
 
 ### Contributing
 - Fork this repo
@@ -51,7 +47,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
 
 ---
 ![docor](https://cdn1.iconfinder.com/data/icons/windows8_icons_iconpharm/26/doctor.png)

@@ -29,10 +29,6 @@ block js
     //- duoshuo comments configs
     script.
         var duoshuoQuery = {
-            short_name: "#{site.duoshuo ? site.duoshuo.short_name : ''}",
-            sso: { 
-               login: "#{url}/signin/social",
-               logout: "#{url}/signout/social"
-            }
+            short_name: "#{site.duoshuo ? site.duoshuo.short_name : ''}"
         };
     script(type="text/javascript",src="http://static.duoshuo.com/embed.js",charset="UTF-8",async)

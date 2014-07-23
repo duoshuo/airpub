@@ -1,6 +1,6 @@
 {
   "name": "mua",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "the missing blog platform built upon love",
   "main": "app.js",
   "author": "turing <o.u.turing@gmail.com>",

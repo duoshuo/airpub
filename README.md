@@ -1,6 +1,6 @@
 ## mua ![npm](https://badge.fury.io/js/mua.png)
 
-the missing blog platform built upon love
+a prue front-end blog platform built upon love.
 
 ### Installation
 ````
@@ -12,10 +12,8 @@ Go to [guides and documents](http://mua.io).
 
 ### Example
 ````
-$ git clone https://github.com/turingou/mua.git
-$ cd mua
-$ vi ./configs/app.json
-$ node app.js
+$ git clone https://github.com/turingou/mua.git && cd mua
+$ open index.html
 ````
 
 ### Contributing
@@ -28,7 +26,7 @@ $ node app.js
 - Open a pull request, and enjoy <3
 
 ### MIT license
-Copyright (c) 2013 turing
+Copyright (c) 2013 turing &lt;o.u.turing@gmail.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,18 +3,25 @@
 a prue front-end blog platform built upon love.
 
 ### Installation
-````
+```
 $ npm install mua
-````
+```
 
 ### Quick Start
 Go to [guides and documents](http://mua.io).
 
 ### Example
-````
+```
 $ git clone https://github.com/turingou/mua.git && cd mua
 $ open index.html
-````
+```
+### For Developer
+
+```
+$ cd mua
+$ npm install
+$ npm run dev
+```
 
 ### Contributing
 - Fork this repo

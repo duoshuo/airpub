@@ -6,8 +6,12 @@
   "author": "turing <o.u.turing@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node server.js",
-    "test": "./node_modules/mocha/bin/mocha ./test/test.js"
+    "open": "sleep 2 && open http://localhost:3000",
+    "serve": "./node_modules/.bin/serve --no-less .",
+    "less": "./node_modules/.bin/lessc ./less/style.less ./css/style.css",
+    "watch": "./node_modules/.bin/rewatch *.less -c 'npm run less'",
+    "dev": "npm run watch & npm run serve",
+    "start": "npm run dev && npm run open"
   },
   "repository": {
     "type": "git",
@@ -19,22 +23,12 @@
   "keywords": [
     "mua",
     "blog",
-    "cms"
+    "cms",
+    "angular"
   ],
-  "dependencies": {
-    "mua-wordpress": "*",
-    "express-scaffold": ">= 0.1.0",
-    "duoshuo":"*",
-    "async": "*",
-    "underscore" : "*",
-    "mails": "*",
-    "moment": "*",
-    "marked": "*",
-    "highlight.js": "*",
-    "han": "*"
-  },
   "devDependencies": {
-    "mocha": "*",
-    "should": "*"
+    "less": "~1.7.3",
+    "rewatch": "~0.2.2",
+    "serve": "~1.4.0"
   }
 }

@@ -6,42 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- stylesheets -->
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/bower_components/angular-snap/angular-snap-only.min.css">
+    <link rel="stylesheet" href="/bower_components/angular-snap/angular-snap.min.css">
     <link rel="stylesheet" href="/dist/css/style.css" />
     <!-- scripts -->
     <script src="/bower_components/angular/angular.min.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <!-- <script src="/bower_components/angular-snap/angular-snap.min.js"></script>  -->
-    <script src="http://static.duoshuo.com/embed.unstable.js"></script>
-    <script src="/src/javascript/mua.js"></script>
+    <script src="/bower_components/snapjs/snap.min.js"></script>
+    <script src="/bower_components/angular-snap/angular-snap.min.js"></script>
   </head>
-  <body>
-    <header>
-      <div class="container">
-        <div class="logo">
-          <h1><a ui-sref="index">mua</a></h1>
+  <body ng-controller="ui">
+    <div snap-content>
+      <header>
+        <div class="container">
+          <div class="logo">
+            <h1><a ui-sref="index" snap-toggle="left">mua</a></h1>
+          </div>
         </div>
-      </div>
-      <div class="mask"></div>
-    </header>
-    <section id="content" class="content">
-      <div class="container">
-        <div ui-view>
-          <div class="loading">loading...</div>
+        <div class="mask"></div>
+      </header>
+      <section id="content" class="content">
+        <div class="container">
+          <div ui-view>
+            <div class="loading">loading...</div>
+          </div>
         </div>
+      </section>
+      <footer>
+        <div class="container">
+          &copy; 2014
+        </div>
+      </footer>
+    </div>
+    <div snap-drawer>
+      <div id="sidebar" class="sidebar">
+        <p>I'm a drawer! I maybe I've got some sweet navigation links.</p>
       </div>
-    </section>
-    <footer>
-      <div class="container">
-        &copy; 2014
-      </div>
-    </footer>
+    </div>
+    <div class="alert-module">
+      <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+    </div>
     <script>
       var duoshuoQuery = {
-        short_name: 'candydemo'
+        short_name: 'getcandy'
       };
     </script>
+    <script src="http://static.duoshuo.com/embed.unstable.js"></script>
+    <script src="/src/javascript/mua.js"></script>
   </body>
 </html>

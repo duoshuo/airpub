@@ -4,3 +4,20 @@
 .panel-title a {
   cursor: pointer;
 }
+
+:link,:visited,:hover,:active,:focus {
+  -webkit-transition:color .25s linear,background-color .25s linear,border-color .25s linear;
+  -moz-transition:color .25s linear,background-color .25s linear,border-color .25s linear;
+  -o-transition:color .25s linear,background-color .25s linear,border-color .25s linear;
+  transition:color .25s linear,background-color .25s linear,border-color .25s linear;
+}
+
+.snap-content {
+  background-color: #fff;
+}
+
+.snap-drawer {
+  background-color: #444;
+  color: #fff;
+  box-shadow: inset 0px -2px 10px #000;
+}

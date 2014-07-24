@@ -4,12 +4,40 @@
 .panel-title a {
   cursor: pointer;
 }
+:link,
+:visited,
+:hover,
+:active,
+:focus {
+  -webkit-transition: color 0.25s linear, background-color 0.25s linear, border-color 0.25s linear;
+  -moz-transition: color 0.25s linear, background-color 0.25s linear, border-color 0.25s linear;
+  -o-transition: color 0.25s linear, background-color 0.25s linear, border-color 0.25s linear;
+  transition: color 0.25s linear, background-color 0.25s linear, border-color 0.25s linear;
+}
+.snap-content {
+  background-color: #fff;
+}
+.snap-drawer {
+  background-color: #444;
+  color: #fff;
+  box-shadow: inset 0px -2px 10px #000000;
+}
 header {
   background: url('/images/b.jpg') no-repeat;
   background-size: 100% auto;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  height: 350px;
   position: relative;
+}
+header .logo {
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  margin-top: -50px;
+  width: 100px;
+  height: 100px;
+}
+header .logo h1 {
+  margin-top: 0px;
 }
 header .logo h1 a {
   display: block;
@@ -22,6 +50,10 @@ header .logo h1 a {
   border: 3px solid #fff;
   line-height: 90px;
   text-align: center;
+}
+header .logo h1 a:hover {
+  background-color: #fff;
+  color: #444;
 }
 header .mask {
   top: 0;
@@ -53,4 +85,21 @@ footer {
 .article .entry {
   font-size: 16px;
   line-height: 1.8;
+}
+.sidebar {
+  padding: 20px;
+}
+.alert-module {
+  width: 100%;
+  font-size: 12px;
+  position: fixed;
+  z-index: 9999;
+  top: 0px;
+  left: 0;
+  opacity: .9;
+}
+.alert-module .alert {
+  border: 0;
+  border-radius: 0px;
+  margin-bottom: 0px;
 }

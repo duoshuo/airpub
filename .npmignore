@@ -1,6 +1,6 @@
 .DS_*
+thumb
 node_modules
 *.sublime*
-psd
-thumb
 *.log
+bower_*

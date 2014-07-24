@@ -1,6 +1,6 @@
 ## mua ![npm](https://badge.fury.io/js/mua.png)
 
-a prue front-end blog platform built upon love.
+a pure front-end blog platform built upon love.
 
 ### Installation
 ```

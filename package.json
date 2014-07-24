@@ -1,17 +1,16 @@
 {
   "name": "mua",
   "version": "0.1.0",
-  "description": "the missing blog platform built upon love",
+  "description": "a pure front-end blog platform built upon love.",
   "main": "app.js",
   "author": "turing <o.u.turing@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "open": "sleep 2 && open http://localhost:3000",
     "serve": "./node_modules/.bin/serve --no-less .",
     "less": "./node_modules/.bin/lessc ./less/style.less ./css/style.css",
     "watch": "./node_modules/.bin/rewatch *.less -c 'npm run less'",
     "dev": "npm run watch & npm run serve",
-    "start": "npm run dev && npm run open"
+    "start": "npm run dev"
   },
   "repository": {
     "type": "git",
@@ -22,8 +21,8 @@
   },
   "keywords": [
     "mua",
-    "blog",
     "cms",
+    "blog",
     "angular"
   ],
   "devDependencies": {

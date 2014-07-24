@@ -1,8 +1,6 @@
 .DS_*
+thumb
 node_modules
 *.sublime*
-psd
-thumb
 *.log
-**/duoshuo-embed.css
-public/uploads
+bower_*

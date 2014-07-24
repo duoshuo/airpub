@@ -1,3 +1,8 @@
+/**
+*
+* Media Querys' Vars
+*
+**/
 .nav,
 .pagination,
 .carousel,
@@ -28,6 +33,7 @@ header {
   background-size: 100% auto;
   height: 350px;
   position: relative;
+  margin-bottom: 1px;
 }
 header .logo {
   position: absolute;
@@ -72,6 +78,7 @@ footer {
 }
 .article {
   background-color: #fff;
+  border-bottom: 1px solid #ddd;
 }
 .article h3.title {
   margin-top: 0px;
@@ -86,6 +93,11 @@ footer {
 .article h3.title a:hover {
   text-decoration: none;
   color: #34495E;
+}
+@media screen and (max-width:400px) {
+  .article h3.title {
+    font-size: 18px;
+  }
 }
 .article .content,
 .article .entry {

@@ -4,8 +4,6 @@
 .panel-title a {
   cursor: pointer;
 }
-*,
-body {
-  margin: 0;
-  padding: 0;
+.archive .article .title {
+  font-size: 20px;
 }

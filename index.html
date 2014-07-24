@@ -5,19 +5,20 @@
     <title ng-bind="site.title">mua</title>
     <!-- stylesheets -->
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/angular-snap/angular-snap-only.min.css">
     <link rel="stylesheet" href="/dist/css/style.css" />
     <!-- scripts -->
     <script src="/bower_components/angular/angular.min.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="http://static.duoshuo.com/embed.unstable.js"></script>
+    <script src="/bower_components/angular-snap/angular-snap.min.js"></script>
+    <!-- <script src="http://static.duoshuo.com/embed.unstable.js"></script> -->
     <script src="/src/javascript/mua.js"></script>
   </head>
   <body>
     <div ui-view></div>
-    <a ui-sref="state1">State 1</a>
-    <a ui-sref="state2">State 2</a>
+    <!-- <a ui-sref="archive">存档页</a> -->
     <script>
       var duoshuoQuery = {
         short_name: 'candydemo'

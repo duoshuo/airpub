@@ -3,8 +3,13 @@
   if (!duoshuo.API) return;
   var database = duoshuo.API;
   angular.module('mua', ['ui.bootstrap', 'ui.router', 'snap'])
-    .config(function($stateProvider, $urlRouterProvider, snapRemoteProvider) {
+    .config(function(
+      $stateProvider, 
+      $urlRouterProvider, 
+      snapRemoteProvider) {
+      // ui configs
       snapRemoteProvider.globalOptions.disable = 'right';
+      // routes configs
       $urlRouterProvider.otherwise("/404");
       $stateProvider
         .state('home', {
@@ -35,10 +40,12 @@
     // archive ctrler
     .controller('articles', function($scope, $state) {
       if ($scope.articles && $scope.articles.length > 0) return;
+      NProgress.start();
       database.get('threads/list', {
         limit: 30,
         page: 1
       }, function(data) {
+        NProgress.done();
         if (data.code !== 0) $scope.addAlert('danger','获取信息失败，请重试');
         $scope.articles = data.response || [];
         $scope.$apply();

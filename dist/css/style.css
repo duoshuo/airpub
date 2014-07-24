@@ -4,18 +4,13 @@
 .panel-title a {
   cursor: pointer;
 }
-:link,
-:visited,
-:hover,
-:active,
-:focus {
-  -webkit-transition: color 0.25s linear, background-color 0.25s linear, border-color 0.25s linear;
-  -moz-transition: color 0.25s linear, background-color 0.25s linear, border-color 0.25s linear;
-  -o-transition: color 0.25s linear, background-color 0.25s linear, border-color 0.25s linear;
-  transition: color 0.25s linear, background-color 0.25s linear, border-color 0.25s linear;
+* {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 .snap-content {
   background-color: #fff;
+  z-index: 99;
 }
 .snap-drawer {
   background-color: #444;
@@ -23,7 +18,7 @@
   box-shadow: inset 0px -2px 10px #000000;
 }
 header {
-  background: url('/images/b.jpg') no-repeat;
+  background: #444444 url('/images/b.jpg') no-repeat;
   background-size: 100% auto;
   height: 350px;
   position: relative;

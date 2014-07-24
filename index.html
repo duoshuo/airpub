@@ -7,6 +7,7 @@
     <!-- stylesheets -->
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bower_components/angular-snap/angular-snap.min.css">
+    <link rel="stylesheet" href="/bower_components/nprogress/nprogress.css">
     <link rel="stylesheet" href="/dist/css/style.css" />
     <!-- scripts -->
     <script src="/bower_components/angular/angular.min.js"></script>
@@ -15,6 +16,7 @@
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="/bower_components/snapjs/snap.min.js"></script>
     <script src="/bower_components/angular-snap/angular-snap.min.js"></script>
+    <script src="/bower_components/nprogress/nprogress.js"></script>
   </head>
   <body ng-controller="ui">
     <div snap-content>
@@ -41,11 +43,11 @@
     </div>
     <div snap-drawer>
       <div id="sidebar" class="sidebar">
-        <p>I'm a drawer! I maybe I've got some sweet navigation links.</p>
+        <p></p>
       </div>
     </div>
     <div class="alert-module">
-      <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+      <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" ng-bind="alert.msg"></alert>
     </div>
     <script>
       var duoshuoQuery = {

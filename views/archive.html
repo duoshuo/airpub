@@ -1,7 +1,7 @@
 <div id="articles" class="archive articles clearfix">
   <div class="article" ng-repeat="article in articles">
     <h3 class="title">
-      <a ui-sref="single" ng-bind="article.title"></a>
+      <a ui-sref="article({uri: article.uri })" ng-bind="article.title"></a>
     </h3>
     <div class="entry" ng-bind="article.content"></div>
   </div>

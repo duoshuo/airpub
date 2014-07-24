@@ -9,6 +9,7 @@ header {
   background-size: 100% auto;
   padding-top: 100px;
   padding-bottom: 100px;
+  position: relative;
 }
 header .logo h1 a {
   display: block;
@@ -22,11 +23,34 @@ header .logo h1 a {
   line-height: 90px;
   text-align: center;
 }
+header .mask {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  background: url('/images/raster.png');
+}
 footer {
   padding: 40px 0px;
   font-size: 12px;
   color: #999;
 }
-.archive .article .title {
-  font-size: 20px;
+.article h3.title {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+.article h3.title a {
+  color: #444;
+}
+.article h3.title a:hover {
+  text-decoration: none;
+  color: #444;
+}
+.article .content,
+.article .entry {
+  font-size: 16px;
+  line-height: 1.8;
 }

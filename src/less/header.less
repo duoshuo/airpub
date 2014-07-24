@@ -3,6 +3,7 @@ header {
   background-size: 100% auto;
   padding-top: 100px;
   padding-bottom: 100px;
+  position: relative;
   .logo {
     h1 {
       a {
@@ -18,5 +19,14 @@ header {
         text-align: center;
       }
     }
+  }
+  .mask {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    background: url('/images/raster.png');
   }
 }

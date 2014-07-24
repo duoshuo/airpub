@@ -24,10 +24,13 @@
           <h1><a ui-sref="index">mua</a></h1>
         </div>
       </div>
+      <div class="mask"></div>
     </header>
     <section id="content" class="content">
       <div class="container">
-        <div ui-view></div>
+        <div ui-view>
+          <div class="loading">loading...</div>
+        </div>
       </div>
     </section>
     <footer>

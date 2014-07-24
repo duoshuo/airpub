@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title ng-bind="site.title">mua</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- stylesheets -->
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bower_components/angular-snap/angular-snap-only.min.css">
@@ -17,8 +18,23 @@
     <script src="/src/javascript/mua.js"></script>
   </head>
   <body>
-    <div ui-view></div>
-    <!-- <a ui-sref="archive">存档页</a> -->
+    <header>
+      <div class="container">
+        <div class="logo">
+          <h1><a ui-sref="index">mua</a></h1>
+        </div>
+      </div>
+    </header>
+    <section id="content" class="content">
+      <div class="container">
+        <div ui-view></div>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        &copy; 2014
+      </div>
+    </footer>
     <script>
       var duoshuoQuery = {
         short_name: 'candydemo'

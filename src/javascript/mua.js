@@ -6,6 +6,10 @@ angular.module('mua', ['ui.bootstrap', 'ui.router', 'snap'])
         url: "",
         templateUrl: "views/archive.html"
       })
+      .state('index', {
+        url: "/",
+        templateUrl: "views/archive.html"
+      })
       .state('single', {
         url: "/article",
         templateUrl: "views/single.html"

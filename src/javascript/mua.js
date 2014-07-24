@@ -46,6 +46,7 @@
         page: 1
       }, function(data) {
         NProgress.done();
+        $scope.$parent.ready = true;
         if (data.code !== 0) $scope.addAlert('danger','获取信息失败，请重试');
         $scope.articles = data.response || [];
         $scope.$apply();
@@ -55,14 +56,27 @@
     // article ctrler
     .controller('article', function($scope, $state) {
       var uri = $state.params.uri;
-      if (!uri) return; // go 404
+      if (!uri) return; // TODO: go 404
       return;
+    })
+    .controller('pager', function($scope){
+      $scope.totalItems = 64;
+      $scope.currentPage = 1;
+      $scope.setPage = function (pageNo) {
+        $scope.currentPage = pageNo;
+      };
+      $scope.pageChanged = function() {
+        console.log('Page changed to: ' + $scope.currentPage);
+      };
+      $scope.maxSize = 5;
+      $scope.bigTotalItems = 175;
+      $scope.bigCurrentPage = 1;
     })
     // all ui behaviors
     .controller('ui', function($scope) {
       $scope.alerts = [];
       $scope.addAlert = function(type, msg) {
-        $scope.alerts.push({msg: msg, type: type || 'success'});
+        $scope.alerts.push({ msg: msg, type: type || 'success'});
       };
       $scope.closeAlert = function(index) {
         $scope.alerts.splice(index, 1);

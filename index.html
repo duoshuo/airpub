@@ -29,13 +29,11 @@
         <div class="mask"></div>
       </header>
       <section id="content" class="content">
-        <div class="container">
-          <div ui-view>
-            <div class="loading">loading...</div>
-          </div>
+        <div ui-view>
+          <div class="loading container">loading...</div>
         </div>
       </section>
-      <footer>
+      <footer ng-show="ready">
         <div class="container">
           &copy; 2014
         </div>
@@ -43,7 +41,7 @@
     </div>
     <div snap-drawer>
       <div id="sidebar" class="sidebar">
-        <p></p>
+        
       </div>
     </div>
     <div class="alert-module">

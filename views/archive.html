@@ -1,8 +1,15 @@
 <div id="articles" class="archive articles clearfix">
-  <div class="article" ng-repeat="article in articles">
-    <h3 class="title">
+  <div class="article" ng-repeat="article in articles" ng-hide="article.title == ''">
+    <h3 class="title container">
       <a ui-sref="article({uri: article.thread_id })" ng-bind="article.title"></a>
     </h3>
-    <div class="entry" ng-bind="article.thread_key" data-thread="{{article.thread_id}}"></div>
   </div>
 </div>
+
+<div class="pager-module container" ng-show="articles.length > 0">
+  <div ng-controller="pager">
+    <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" first-text="首页" last-text="末页" previous-text="<" next-text=">"></pagination>
+  </div>
+</div>
+
+<div class="loading container" ng-hide="articles.length >= 0">loading...</div>

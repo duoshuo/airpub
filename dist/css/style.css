@@ -17,8 +17,14 @@
   color: #fff;
   box-shadow: inset 0px -2px 10px #000000;
 }
+.loading {
+  font-size: 50px;
+  color: #ddd;
+  padding: 100px 0px;
+  text-align: center;
+}
 header {
-  background: #444444 url('/images/b.jpg') no-repeat;
+  background: #f5f5f5 url('/images/b.jpg') no-repeat;
   background-size: 100% auto;
   height: 350px;
   position: relative;
@@ -64,22 +70,33 @@ footer {
   font-size: 12px;
   color: #999;
 }
+.article {
+  background-color: #fff;
+}
 .article h3.title {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   font-weight: bold;
 }
 .article h3.title a {
-  color: #444;
+  display: block;
+  padding: 20px 0;
+  color: #34495E;
 }
 .article h3.title a:hover {
   text-decoration: none;
-  color: #444;
+  color: #34495E;
 }
 .article .content,
 .article .entry {
   font-size: 16px;
   line-height: 1.8;
+}
+.article:hover {
+  background-color: #34495E;
+}
+.article:hover h3.title a {
+  color: #fff;
 }
 .sidebar {
   padding: 20px;

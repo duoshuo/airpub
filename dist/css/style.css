@@ -28,6 +28,20 @@
   padding: 100px 0px;
   text-align: center;
 }
+.pager-module {
+  margin-top: -1px;
+  border-bottom: 1px solid #ddd;
+  height: 47px;
+  overflow: hidden;
+}
+.pager-module ul.pagination {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+.pager-module ul.pagination li a {
+  border-radius: 0px !important;
+}
 header {
   background: #f5f5f5 url('/images/b.jpg') no-repeat;
   background-size: 100% auto;

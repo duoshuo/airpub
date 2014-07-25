@@ -68,7 +68,7 @@
       $scope.pageChanged = function() {
         console.log('Page changed to: ' + $scope.currentPage);
       };
-      $scope.maxSize = 5;
+      $scope.maxSize = 10;
       $scope.bigTotalItems = 175;
       $scope.bigCurrentPage = 1;
     })

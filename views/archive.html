@@ -6,9 +6,11 @@
   </div>
 </div>
 
-<div class="pager-module container" ng-show="articles.length > 0">
-  <div ng-controller="pager">
-    <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" first-text="首页" last-text="末页" previous-text="<" next-text=">"></pagination>
+<div class="pager-module" ng-show="articles.length > 0">
+  <div class="container">
+    <div ng-controller="pager">
+      <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-lg" boundary-links="true" first-text="首页" last-text="末页" previous-text="<" next-text=">"></pagination>
+    </div>
   </div>
 </div>
 

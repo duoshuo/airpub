@@ -19,6 +19,18 @@
   padding: 100px 0px;
   text-align: center;
 }
+nav a {
+  color: #fff;
+  display: block;
+  padding: 20px;
+  cursor: pointer;
+  float: left;
+  width: 80px;
+}
+nav span {
+  font-size: 24px;
+  color: #ffffff;
+}
 header {
   background: #f5f5f5 url('/images/b.jpg') no-repeat;
   background-size: 100% auto;
@@ -30,28 +42,16 @@ header .logo {
   position: absolute;
   z-index: 999;
   top: 50%;
-  margin-top: -50px;
-  width: 100px;
-  height: 100px;
 }
 header .logo h1 {
   margin-top: 0px;
 }
 header .logo h1 a {
   display: block;
-  width: 100px;
-  height: 100px;
   text-decoration: none;
   color: #fff;
   font-size: 30px;
-  border-radius: 100px;
-  border: 3px solid #fff;
-  line-height: 90px;
   text-align: center;
-}
-header .logo h1 a:hover {
-  background-color: #fff;
-  color: #444;
 }
 header .mask {
   top: 0;

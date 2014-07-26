@@ -1,7 +1,7 @@
 {
-  "name": "mua",
+  "name": "air",
   "version": "0.1.0",
-  "description": "a pure front-end blog platform built upon love.",
+  "description": "a pure front-end blog platform powered by APIs and built upon love",
   "main": "app.js",
   "author": "turing <o.u.turing@gmail.com>",
   "license": "MIT",

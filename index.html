@@ -17,16 +17,21 @@
     <script src="/bower_components/snapjs/snap.min.js"></script>
     <script src="/bower_components/angular-snap/angular-snap.min.js"></script>
     <script src="/bower_components/nprogress/nprogress.js"></script>
+    <script src="/bower_components/scrollMonitor/scrollMonitor.js"></script>
   </head>
   <body ng-controller="ui">
     <div snap-content>
       <header>
+        <nav>
+          <a snap-toggle="left">
+            <span class="glyphicon glyphicon-edit"></span>
+          </a>
+        </nav>
         <div class="container">
           <div class="logo">
-            <h1><a ui-sref="index" snap-toggle="left">mua</a></h1>
+            <h1><a ui-sref="index">只活一次等于没活</a></h1>
           </div>
         </div>
-        <div class="mask"></div>
       </header>
       <section id="content" class="content">
         <div ui-view>
@@ -35,13 +40,12 @@
       </section>
       <footer ng-show="ready">
         <div class="container">
-          &copy; 2014
+          &copy; 2014 powered by <a href="http://github.com/turingou/mua">mua</a>
         </div>
       </footer>
     </div>
     <div snap-drawer>
       <div id="sidebar" class="sidebar">
-        
       </div>
     </div>
     <div class="alert-module">

@@ -1,10 +1,10 @@
 (function(duoshuo) {
-  var mua = angular.module('mua', ['ui.bootstrap', 'ui.router', 'snap']);
+  var app = angular.module('airpub', ['ui.bootstrap', 'ui.router', 'snap']);
   if (!duoshuo) return;
   if (!duoshuo.API) return;
   var database = duoshuo.API;
   // angular plugins configs
-  mua.config(function(
+  app.config(function(
     $stateProvider,
     $urlRouterProvider,
     snapRemoteProvider) {
@@ -39,7 +39,7 @@
       })
   });
   // archive ctrler
-  mua.controller('articles', function($scope, $state) {
+  app.controller('articles', function($scope, $state) {
     if ($scope.articles && $scope.articles.length > 0) return;
     NProgress.start();
     database.get('threads/list', {
@@ -55,13 +55,13 @@
     });
   });
   // article ctrler
-  mua.controller('article', function($scope, $state) {
+  app.controller('article', function($scope, $state) {
     var uri = $state.params.uri;
     if (!uri) return; // TODO: go 404
     return;
   });
   // pageer ctrler
-  mua.controller('pager', function($scope) {
+  app.controller('pager', function($scope) {
     $scope.totalItems = 64;
     $scope.currentPage = 1;
     $scope.setPage = function(pageNo) {
@@ -75,7 +75,7 @@
     $scope.bigCurrentPage = 1;
   });
   // all ui behaviors
-  mua.controller('ui', function($scope) {
+  app.controller('ui', function($scope) {
     $scope.alerts = [];
     $scope.addAlert = function(type, msg) {
       $scope.alerts.push({
@@ -88,7 +88,7 @@
     };
   });
   // admin ctrler
-  mua.controller('admin', function($scope, $state) {
+  app.controller('admin', function($scope, $state) {
 
   });
 })(window.DUOSHUO);

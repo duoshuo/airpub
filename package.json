@@ -1,8 +1,8 @@
 {
-  "name": "air",
+  "name": "airpub",
   "version": "0.1.0",
   "description": "a pure front-end blog platform powered by APIs and built upon love",
-  "main": "app.js",
+  "main": "index.html",
   "author": "turing <o.u.turing@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -14,15 +14,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/turingou/mua.git"
+    "url": "https://github.com/turingou/airpub.git"
   },
   "bugs": {
-    "url": "https://github.com/turingou/mua/issues"
+    "url": "https://github.com/turingou/airpub/issues"
   },
   "keywords": [
-    "mua",
+    "air",
+    "publish",
+    "press",
+    "airpub",
     "cms",
     "blog",
+    "blog platform",
     "angular"
   ],
   "devDependencies": {

@@ -1,24 +1,24 @@
-## mua ![npm](https://badge.fury.io/js/mua.png)
+## airpub ![npm](https://badge.fury.io/js/airpub.png)
 
-a pure front-end blog platform built upon love.
+a pure front-end blog platform powered by APIs and built upon love
 
 ### Installation
 ```
-$ npm install mua
+$ npm install airpub
 ```
 
 ### Quick Start
-Go to [guides and documents](http://mua.io).
+Go to [guides and documents](http://airpub.io).
 
 ### Example
 ```
-$ git clone https://github.com/turingou/mua.git && cd mua
+$ git clone https://github.com/turingou/airpub.git && cd airpub
 $ open index.html
 ```
 ### For Developer
 
 ```
-$ cd mua
+$ cd airpub
 $ npm install
 $ npm run dev
 ```

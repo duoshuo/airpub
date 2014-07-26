@@ -3,44 +3,21 @@
 * Media Querys' Vars
 *
 **/
+* {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
 .nav,
 .pagination,
 .carousel,
 .panel-title a {
   cursor: pointer;
 }
-* {
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-}
-.snap-content {
-  background-color: #fff;
-  z-index: 99;
-}
-.snap-drawer {
-  background-color: #444;
-  color: #fff;
-  box-shadow: inset 0px -2px 10px #000000;
-}
 .loading {
   font-size: 50px;
   color: #ddd;
   padding: 100px 0px;
   text-align: center;
-}
-.pager-module {
-  margin-top: -1px;
-  border-bottom: 1px solid #ddd;
-  height: 47px;
-  overflow: hidden;
-}
-.pager-module ul.pagination {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
-}
-.pager-module ul.pagination li a {
-  border-radius: 0px !important;
 }
 header {
   background: #f5f5f5 url('/images/b.jpg') no-repeat;
@@ -140,4 +117,27 @@ footer {
   border: 0;
   border-radius: 0px;
   margin-bottom: 0px;
+}
+.pager-module {
+  margin-top: -1px;
+  border-bottom: 1px solid #ddd;
+  height: 47px;
+  overflow: hidden;
+}
+.pager-module ul.pagination {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+.pager-module ul.pagination li a {
+  border-radius: 0px !important;
+}
+.snap-content {
+  background-color: #fff;
+  z-index: 99;
+}
+.snap-drawer {
+  background-color: #444;
+  color: #fff;
+  box-shadow: inset 0px -2px 10px #000000;
 }

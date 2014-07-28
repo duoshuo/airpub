@@ -21,7 +21,7 @@
     <script src="/bower_components/nprogress/nprogress.js"></script>
     <script src="/bower_components/scrollMonitor/scrollMonitor.js"></script>
   </head>
-  <body ng-controller="ui">
+  <body ng-controller="base">
     <div snap-content>
       <header ng-class="state.current.controller">
         <nav>
@@ -53,9 +53,12 @@
     </div>
     <div snap-drawer>
       <div id="sidebar" class="sidebar">
-        <div class="user clearfix" ng-hide="user.user_id == 0">
-          <img ng-show="user.avatar_url" ng-src="{{user.avatar_url}}" alt="avaitar" class="img-circle pull-left">
+        <div class="user clearfix" ng-show="user.user_id != 0">
+          <img ng-show="user.avatar_url" ng-src="{{user.avatar_url}}" alt="" class="img-circle pull-left">
           <p class="user-title" ng-bind="'欢迎回来 ' + user.name"></p>
+        </div>
+        <div class="signin clearfix" ng-show="!user">
+          <a ng-href="http://duoshuo.com/login?redirect_uri={{location.$$absUrl}}" class="signin-btn btn btn-default">登录</a>
         </div>
       </div>
     </div>

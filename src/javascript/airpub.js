@@ -74,9 +74,11 @@
     $scope.bigTotalItems = 175;
     $scope.bigCurrentPage = 1;
   });
-  // all ui behaviors
-  app.controller('ui', function($scope, $state, $timeout) {
+  // all basic behaviors
+  app.controller('base', function($scope, $state, $timeout, $location) {
+    $scope.location = $location;
     $scope.state = $state;
+
     // alerts module
     $scope.alerts = [];
     $scope.addAlert = function(type, msg, dismiss) {
@@ -90,17 +92,13 @@
     $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
-  });
-  // admin ctrler
-  app.controller('admin', function($scope, $state) {
-    NProgress.done();
-    if ($scope.user) return;
+
     // signin status check
     duoshuo.visitor.on('reset', function(){
-      var visitor = this.data.user_id === 0;
+      var visitor = (this.data.user_id === 0);
       // redirect visitors
       if (visitor) { 
-        $scope.addAlert('danger','抱歉，你还没有登录哦');
+        // $scope.addAlert('danger','抱歉，你还没有登录哦', true);
         $scope.$apply();
         $state.go('home');
         return;
@@ -109,5 +107,10 @@
       $scope.user = this.data;
       $scope.$apply();
     });
+  });
+  // admin ctrler
+  app.controller('admin', function($scope, $state) {
+    NProgress.done();
+    console.log($scope.location);
   });
 })(window.DUOSHUO);

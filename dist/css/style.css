@@ -24,12 +24,17 @@ nav a {
   display: block;
   padding: 20px;
   cursor: pointer;
+}
+nav a.toggle-sidebar {
   float: left;
   width: 80px;
 }
 nav span {
   font-size: 24px;
   color: #ffffff;
+}
+nav .options a {
+  float: left;
 }
 header {
   background: #f5f5f5 url('/images/b.jpg') no-repeat;

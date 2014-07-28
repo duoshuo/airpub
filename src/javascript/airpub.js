@@ -4,10 +4,7 @@
   if (!duoshuo.API) return;
   var database = duoshuo.API;
   // angular plugins configs
-  app.config(function(
-    $stateProvider,
-    $urlRouterProvider,
-    snapRemoteProvider) {
+  app.config(function($stateProvider, $urlRouterProvider, snapRemoteProvider) {
     // ui configs
     snapRemoteProvider.globalOptions.disable = 'right';
     // routes configs

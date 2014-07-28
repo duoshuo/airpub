@@ -13,17 +13,17 @@
       .state('home', {
         url: "",
         templateUrl: "views/archive.html",
-        controller: 'articles'
+        controller: 'archive'
       })
       .state('index', {
         url: "/",
         templateUrl: "views/archive.html",
-        controller: 'articles'
+        controller: 'archive'
       })
-      .state('article', {
+      .state('single', {
         url: "/article/:uri",
         templateUrl: "views/single.html",
-        controller: 'article'
+        controller: 'single'
       })
       .state('404', {
         url: "/404",
@@ -36,7 +36,7 @@
       })
   });
   // archive ctrler
-  app.controller('articles', function($scope, $state) {
+  app.controller('archive', function($scope, $state) {
     // read from cache
     if ($scope.articles && $scope.articles.length > 0) return;
     // read from fresh
@@ -46,7 +46,6 @@
       limit: 30
     }, function(data) {
       NProgress.done();
-      $scope.$parent.ready = true;
       if (data.code !== 0) $scope.addAlert('danger', '获取信息失败，请重试');
       $scope.articles = data.response || [];
       $scope.$apply();
@@ -54,11 +53,11 @@
       return;
     });
   });
-  // article ctrler
-  app.controller('article', function($scope, $state) {
+  // single article ctrler
+  app.controller('single', function($scope, $state) {
     var uri = $state.params.uri;
     if (!uri) return $state.go('404');
-    // todo: fetch article via thread_id
+    // todo: fetch single article via thread_id
     return;
   });
   // pageer ctrler

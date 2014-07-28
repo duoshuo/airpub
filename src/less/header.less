@@ -4,6 +4,9 @@ header {
   height: 350px;
   position: relative;
   margin-bottom: 1px;
+  -webkit-transition: height 0.5s;
+  -moz-transition: height 0.5s;
+  transition: height 0.5s;
   .logo {
     position: absolute;
     z-index: 999;
@@ -28,4 +31,8 @@ header {
     z-index: 2;
     background: url('/images/raster.png');
   }
+}
+
+header.admin {
+  height: 100px;
 }

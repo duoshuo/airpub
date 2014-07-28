@@ -45,7 +45,7 @@
           <div class="loading container">loading...</div>
         </div>
       </section>
-      <footer ng-show="ready">
+      <footer>
         <div class="container">
           &copy; 2014 powered by <a href="http://github.com/turingou/airpub">airpub</a>
         </div>
@@ -58,12 +58,14 @@
     <div class="alert-module">
       <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" ng-bind="alert.msg"></alert>
     </div>
+    <!-- duoshuo configs -->
     <script>
       var duoshuoQuery = {
         short_name: 'airpub'
       };
     </script>
     <script src="http://static.duoshuo.com/embed.unstable.js"></script>
+    <!-- angular app -->
     <script src="/src/javascript/airpub.js"></script>
   </body>
 </html>

@@ -93,8 +93,8 @@
   });
   // admin ctrler
   app.controller('admin', function($scope, $state) {
+    NProgress.done();
     if ($scope.user) return;
-    console.log($state.current);
     // signin status check
     duoshuo.visitor.on('reset', function(){
       var visitor = this.data.user_id === 0;

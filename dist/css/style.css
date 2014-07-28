@@ -76,6 +76,9 @@ header .mask {
 header.admin {
   height: 80px;
 }
+header.admin .options {
+  display: none;
+}
 footer {
   padding: 40px 0px;
   font-size: 12px;
@@ -137,19 +140,26 @@ footer {
   border-left: 0px;
   border-right: 0px;
 }
-.admin .options {
+.admin .bottom-options {
   position: fixed;
   bottom: 0px;
   left: 0px;
   width: 100%;
   background-color: #efefef;
-  height: 80px;
+  height: 60px;
   border-top: 1px solid #ddd;
+  z-index: 99;
 }
-.admin .options .submit {
+.admin .bottom-options .submit {
   display: block;
   float: right;
   border-radius: 0px;
+  line-height: 50px;
+  margin-right: 0px;
+  width: 200px;
+  font-size: 30px;
+  border: 0px;
+  margin-top: -1px;
 }
 .not-found {
   text-align: center;

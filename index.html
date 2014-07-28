@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <title>airpub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <!-- stylesheets -->
+    <!-- dependencies stylesheets -->
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bower_components/angular-snap/angular-snap.min.css">
     <link rel="stylesheet" href="/bower_components/nprogress/nprogress.css">
+    <!-- stylesheets -->
     <link rel="stylesheet" href="/dist/css/style.css" />
-    <!-- scripts -->
+    <!-- dependencies scripts -->
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/angular/angular.min.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
@@ -22,7 +23,7 @@
   </head>
   <body ng-controller="ui">
     <div snap-content>
-      <header>
+      <header ng-class="state.current.controller">
         <nav>
           <a snap-toggle="left" class="toggle-sidebar">
             <span class="glyphicon glyphicon-cloud"></span>
@@ -59,7 +60,7 @@
     </div>
     <script>
       var duoshuoQuery = {
-        short_name: 'getcandy'
+        short_name: 'airpub'
       };
     </script>
     <script src="http://static.duoshuo.com/embed.unstable.js"></script>

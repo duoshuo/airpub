@@ -28,7 +28,7 @@
           <a snap-toggle="left" class="toggle-sidebar">
             <span class="glyphicon glyphicon-cloud"></span>
           </a>
-          <div class="options pull-left">
+          <div class="options pull-right">
             <a ui-sref="admin">
               <span class="glyphicon glyphicon-edit"></span>
             </a>
@@ -45,7 +45,7 @@
           <div class="loading container">loading...</div>
         </div>
       </section>
-      <footer>
+      <footer ng-show="ready">
         <div class="container">
           &copy; 2014 powered by <a href="http://github.com/turingou/airpub">airpub</a>
         </div>
@@ -53,6 +53,10 @@
     </div>
     <div snap-drawer>
       <div id="sidebar" class="sidebar">
+        <div class="user clearfix" ng-hide="user.user_id == 0">
+          <img ng-show="user.avatar_url" ng-src="{{user.avatar_url}}" alt="avaitar" class="img-circle pull-left">
+          <p class="user-title" ng-bind="'欢迎回来 ' + user.name"></p>
+        </div>
       </div>
     </div>
     <div class="alert-module">

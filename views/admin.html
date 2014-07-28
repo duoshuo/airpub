@@ -2,18 +2,13 @@
   <div class="container">
     <div class="row">
       <form role="form">
-        <div class="col-lg-9">
+        <div class="col-lg-12">
           <div class="form-group title-group">
             <input type="text" class="form-control" placeholder="文章标题">
           </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="admin-sidebar clearfix">
-            <div class="user clearfix" ng-hide="user.user_id == 0">
-              <img ng-show="user.avatar_url" ng-src="{{user.avatar_url}}" alt="avaitar" class="pull-left">
-              <h3 class="user-title" ng-bind="user.name"></h3>
-            </div>
-            <button class="btn btn-default">写好了</button>
+          <div id="editor" class="editor"></div>
+          <div class="options clearfix">
+            <button class="submit btn btn-success">写好了</button>
           </div>
         </div>
       </form>

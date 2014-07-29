@@ -1,5 +1,5 @@
 // admin ctrler
-airpub.controller('admin', function($scope, $state, $base64, $md5) {
+airpub.controller('admin', function($scope, $state, $base64, md5) {
   // clear progress
   NProgress.done();
 
@@ -20,25 +20,25 @@ airpub.controller('admin', function($scope, $state, $base64, $md5) {
   function uploadImage($placeholder, file, self) {
     var upyunConfigs = $scope.configs.upyun;
 
-    if (!JSON) return;
+    console.log(self);
+
+    if (!window.JSON) return;
     if (!window.FormData) return;
     if (!window.XMLHttpRequest) return;
     if (!upyunConfigs) return;
 
-    console.log(file);
-
     var data = new FormData();
     var req = new XMLHttpRequest();
     var policy = $base64.encode(JSON.stringify({
-      bucket: 'airpub',
-      expiration: 1000 * 60,
+      bucket: upyunConfigs.bucket,
+      expiration: (new Date().getTime()) + 60,
       'save-key': '/{year}/{mon}/{day}/upload_{filename}{.suffix}',
       'allow-file-type': 'jpg,gif,png'
     }));
 
     data.append('file', file);
     data.append('policy', policy);
-    data.append('signature', $md5(policy + upyunConfigs.form_api_secret));
+    data.append('signature', md5.createHash(policy + '&' + upyunConfigs.form_api_secret));
 
     req.open(
       'POST', 

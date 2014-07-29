@@ -27,6 +27,7 @@
     <script src="bower_components/angular-medium-editor/dist/angular-medium-editor.min.js"></script>
     <script src="bower_components/medium-editor-insert-plugin/dist/js/medium-editor-insert-plugin.all.min.js"></script>
     <script src="bower_components/angular-base64/angular-base64.min.js"></script>
+    <script src="bower_components/angular-md5/angular-md5.min.js"></script>
   </head>
   <body ng-controller="base" ng-class="state.current.controller">
     <div snap-content class="snap-content-wrapper">
@@ -60,7 +61,7 @@
     </div>
     <div snap-drawer class="snap-drawer-wrapper">
       <div id="sidebar" class="sidebar">
-        <div class="user clearfix" ng-show="user.user_id != 0">
+        <div class="user clearfix" ng-show="user && user.user_id != 0">
           <img ng-show="user.avatar_url" ng-src="{{user.avatar_url}}" alt="" class="img-circle">
           <p class="user-title" ng-bind="'欢迎回来 ' + user.name"></p>
         </div>

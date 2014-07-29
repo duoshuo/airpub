@@ -5,8 +5,7 @@ var airpub = angular.module('airpub', [
   'ui.bootstrap',
   'ui.router',
   'snap',
-  'angular-medium-editor',
-  'base64'
+  'angular-medium-editor'
 ]);
 
 // angular plugins configs

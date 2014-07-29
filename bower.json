@@ -1,9 +1,9 @@
 {
-  "name": "mua",
+  "name": "airpub",
   "version": "0.1.0",
-  "homepage": "https://github.com/turingou/mua",
+  "homepage": "https://github.com/turingou/airpub",
   "authors": [
-    "Guo Yu <o.u.turing@gmail.com>"
+    "turing <o.u.turing@gmail.com>"
   ],
   "description": "a pure front-end blog platform built upon love.",
   "main": "index.html",
@@ -30,7 +30,6 @@
     "nprogress": "~0.1.6",
     "scrollMonitor": "~1.0.8",
     "angular-medium-editor": "*",
-    "medium-editor-insert-plugin": "~0.2.5",
-    "angular-base64": "~2.0.2"
+    "medium-editor-insert-plugin": "~0.2.5"
   }
 }

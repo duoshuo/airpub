@@ -17,6 +17,15 @@
       border-right: 0px;
     }
   }
+  .editor {
+    margin-bottom: 80px;
+    font-size: 16px;
+    line-height: 1.8;
+    &:focus {
+      outline: 0px;
+      box-shadow: none;
+    }
+  }
   .bottom-options {
     position: fixed;
     bottom: 0px;
@@ -38,4 +47,16 @@
       margin-top: -1px;
     }
   }
+}
+
+.pen, 
+.pen-menu, 
+.pen-input, 
+.pen textarea {
+  font-family: inherit !important;
+}
+
+.medium-editor-placeholder:after {
+  font-style: normal;
+  color: #999;
 }

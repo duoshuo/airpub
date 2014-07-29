@@ -1,5 +1,12 @@
 (function(duoshuo) {
-  var app = angular.module('airpub', ['ui.bootstrap', 'ui.router', 'snap']);
+  // signup app
+  var app = angular.module('airpub', [
+    'ui.bootstrap',
+    'ui.router',
+    'snap',
+    'angular-medium-editor'
+  ]);
+  // check if duoshuo instance exist.
   if (!duoshuo) return;
   if (!duoshuo.API) return;
   var database = duoshuo.API;
@@ -82,7 +89,10 @@
     // alerts module
     $scope.alerts = [];
     $scope.addAlert = function(type, msg, dismiss) {
-      $scope.alerts.push({ msg: msg, type: type || 'success' });
+      $scope.alerts.push({
+        msg: msg,
+        type: type || 'success'
+      });
       var alertIndex = $scope.alerts.length - 1;
       if (!dismiss) return alertIndex;
       $timeout(function() {
@@ -94,10 +104,10 @@
     };
 
     // signin status check
-    duoshuo.visitor.on('reset', function(){
+    duoshuo.visitor.on('reset', function() {
       var visitor = (this.data.user_id === 0);
       // redirect visitors
-      if (visitor) { 
+      if (visitor) {
         // $scope.addAlert('danger','抱歉，你还没有登录哦', true);
         $scope.$apply();
         $state.go('home');
@@ -111,6 +121,6 @@
   // admin ctrler
   app.controller('admin', function($scope, $state) {
     NProgress.done();
-    console.log($scope.location);
   });
+
 })(window.DUOSHUO);

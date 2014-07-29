@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html ng-app="airpub">
+<html ng-app="airpub" ng-controller="global">
   <head>
     <meta charset="UTF-8">
-    <title>airpub</title>
+    <title ng-bind="configs.name"></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- dependencies stylesheets -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -43,7 +43,7 @@
         </nav>
         <div class="container">
           <div class="logo">
-            <h1><a ui-sref="index">只活一次等于没活</a></h1>
+            <h1><a ui-sref="index" ng-bind="configs.name"></a></h1>
           </div>
         </div>
       </header>
@@ -72,15 +72,12 @@
     <div class="alert-module">
       <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" ng-bind="alert.msg"></alert>
     </div>
-    <!-- duoshuo configs -->
-    <script>
-      var duoshuoQuery = {
-        short_name: 'airpub'
-      };
-    </script>
     <script src="http://static.duoshuo.com/embed.unstable.js"></script>
-    <!-- angular app -->
+    <!-- airpub config file -->
+    <script src="configs.js"></script>
+    <!-- airpub angular.js app -->
     <script src="src/javascript/airpub.js"></script>
+    <script src="src/javascript/controllers/global.js"></script>
     <script src="src/javascript/controllers/base.js"></script>
     <script src="src/javascript/controllers/archive.js"></script>
     <script src="src/javascript/controllers/single.js"></script>

@@ -2,8 +2,6 @@
 airpub.controller('archive', function($scope, $state) {
   // read from cache
   if ($scope.articles && $scope.articles.length > 0) return;
-  // check duoshuo instance
-  if (!duoshuo) return;
   // read from fresh
   NProgress.start();
   database.get('threads/list', {

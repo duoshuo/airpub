@@ -5,3 +5,4 @@ node_modules
 *.log
 bower_*
 images
+configs.js

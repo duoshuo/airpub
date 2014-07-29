@@ -167,7 +167,6 @@ footer {
 .admin .editor {
   margin-bottom: 80px;
   font-size: 16px;
-  line-height: 1.8;
 }
 .admin .editor:focus {
   outline: 0px;

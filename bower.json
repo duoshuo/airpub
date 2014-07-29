@@ -28,6 +28,7 @@
     "bootstrap": "~3.2.0",
     "angular-snap": "~1.5.4",
     "nprogress": "~0.1.6",
-    "scrollMonitor": "~1.0.8"
+    "scrollMonitor": "~1.0.8",
+    "pen": "~0.0.3"
   }
 }

@@ -29,6 +29,8 @@
     "angular-snap": "~1.5.4",
     "nprogress": "~0.1.6",
     "scrollMonitor": "~1.0.8",
-    "angular-medium-editor": "*"
+    "angular-medium-editor": "*",
+    "medium-editor-insert-plugin": "~0.2.5",
+    "angular-base64": "~2.0.2"
   }
 }

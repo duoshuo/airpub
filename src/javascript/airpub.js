@@ -4,7 +4,8 @@
     'ui.bootstrap',
     'ui.router',
     'snap',
-    'angular-medium-editor'
+    'angular-medium-editor',
+    'base64'
   ]);
   // check if duoshuo instance exist.
   if (!duoshuo) return;
@@ -120,6 +121,13 @@
   });
   // admin ctrler
   app.controller('admin', function($scope, $state) {
+    $('#editor').mediumInsert({
+      editor: editor,
+      addons: {
+        images: {},
+        embeds: {}
+      }
+    });
     NProgress.done();
   });
 

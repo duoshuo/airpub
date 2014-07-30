@@ -3,6 +3,12 @@
 * Media Querys' Vars
 *
 **/
+@font-face {
+  font-family: 'Quattrocento Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Quattrocento Sans'), local('QuattrocentoSans'), url(fonts/QuattrocentoSans.woff) format('woff');
+}
 * {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

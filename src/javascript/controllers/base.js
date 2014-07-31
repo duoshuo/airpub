@@ -14,14 +14,9 @@ airpub.controller('base', function($scope, $state, $timeout, $location, $duoshuo
   $duoshuo.on('ready', function(err, data) {
     var visitor = (data.user_id === 0);
     // redirect visitors
-    if (visitor) {
-      $scope.$apply();
-      $state.go('home');
-      return;
-    }
+    if (visitor) return $state.go('home');
     // fullfill user data
     $scope.user = data;
-    $scope.$apply();
   });
 
   // ui utils

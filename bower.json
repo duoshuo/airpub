@@ -30,6 +30,7 @@
     "nprogress": "~0.1.6",
     "scrollMonitor": "~1.0.8",
     "angular-medium-editor": "*",
-    "upyun": "*"
+    "upyun": "*",
+    "duoshuo": "*"
   }
 }

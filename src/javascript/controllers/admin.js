@@ -1,7 +1,9 @@
 // admin ctrler
-airpub.controller('admin', function($scope, $state, $upyun) {
+airpub.controller('admin', function($scope, $state, $upyun, $duoshuo) {
   // clear progress
   NProgress.done();
-  console.log($upyun);
-
+  $scope.createArticle = function() {
+    console.log($scope.article);
+    return;
+  }
 });

@@ -1,10 +1,10 @@
 // archive ctrler
-airpub.controller('archive', function($scope, $state) {
+airpub.controller('archive', function($scope, $state, $duoshuo) {
   // read from cache
   if ($scope.articles && $scope.articles.length > 0) return;
   // read from fresh
   NProgress.start();
-  database.get('threads/list', {
+  $duoshuo.get('threads/list', {
     page: 1,
     limit: 30
   }, function(data) {

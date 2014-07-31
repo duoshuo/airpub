@@ -1,5 +1,5 @@
 // all basic behaviors
-airpub.controller('base', function($scope, $state, $timeout, $location) {
+airpub.controller('base', function($scope, $state, $timeout, $location, $duoshuo) {
 
   // inject locals to template
   $scope.location = $location;
@@ -11,8 +11,8 @@ airpub.controller('base', function($scope, $state, $timeout, $location) {
   $scope.closeAlert = closeAlert;
 
   // signin status check
-  DUOSHUO.visitor.on('reset', function() {
-    var visitor = (this.data.user_id === 0);
+  $duoshuo.on('ready', function(err, data) {
+    var visitor = (data.user_id === 0);
     // redirect visitors
     if (visitor) {
       $scope.$apply();
@@ -20,7 +20,7 @@ airpub.controller('base', function($scope, $state, $timeout, $location) {
       return;
     }
     // fullfill user data
-    $scope.user = this.data;
+    $scope.user = data;
     $scope.$apply();
   });
 

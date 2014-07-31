@@ -1,10 +1,9 @@
-var database = window.DUOSHUO.API;
-
 // signup app
 var airpub = angular.module('airpub', [
   'angular-medium-editor',
   'ui.bootstrap',
   'ui.router',
+  'duoshuo',
   'snap',
   'upyun'
 ]);

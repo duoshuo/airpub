@@ -17,32 +17,42 @@
     }
   }
   .editor {
-    margin-bottom: 80px;
     font-size: 16px;
     &:focus {
       outline: 0px;
       box-shadow: none;
     }
   }
-  .bottom-options {
+  .top-options {
     position: fixed;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    background-color: #efefef;
-    height: 60px;
-    border-top: 1px solid #ddd;
+    top: 15px;
+    right: 20px;
     z-index: 999;
     .submit {
       display: block;
-      float: right;
-      border-radius: 0px;
-      line-height: 50px;
-      margin-right: 0px;
       width: 200px;
-      font-size: 30px;
-      border: 0px;
-      margin-top: -1px;
+      font-size: 20px;
+      border-radius: 3px;
+      border: 2px solid #fff;
+      background-color: transparent;
+      color: #fff;
+      font-weight: bold;
+      &:hover {
+        background-color: #fff;
+        color: #444;
+      }
+    }
+    @media @mobile {
+      padding: 10px;
+      bottom: 0px;
+      left: 0px;
+      top: auto;
+      .submit {
+        background-color: #fff;
+        border-color: #444;
+        color: #444;
+        width: 100%;
+      }
     }
   }
 }

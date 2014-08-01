@@ -6,9 +6,11 @@
           <div class="form-group title-group">
             <input type="text" name="articleTitle" ng-model="article.title" class="form-control" placeholder="文章标题" required>
           </div>
-          <textarea id="editor" class="editor" ng-model="article.content" name="articleContent"></textarea>
-          <div class="bottom-options clearfix">
-            <button class="submit btn btn-success" ng-click="createArticle()">写好了</button>
+          <div class="editor-wrapper">
+            <textarea id="editor" class="editor" ng-model="article.content" name="articleContent"></textarea>
+          </div>
+          <div class="top-options clearfix">
+            <button class="submit btn" ng-click="createArticle()">写好了</button>
           </div>
         </div>
       </form>

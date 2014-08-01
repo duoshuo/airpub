@@ -1,6 +1,5 @@
 // all basic behaviors
 airpub.controller('base', function($scope, $state, $timeout, $location, $duoshuo) {
-
   $scope.isSignin = false;
 
   // inject locals to template

@@ -51,25 +51,28 @@ header {
 }
 header .logo {
   position: absolute;
-  z-index: 999;
+  z-index: 90;
   top: 50%;
   margin-top: -20px;
 }
 header .logo h1 {
   margin-top: 0px;
   font-size: 30px;
+  margin-bottom: 0px;
 }
 header .logo h1 a {
+  width: 100%;
   display: block;
+  text-align: center;
   text-decoration: none;
   line-height: 1;
   color: #fff;
   font-size: 30px;
-  text-align: center;
 }
 @media screen and (max-width:400px) {
   header .logo {
     width: 90%;
+    text-align: center;
   }
 }
 header .mask {
@@ -174,33 +177,45 @@ footer {
   border: 0;
 }
 .admin .editor {
-  margin-bottom: 80px;
   font-size: 16px;
 }
 .admin .editor:focus {
   outline: 0px;
   box-shadow: none;
 }
-.admin .bottom-options {
+.admin .top-options {
   position: fixed;
-  bottom: 0px;
-  left: 0px;
-  width: 100%;
-  background-color: #efefef;
-  height: 60px;
-  border-top: 1px solid #ddd;
+  top: 15px;
+  right: 20px;
   z-index: 999;
 }
-.admin .bottom-options .submit {
+.admin .top-options .submit {
   display: block;
-  float: right;
-  border-radius: 0px;
-  line-height: 50px;
-  margin-right: 0px;
   width: 200px;
-  font-size: 30px;
-  border: 0px;
-  margin-top: -1px;
+  font-size: 20px;
+  border-radius: 3px;
+  border: 2px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  font-weight: bold;
+}
+.admin .top-options .submit:hover {
+  background-color: #fff;
+  color: #444;
+}
+@media screen and (max-width:400px) {
+  .admin .top-options {
+    padding: 10px;
+    bottom: 0px;
+    left: 0px;
+    top: auto;
+  }
+  .admin .top-options .submit {
+    background-color: #fff;
+    border-color: #444;
+    color: #444;
+    width: 100%;
+  }
 }
 .editor-preview {
   background-color: #fff;
@@ -588,7 +603,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
   height: 100%;
 }
 .editor-wrapper {
-  font: 16px/1.62 "Helvetica Neue", "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif;
+  font: 16px/1.8 "Helvetica Neue", "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif;
   color: #2c3e50;
 }
 /* this is the title */

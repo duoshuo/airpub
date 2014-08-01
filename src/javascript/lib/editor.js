@@ -7331,6 +7331,8 @@ Editor.prototype.redo = function() {
 Editor.prototype.toggleFullScreen = function() {
   toggleFullScreen(this);
 };
+Editor.prototype._replaceSelection = _replaceSelection;
+Editor.prototype.getState = getState;
 
 global.Editor = Editor;
 })(this);

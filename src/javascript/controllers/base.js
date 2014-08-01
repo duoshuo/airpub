@@ -1,6 +1,8 @@
 // all basic behaviors
 airpub.controller('base', function($scope, $state, $timeout, $location, $duoshuo) {
 
+  $scope.isSignin = false;
+
   // inject locals to template
   $scope.location = $location;
   $scope.state = $state;
@@ -12,11 +14,11 @@ airpub.controller('base', function($scope, $state, $timeout, $location, $duoshuo
 
   // signin status check
   $duoshuo.on('ready', function(err, data) {
-    var visitor = (data.user_id === 0);
-    // redirect visitors
-    if (visitor) return $state.go('home');
+    var isVisitor = (data.user_id === 0);
+    if (isVisitor) return $state.go('home');
     // fullfill user data
     $scope.user = data;
+    $scope.isSignin = true;
   });
 
   // ui utils

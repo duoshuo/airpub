@@ -23,7 +23,7 @@
     <script src="bower_components/upyun/src/upyun.js"></script>
     <script src="bower_components/duoshuo/src/duoshuo.js"></script>
     <!-- editor script -->
-    <script src="http://lab.lepture.com/editor/editor.js"></script>
+    <script src="src/javascript/lib/editor.js"></script>
     <script src="src/javascript/lib/marked.js"></script>
   </head>
   <body ng-controller="base" ng-class="state.current.controller">
@@ -58,11 +58,11 @@
     </div>
     <div snap-drawer class="snap-drawer-wrapper">
       <div id="sidebar" class="sidebar">
-        <div class="user clearfix" ng-show="user && user.user_id != 0">
+        <div class="user clearfix" ng-show="isSignin">
           <img ng-show="user.avatar_url" ng-src="{{user.avatar_url}}" alt="" class="img-circle">
           <p class="user-title" ng-bind="'欢迎回来 ' + user.name"></p>
         </div>
-        <div class="signin clearfix" ng-show="!user">
+        <div class="signin clearfix" ng-show="!isSignin">
           <a ng-href="http://duoshuo.com/login?redirect_uri={{location.$$absUrl}}" class="signin-btn btn btn-default">登录</a>
         </div>
       </div>

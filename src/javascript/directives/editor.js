@@ -1,10 +1,12 @@
-airpub.directive('editor', function($upyun) {
+airpub.directive('editor', function($upyun, $timeout) {
   return {
     restrict: 'A',
     require: 'ngModel',
     link: function(scope, iElement, iAttrs, ctrl) {
+      console.log(scope);
+      var $ = angular.element;
       // add class
-      angular.element(iElement).addClass('editor');
+      $(iElement).addClass('editor');
       // check if lepture's editor class exists
       if (!window.Editor) return false;
       // init editor instance
@@ -18,9 +20,8 @@ airpub.directive('editor', function($upyun) {
           {name: 'ordered-list', action: Editor.toggleOrderedList},
           '|',
           {name: 'link', action: Editor.drawLink},
-          {name: 'image', action: uploadAndDrawImage},
-          '|',
-          {name: 'preview', action: Editor.togglePreview},
+          {name: 'image', action: Editor.drawImage},
+          {name: 'upload', action: uploadAndDrawImage},
           {name: 'fullscreen', action: Editor.toggleFullScreen}
         ]
       });
@@ -49,7 +50,18 @@ airpub.directive('editor', function($upyun) {
             '![', '](http://)' // uri to be filled.
           );
         }
-        
+        if (!document.getElementById('fileUpload')) {
+          var hiddenInputFile = document.createElement('input');
+          hiddenInputFile.id = 'fileUpload';
+          hiddenInputFile.type = 'file';
+          hiddenInputFile.name = 'file';
+          $(iElement).append(hiddenInputFile);
+        }
+        var inputButton = document.getElementById('fileUpload');
+        inputButton.click();
+        $(inputButton).on('change', function(eve) {
+          console.log(eve);
+        });
       }
     }
   }

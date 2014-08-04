@@ -23,36 +23,24 @@
       box-shadow: none;
     }
   }
-  .top-options {
-    position: fixed;
-    top: 15px;
-    right: 20px;
-    z-index: 999;
-    .submit {
-      display: block;
-      width: 200px;
-      font-size: 20px;
-      border-radius: 3px;
-      border: 2px solid #fff;
-      background-color: transparent;
-      color: #fff;
-      font-weight: bold;
-      &:hover {
-        background-color: #fff;
-        color: #444;
-      }
+  button.submit {
+    border: 2px solid #ddd;
+    background-color: #fff;
+    width: 200px;
+    text-align: center;
+    font-weight: bold;
+    margin: -25px 0 30px;
+    &:hover {
+      color: #000;
+      border-color: #000;
+    }
+    &:focus {
+      outline: 0px;
+      box-shadow: none;
     }
     @media @mobile {
-      padding: 10px;
-      bottom: 0px;
-      left: 0px;
-      top: auto;
-      .submit {
-        background-color: #fff;
-        border-color: #444;
-        color: #444;
-        width: 100%;
-      }
+      margin-top: 0px;
+      width: 100%;
     }
   }
 }

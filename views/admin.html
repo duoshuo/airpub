@@ -4,13 +4,11 @@
       <form name="articleForm" role="form" ng-submit="createArticle()">
         <div class="col-lg-10 col-lg-offset-1">
           <div class="form-group title-group">
-            <input type="text" name="articleTitle" ng-model="article.title" class="form-control" placeholder="文章标题" required>
+            <input type="text" ng-model="article.title" class="form-control" placeholder="文章标题" required>
           </div>
           <div class="editor-wrapper">
-            <textarea id="editor" class="editor" ng-model="article.content" name="articleContent"></textarea>
-          </div>
-          <div class="top-options clearfix">
-            <button class="submit btn" ng-click="createArticle()">写好了</button>
+            <textarea editor ng-model="article.content"></textarea>
+            <button class="submit btn" type="submit">写好了</button>
           </div>
         </div>
       </form>

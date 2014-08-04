@@ -183,37 +183,25 @@ footer {
   outline: 0px;
   box-shadow: none;
 }
-.admin .top-options {
-  position: fixed;
-  top: 15px;
-  right: 20px;
-  z-index: 999;
-}
-.admin .top-options .submit {
-  display: block;
-  width: 200px;
-  font-size: 20px;
-  border-radius: 3px;
-  border: 2px solid #fff;
-  background-color: transparent;
-  color: #fff;
-  font-weight: bold;
-}
-.admin .top-options .submit:hover {
+.admin button.submit {
+  border: 2px solid #ddd;
   background-color: #fff;
-  color: #444;
+  width: 200px;
+  text-align: center;
+  font-weight: bold;
+  margin: -25px 0 30px;
+}
+.admin button.submit:hover {
+  color: #000;
+  border-color: #000;
+}
+.admin button.submit:focus {
+  outline: 0px;
+  box-shadow: none;
 }
 @media screen and (max-width:400px) {
-  .admin .top-options {
-    padding: 10px;
-    bottom: 0px;
-    left: 0px;
-    top: auto;
-  }
-  .admin .top-options .submit {
-    background-color: #fff;
-    border-color: #444;
-    color: #444;
+  .admin button.submit {
+    margin-top: 0px;
     width: 100%;
   }
 }

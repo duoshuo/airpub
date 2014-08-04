@@ -70,9 +70,10 @@
     <div class="alert-module">
       <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" ng-bind="alert.msg"></alert>
     </div>
-    <script src="http://static.duoshuo.com/embed.unstable.js"></script>
     <!-- airpub config file -->
     <script src="configs.js"></script>
+    <!-- duoshuo embed js -->
+    <script src="http://static.duoshuo.com/embed.unstable.js"></script>
     <!-- airpub angular.js app -->
     <script src="src/javascript/airpub.js"></script>
     <script src="src/javascript/directives/editor.js"></script>

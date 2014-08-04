@@ -31,15 +31,6 @@ airpub.directive('editor', function($upyun, $timeout) {
       $upyun.set('bucket','upyun-form');
       $upyun.set('form_api_secret', 'IRoTyNc75husfQD24cq0bNmRSDI=');
 
-      $upyun.on('uploading', function(progress) {
-        console.log('上传进度 ' + progress + '%');
-        // scope.uploadText = 
-        //   progress === 100 ?
-        //   '上传完成' :
-        //   '上传进度 ' + progress + '%';
-        // scope.$apply();
-      });
-
       // model => view
       ctrl.$render = function() {
         if (!editor) return;
@@ -68,6 +59,7 @@ airpub.directive('editor', function($upyun, $timeout) {
           hiddenInputFile.id = 'fileUpload';
           hiddenInputFile.type = 'file';
           hiddenInputFile.name = 'file';
+          hiddenInputFile.style.display = 'none';
           $(iElement).after(hiddenInputFile);
         }
         // trigger click
@@ -77,19 +69,14 @@ airpub.directive('editor', function($upyun, $timeout) {
         $(inputButton).on('change', function(eve) {
           if (uploading) return;
           uploading = true;
-          console.log(this.value);
           $upyun.upload(iAttrs.formName, function(err, response, image){
             uploading = false;
-            if (err) console.error(err);
-            console.log('返回信息：');
-            console.log(response);
-            console.log('图片信息：');
-            console.log(image);
-            if (image.code === 200 && image.message === 'ok') {
-              return editor._replaceSelection(cm, stat.image, 
-                '![', '](' + image.absUrl + ')' // uri to be filled.
-              );
-            }
+            if (err) return console.error(err);
+            var uploadOk = image.code === 200 && image.message === 'ok';
+            if (!uploadOk) return;
+            editor._replaceSelection(cm, stat.image, 
+              '![', '](' + image.absUrl + ')' // uri to be filled.
+            );
           });
         });
       }

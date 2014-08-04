@@ -5,9 +5,10 @@ airpub.controller('archive', function($scope, $state, $duoshuo) {
   // read from fresh
   $duoshuo.get('threads/list', {
     page: 1,
-    limit: 30
+    limit: 30,
+    with_content: 1
   }, function(data) {
-    console.log(data);
+    // console.log(data);
     // if error
     if (data.code !== 0) 
       $scope.addAlert('danger', '获取信息失败，请重试');

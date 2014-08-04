@@ -131,12 +131,6 @@ footer {
   font-size: 16px;
   line-height: 1.8;
 }
-.article:hover {
-  background-color: #34495E;
-}
-.article:hover h3.title a {
-  color: #fff;
-}
 .sidebar {
   padding: 20px;
 }

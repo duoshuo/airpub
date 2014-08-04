@@ -1,6 +1,6 @@
-<div id="article" class="single article clearfix">
-  <div class="article">
+<div id="article" class="single clearfix">
+  <div class="article container">
     <h3 class="title" ng-bind="article.title"></h3>
-    <div class="content" ng-bind="article.content"></div>
+    <div class="content" ng-bind-html="article.content | marked"></div>
   </div>
 </div>

@@ -29,6 +29,8 @@
     "angular-snap": "~1.5.4",
     "nprogress": "~0.1.6",
     "upyun": "~0.1.0",
-    "duoshuo": "~0.2.0"
+    "duoshuo": "~0.2.0",
+    "node-uuid": "~1.4.1",
+    "marked": "~0.3.2"
   }
 }

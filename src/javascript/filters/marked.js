@@ -1,6 +1,5 @@
 airpub.filter('marked', function($sce) {
   return function (raw) {
-    console.log($sce);
     if (!raw) return '';
     if (!marked) throw new Error('marked.js required!');
     // setting marked options
@@ -9,9 +8,15 @@ airpub.filter('marked', function($sce) {
     if (hljs) markedOptions.highlight = highlightCode;
     // setting: custom renderer
     var render = new marked.Renderer();
-    render.code = function(str, lang) {
-      console.log(lang);
-      return wrapperWithContainer('code-section', '<pre>' + str + '</pre>');
+    render.code = function(code, lang, escaped) {
+      if (this.options.highlight) {
+        var out = this.options.highlight(code, lang);
+        if (out != null && out !== code) {
+          escaped = true;
+          code = out;
+        }
+      }
+      return wrapperWithContainer('code-section', '<pre>' + code + '</pre>');
     };
     render.html = function(str) {
       return wrapperWithContainer('html-section', str); 
@@ -19,17 +24,17 @@ airpub.filter('marked', function($sce) {
     render.heading = function(str, level) {
       var realLevel = level;
       return wrapperWithContainer('heading-section', '<h' + realLevel + '>' + str + '</h' + realLevel + '>'); 
-    }
+    };
     render.paragraph = function(str) {
       return wrapperWithContainer('paragraph-section', '<p>' + str + '</p>'); 
-    }
+    };
     render.blockquote = function(str) {
       return wrapperWithContainer('blockquote-section', '<blockquote>' + str + '</blockquote>'); 
-    }
+    };
     render.list = function(str, ordered) {
       var wrapper = ordered ? 'o' : 'u';
       return wrapperWithContainer('blockquote-section', '<'+wrapper+'l>' + str + '</'+wrapper+'l>'); 
-    }
+    };
     markedOptions.renderer = render;
     marked.setOptions(markedOptions);
 
@@ -48,7 +53,6 @@ airpub.filter('marked', function($sce) {
     }
 
     function highlightCode(code) {
-      console.log(hljs);
       return hljs.highlightAuto(code).value;
     }
 

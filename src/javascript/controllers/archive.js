@@ -9,7 +9,7 @@ airpub.controller('archive', function($scope, $state, $duoshuo) {
     with_content: 1
   }, function(err, result) {
     if (err) 
-      return $scope.addAlert('danger', '获取信息失败，请重试');
+      return $scope.addAlert('获取信息失败，请重试', 'danger');
     if (result.length === 0) 
       return $state.go('404');
     $scope.articles = result || [];

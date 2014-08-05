@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- dependencies stylesheets -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bower_components/angular-snap/angular-snap.min.css">
     <link rel="stylesheet" href="bower_components/nprogress/nprogress.css">
     <!-- stylesheets -->
     <link rel="stylesheet" href="dist/css/style.css" />
@@ -15,8 +14,6 @@
     <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="bower_components/snapjs/snap.min.js"></script>
-    <script src="bower_components/angular-snap/angular-snap.min.js"></script>
     <script src="bower_components/nprogress/nprogress.js"></script>
     <script src="bower_components/angular-base64/angular-base64.min.js"></script>
     <script src="bower_components/angular-md5/angular-md5.min.js"></script>
@@ -28,46 +25,34 @@
     <script src="src/javascript/lib/marked.js"></script>
   </head>
   <body ng-controller="base" ng-class="state.current.controller">
-    <div snap-content class="snap-content-wrapper">
-      <header ng-class="state.current.controller">
-        <nav>
-          <a snap-toggle="left" class="toggle-sidebar">
-            <span class="glyphicon glyphicon-cloud"></span>
+    <header ng-class="state.current.controller">
+      <nav>
+        <div class="options pull-right">
+          <a ui-sref="admin" class="avatar" ng-show="user" ng-cloak>
+            <img ng-src="{{user.avatar_url}}" alt="{{user.name}}" class="img-circle"/>
           </a>
-          <div class="options pull-right">
-            <a ui-sref="admin">
-              <span class="glyphicon glyphicon-edit"></span>
-            </a>
-          </div>
-        </nav>
-        <div class="container">
-          <div class="logo">
-            <h1><a ui-sref="index" ng-bind="configs.name"></a></h1>
-          </div>
+          <!-- why this funcking `ng-cloak` does not work ??? -->
+          <a id="signin-btn" ng-href="http://duoshuo.com/login?redirect_uri={{location.$$absUrl}}" ng-show="!user" ng-cloak>
+            <span class="glyphicon glyphicon-off"></span>
+          </a>
         </div>
-      </header>
-      <section id="content" class="content">
-        <div ui-view>
-          <div class="loading container">loading...</div>
-        </div>
-      </section>
-      <footer>
-        <div class="container">
-          &copy; 2014 powered by <a href="http://github.com/turingou/airpub">airpub</a>
-        </div>
-      </footer>
-    </div>
-    <div snap-drawer class="snap-drawer-wrapper">
-      <div id="sidebar" class="sidebar">
-        <div class="user clearfix" ng-show="isSignin">
-          <img ng-show="user.avatar_url" ng-src="{{user.avatar_url}}" alt="" class="img-circle">
-          <p class="user-title" ng-bind="'欢迎回来 ' + user.name"></p>
-        </div>
-        <div class="signin clearfix" ng-show="!isSignin">
-          <a ng-href="http://duoshuo.com/login?redirect_uri={{location.$$absUrl}}" class="signin-btn btn btn-default">登录</a>
+      </nav>
+      <div class="container">
+        <div class="logo">
+          <h1><a ui-sref="index" ng-bind="configs.name"></a></h1>
         </div>
       </div>
-    </div>
+    </header>
+    <section id="content" class="content">
+      <div ui-view>
+        <div class="loading container">loading...</div>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        &copy; 2014 powered by <a href="http://github.com/turingou/airpub">airpub</a>
+      </div>
+    </footer>
     <div class="alert-module">
       <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" ng-bind="alert.msg"></alert>
     </div>

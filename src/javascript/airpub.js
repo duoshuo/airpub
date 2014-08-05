@@ -3,14 +3,13 @@ var airpub = angular.module('airpub', [
   'ui.bootstrap',
   'ui.router',
   'duoshuo',
-  'snap',
   'upyun'
 ]);
 
 // angular plugins configs
-airpub.config(function($stateProvider, $urlRouterProvider, snapRemoteProvider) {
+airpub.config(function($stateProvider, $urlRouterProvider) {
   // ui configs
-  snapRemoteProvider.globalOptions.disable = 'right';
+  // snapRemoteProvider.globalOptions.disable = 'right';
   // routes configs
   $urlRouterProvider.otherwise("/404");
   $stateProvider

@@ -6,9 +6,9 @@
   "author": "turing <o.u.turing@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "serve": "./node_modules/.bin/serve --no-less .",
-    "less": "./node_modules/.bin/lessc ./src/less/style.less ./dist/css/style.css",
-    "watch": "./node_modules/.bin/rewatch ./src/less/*.less -c 'npm run less'",
+    "serve": "node_modules/.bin/serve --no-less .",
+    "less": "node_modules/.bin/lessc -x src/less/style.less dist/css/style.css",
+    "watch": "node_modules/.bin/rewatch src/less/*.less -c 'npm run less'",
     "dev": "npm run watch & npm run serve",
     "start": "npm run dev"
   },

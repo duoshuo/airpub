@@ -19,7 +19,7 @@ airpub.controller('admin', function($scope, $state, $upyun, $duoshuo, $location)
       thread_key: thread_key,
       url: baseUri + '/#/article/' + thread_key,
     }, function(err, result) {
-      if (err) return $scope.addAlert('danger','发布失败...');
+      if (err) return $scope.addAlert('发布失败...', 'danger');
       console.log(result);
       alert('发布成功');
     });

@@ -36,5 +36,4 @@ airpub.controller('base', function($scope, $state, $timeout, $location, $duoshuo
   function closeAlert(index) {
     $scope.alerts.splice(index, 1);
   }
-
 });

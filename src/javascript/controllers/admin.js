@@ -4,9 +4,8 @@ airpub.controller('admin', function($scope, $state, $upyun, $duoshuo, $location)
   console.log($location);
   var baseUri = $scope.configs.url || $location.host();
   // todo: error handler
-  $duoshuo.get('sites/membership', {}, function(data){
-    var isOk = data.code === 0;
-    if (!isOk || data.response.role !== 'administrator')
+  $duoshuo.get('sites/membership', {}, function(err, result){
+    if (err || result.role !== 'administrator')
       return $state.go('404');
     $scope.isAdmin = true;
   });
@@ -18,11 +17,10 @@ airpub.controller('admin', function($scope, $state, $upyun, $duoshuo, $location)
       title: $scope.article.title,
       content: $scope.article.content,
       thread_key: thread_key,
-      url: baseUri + '/article/' + thread_key,
-    }, function(data) {
-      console.log(data);
-      var isOk = data.code === 0;
-      if (!isOk) alert('发布失败') // todo: emit ui alert
+      url: baseUri + '/#/article/' + thread_key,
+    }, function(err, result) {
+      if (err) return $scope.addAlert('danger','发布失败...');
+      console.log(result);
       alert('发布成功');
     });
   };

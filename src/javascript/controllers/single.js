@@ -7,5 +7,6 @@ airpub.controller('single', function($scope, $state, $duoshuo) {
   }, function(err, result) {
     if (err) return $scope.addAlert('信息获取失败','danger');
     $scope.article = result;
+    console.log(result);
   });
 });

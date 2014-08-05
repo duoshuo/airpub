@@ -8,6 +8,10 @@ airpub.controller('admin', function($scope, $state, $upyun, $duoshuo, $location)
     if (err || result.role !== 'administrator')
       return $state.go('404');
     $scope.isAdmin = true;
+  }, function(err){
+    // error callback
+    console.log(err);
+    $scope.addAlert(err.errorMessage, 'danger');
   });
   $scope.createArticle = function() {
     if (!$scope.isAdmin) return false;
@@ -20,8 +24,9 @@ airpub.controller('admin', function($scope, $state, $upyun, $duoshuo, $location)
       url: baseUri + '/#/article/' + thread_key,
     }, function(err, result) {
       if (err) return $scope.addAlert('发布失败...', 'danger');
+      $scope.addAlert('发布成功');
+      $location.path('/#/article/' + thread_key);
       console.log(result);
-      alert('发布成功');
     });
   };
 });

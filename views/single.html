@@ -1,6 +1,14 @@
 <div id="article" class="single clearfix">
-  <div class="article container">
-    <h3 class="title" ng-bind="article.title"></h3>
-    <div class="content" ng-bind-html="article.content | marked"></div>
+  <div class="article">    
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <section class="title-section">
+            <h2 class="title" ng-bind="article.title"></h2>
+          </section>
+        </div>
+      </div>
+    </div>
+    <section class="content" ng-bind-html="article.content | marked"></section>
   </div>
 </div>

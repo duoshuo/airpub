@@ -16,7 +16,6 @@ airpub.controller('archive', function($scope, $state, $duoshuo) {
 
   function fetchThreads(options) {
     options.limit = 10;
-    options.with_content = 1;
     $duoshuo.get('threads/list', options, function(err, result, res) {
       if (err) 
         return $scope.addAlert('获取信息失败，请重试', 'danger');

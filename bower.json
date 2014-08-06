@@ -31,6 +31,7 @@
     "upyun": "~0.2.1",
     "duoshuo": "~0.3.0",
     "node-uuid": "~1.4.1",
-    "marked": "~0.3.2"
+    "marked": "~0.3.2",
+    "highlightjs": "~8.0.0"
   }
 }

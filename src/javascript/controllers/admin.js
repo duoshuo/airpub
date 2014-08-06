@@ -7,19 +7,22 @@ airpub.controller('admin', function($scope, $state, $upyun, $duoshuo, $location)
   $duoshuo.get('sites/membership', {}, function(err, result){
     if (err || result.role !== 'administrator')
       return $state.go('404');
-    // showing the page
-    $scope.isAdmin = true;
     // if status is `update`, fetch data
     if ($state.current.name === 'update' && $state.params.uri) {
       // fetch article details
       $duoshuo.get('threads/details', {
         thread_id: $state.params.uri
       }, function(err, result) {
+        // showing the page
+        $scope.isAdmin = true;
         if (err) 
           return $scope.addAlert('文章内容获取失败，请稍后再试...','danger');
         $scope.article = result;
       });
+      return;
     }
+    // showing the page
+    $scope.isAdmin = true;
   }, function(err){
     // error callback
     $scope.addAlert(err.errorMessage, 'danger');
@@ -39,7 +42,6 @@ airpub.controller('admin', function($scope, $state, $upyun, $duoshuo, $location)
       if (err) return $scope.addAlert('发布失败...', 'danger');
       $scope.addAlert('发布成功');
       $location.path('/');
-      console.log(result);
     });
   };
 

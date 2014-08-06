@@ -25,7 +25,6 @@ airpub.controller('archive', function($scope, $state, $duoshuo) {
         return $state.go('404');
       $scope.articles = result || [];
       $scope.totalItems = res.cursor.total;
-      console.log(res)
       return;
     });
   }

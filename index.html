@@ -35,13 +35,16 @@
           </a>
           <!-- why this funcking `ng-cloak` does not work ??? -->
           <a id="signin-btn" ng-href="http://duoshuo.com/login?redirect_uri={{location.$$absUrl}}" ng-show="!user" ng-cloak>
-            <span class="glyphicon glyphicon-off"></span>
+            <span class='glyphicon glyphicon-off'></span>
           </a>
         </div>
       </nav>
       <div class="container">
         <div class="logo">
-          <h1><a ui-sref="index" ng-bind="configs.name"></a></h1>
+          <h1>
+            <a ui-sref="index" ng-bind="configs.name"></a>
+            <span class="description" ng-bind="configs.description"></span>
+          </h1>
         </div>
       </div>
     </header>

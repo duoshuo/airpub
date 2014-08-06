@@ -38,7 +38,7 @@ airpub.controller('admin', function($scope, $state, $upyun, $duoshuo, $location)
     }, function(err, result) {
       if (err) return $scope.addAlert('发布失败...', 'danger');
       $scope.addAlert('发布成功');
-      $location.path('/#/');
+      $location.path('/');
       console.log(result);
     });
   };

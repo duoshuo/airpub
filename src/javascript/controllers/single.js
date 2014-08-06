@@ -1,5 +1,5 @@
 // single article ctrler
-airpub.controller('single', function($scope, $state, $duoshuo) {
+airpub.controller('single', function($scope, $state, $duoshuo, $location) {
   var uri = $state.params.uri;
   if (!uri) return $state.go('404');
   // read from cache
@@ -23,13 +23,13 @@ airpub.controller('single', function($scope, $state, $duoshuo) {
 
   // remove article
   $scope.removeArticle = function(id) {
-    $duoshuo.post({
+    $duoshuo.post('threads/remove', {
       thread_id: id
     }, function(err, result) {
       if (err)
         return $scope.addAlert('删除失败，请稍后再试...', 'danger');
       $scope.addAlert('删除成功!');
-      console.log(result);
+      $location.path('/');
     });
   }
 });

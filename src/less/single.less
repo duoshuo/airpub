@@ -8,11 +8,24 @@
       color: #fff;
     }
   }
+  .author-section {
+    padding: 10px 0;
+    .mini-avatar {
+      width: 45px;
+      height: 45px;
+      margin-right: 10px;
+    }
+    span.pubdate {
+      font-size: 14px;
+      color: #999;
+    }
+  }
   .content {
     clear: both;
     font-size: 16px;
     p {
       font-size: 16px;
+      line-height: 1.8;
     }
     pre {
       display: block;
@@ -21,6 +34,34 @@
     }
     img {
       max-width: 100%;
+    }
+    h1,h2,h3,h4 {
+      font-weight: bold;
+    }
+    ol,ul {
+      padding-left: 20px;
+      font-size: 14px;
+      li {
+        padding-bottom: 5px;
+        // ugly hack !!
+        .col-lg-8 {
+          width: 100% !important;
+          margin-left: 0px !important;
+        }
+        .container, .row {
+          width: 100% !important;
+        }
+      }
+    }
+    blockquote {
+      font-weight: bold;
+      .container, .row {
+        width: 100% !important;
+      }
+      .col-lg-8 {
+        width: 100% !important;
+        margin-left: 0px !important;
+      }
     }
   }
   .code-section {
@@ -36,6 +77,25 @@
       margin-bottom: 0;
       background-color: transparent;
       font-size: 14px;
+    }
+  }
+  .author-section .options {
+    font-size: 12px;
+    padding-left: 10px;
+    a {
+      display: inline-block;
+      padding: 3px 6px;
+      background-color: #ddd;
+      color: #000;
+      margin-right: 8px;
+      border-radius: 3px;
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+        background-color: #000;
+        color: #fff;
+        cursor: pointer;
+      }
     }
   }
 }

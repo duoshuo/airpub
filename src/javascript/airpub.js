@@ -32,8 +32,13 @@ airpub.config(function($stateProvider, $urlRouterProvider) {
       url: "/404",
       templateUrl: "views/404.html"
     })
-    .state('admin', {
-      url: "/admin",
+    .state('create', {
+      url: "/create",
+      templateUrl: "views/admin.html",
+      controller: 'admin'
+    })
+    .state('update', {
+      url: "/article/:uri/update",
       templateUrl: "views/admin.html",
       controller: 'admin'
     })

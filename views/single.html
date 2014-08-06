@@ -9,6 +9,23 @@
         </div>
       </div>
     </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <section class="author-section" ng-show="author" ng-cloak>
+            <a ng-href="author.url">
+              <img ng-src="{{author.avatar_url}}" class="img-circle mini-avatar" alt="{{author.name}}">
+            </a>
+            <span class="author-name" ng-bind="author.name"></span>
+            <span class="pubdate" ng-bind="article.created_at | date: 'yyyy/MM/dd h:mma'"></span>
+            <span class="options" ng-show="user.user_id === author.user_id" ng-cloak>
+              <a class="edit option" ui-sref="update({uri: article.thread_id})">编辑</a>
+              <a class="remove option" ng-click="removeArticle(article.thread_id)">删除</a>
+            </span>
+          </section>
+        </div>
+      </div>
+    </div>
     <section class="content" ng-bind-html="article.content | marked"></section>
   </div>
 </div>

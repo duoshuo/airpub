@@ -7,7 +7,7 @@
 </div>
 
 <div class="pager-module" ng-show="articles.length > 0" ng-cloak>
-  <pager total-items="totalItems" ng-model="currentPage"></pager>
+  <pager previous-text="前几篇" mext-text="后几篇" total-items="totalItems" ng-model="currentPage" items-per-page="itemsPerPage"></pager>
 </div>
 
 <div class="loading container" ng-hide="articles.length >= 0">loading...</div>

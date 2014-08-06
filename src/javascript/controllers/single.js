@@ -5,8 +5,7 @@ airpub.controller('single', function($scope, $state, $duoshuo) {
   $duoshuo.get('threads/details', {
     thread_id: uri
   }, function(err, result) {
-    if (err) return $scope.addAlert('信息获取失败','danger');
+    if (err) return $scope.addAlert('文章内容获取失败，请稍后再试...','danger');
     $scope.article = result;
-    // console.log(result);
   });
 });

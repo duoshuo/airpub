@@ -31,13 +31,12 @@ airpub.controller('admin', function($scope, $state, $upyun, $duoshuo, $location)
   // create article handler
   $scope.createArticle = function() {
     if (!$scope.isAdmin) return false;
-    var thread_key = uuid.v1();
     $duoshuo.post('threads/create',{
       format: 'markdown',
       title: $scope.article.title,
       content: $scope.article.content,
-      thread_key: thread_key,
-      url: baseUri + '/#/article/' + thread_key,
+      // url: baseUri + '/#/article/' + thread_key,
+      // 'meta[cover]': 'http://metaCoverUri.jpg'
     }, function(err, result) {
       if (err) return $scope.addAlert('发布失败...', 'danger');
       $scope.addAlert('发布成功');

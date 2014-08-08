@@ -44,14 +44,14 @@ airpub.controller('admin', function($scope, $state, $upyun, $duoshuo, $location)
     $duoshuo.post('threads/create', baby, function(err, result) {
       if (err) return $scope.addAlert('发布失败...', 'danger');
       $scope.addAlert('发布成功');
-      console.log(result);
-      return;
       // update uri 
       // todo: merge this function to `updateArticle`
       $duoshuo.post('threads/update', {
         thread_id: result.thread_id,
-        url: '/#/article/' + result.thread_id
+        url: baseUri + '/#/article/' + result.thread_id
       }, function(err, result) {
+        console.log(result);
+        return;
         $location.path('/');
       });
     });

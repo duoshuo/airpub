@@ -28,25 +28,38 @@ airpub.controller('admin', function($scope, $state, $upyun, $duoshuo, $location)
     $scope.addAlert(err.errorMessage, 'danger');
   });
 
-  // create article handler
+  // create new article
   $scope.createArticle = function() {
     if (!$scope.isAdmin) return false;
-    $duoshuo.post('threads/create',{
-      format: 'markdown',
-      title: $scope.article.title,
-      content: $scope.article.content,
-      // url: baseUri + '/#/article/' + thread_key,
-      // 'meta[cover]': 'http://metaCoverUri.jpg'
-    }, function(err, result) {
+    var baby = {};
+    baby.format = 'markdown';
+    baby.title = $scope.article.title;
+    baby.content = $scope.article.content;
+    if ($scope.article.meta) {
+      angular.forEach($scope.article.meta, function(v, k){
+        baby['meta[' + k + ']'] = v;
+      });
+    }
+    $duoshuo.post('threads/create', baby, function(err, result) {
       if (err) return $scope.addAlert('发布失败...', 'danger');
       $scope.addAlert('发布成功');
-      $location.path('/');
+      console.log(result);
+      return;
+      // update uri 
+      // todo: merge this function to `updateArticle`
+      $duoshuo.post('threads/update', {
+        thread_id: result.thread_id,
+        url: '/#/article/' + result.thread_id
+      }, function(err, result) {
+        $location.path('/');
+      });
     });
   };
 
-  // update article handler
+  // update exist article
   $scope.updateArticle = function(id) {
     if (!id) return $scope.createArticle();
+    // todo: missing update meta infomation
     $duoshuo.post('threads/update', {
       thread_id: id,
       title: $scope.article.title,

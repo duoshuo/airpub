@@ -28,6 +28,7 @@
     "bootstrap": "~3.2.0",
     "angular-snap": "~1.5.4",
     "nprogress": "~0.1.6",
+    "node-uuid": "~1.4.1",
     "upyun": "~0.2.1",
     "duoshuo": "~0.3.0",
     "marked": "~0.3.2",

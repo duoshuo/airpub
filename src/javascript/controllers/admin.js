@@ -35,6 +35,7 @@ airpub.controller('admin', function($scope, $state, $upyun, $duoshuo, $location)
     baby.format = 'markdown';
     baby.title = $scope.article.title;
     baby.content = $scope.article.content;
+    baby.thread_key = uuid.v1();
     if ($scope.article.meta) {
       angular.forEach($scope.article.meta, function(v, k){
         baby['meta[' + k + ']'] = v;

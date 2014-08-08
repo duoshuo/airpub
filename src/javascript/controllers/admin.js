@@ -50,8 +50,7 @@ airpub.controller('admin', function($scope, $state, $upyun, $duoshuo, $location)
         thread_id: result.thread_id,
         url: baseUri + '/#/article/' + result.thread_id
       }, function(err, result) {
-        console.log(result);
-        return;
+        if (err) console.log(err); // ignore error for temp
         $location.path('/');
       });
     });

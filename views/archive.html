@@ -8,7 +8,7 @@
 
 <div class="pager-module" ng-show="totalItems > itemsPerPage" ng-cloak>
   <div class="container">
-    <pager previous-text="前几篇" next-text="后几篇" total-items="totalItems" ng-model="currentPage" items-per-page="itemsPerPage"></pager>
+    <pager previous-text="前几篇" next-text="后几篇" total-items="totalItems" ng-model="currentPage" items-per-page="itemsPerPage" ng-change="pageChanged()"></pager>
   </div>
 </div>
 

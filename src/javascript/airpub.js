@@ -23,6 +23,11 @@ airpub.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: "views/archive.html",
       controller: 'archive'
     })
+    .state('pager', {
+      url: "/page/:page",
+      templateUrl: "views/archive.html",
+      controller: 'archive'
+    })
     .state('single', {
       url: "/article/:uri",
       templateUrl: "views/single.html",

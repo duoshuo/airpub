@@ -10,14 +10,13 @@ Airpub 是基于 Angular.js 搭建，[多说](http://duoshuo.com) 数据驱动�
 已实现或基本实现的特色：
 
 - 支持 markdown 写作
-- 支持图片上传
+- 支持表单图片上传
 - 支持插入代码以及代码高亮
 - 支持社交网络账户登录
-- 便于二次开发的元数据
 
 即将实现或计划中的功能：
 
-- 对二次开发友好的文章挂件系统
+- 基于 Angular directive 规范的插件模式
 - 从 WordPress 站点中一键迁移数据与评论
 - 基于 Airpub 的多 编辑/作者 实现
 
@@ -54,7 +53,7 @@ $ npm run dev
 
 命令 `$ npm run dev` 将再 `localhost:3000` 运行一个静态资源服务器，需要确保这个端口没有被占用。
 
-### Contributing
+### 贡献代码
 ---
 
 - Fork this repo

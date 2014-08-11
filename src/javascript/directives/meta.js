@@ -1,6 +1,6 @@
-airpub.directive('editor', function($upyun) {
+airpub.directive('meta', function($upyun, $timeout) {
   return {
-    restrict: 'A',
+    restrict: 'AE',
     require: 'ngModel',
     link: function(scope, iElement, iAttrs, ctrl) {
       var $ = angular.element;

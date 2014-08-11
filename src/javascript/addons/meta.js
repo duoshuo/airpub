@@ -1,4 +1,4 @@
-airpub.directive('meta', function($upyun, $timeout) {
+airpub.directive('meta', function($upyun) {
   return {
     restrict: 'AE',
     require: 'ngModel',

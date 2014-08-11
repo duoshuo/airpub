@@ -4,6 +4,7 @@ airpub.directive('editor', function($upyun) {
     require: 'ngModel',
     link: function(scope, iElement, iAttrs, ctrl) {
       var $ = angular.element;
+      var validUploadConfigs = $upyun && (airpubConfigs.upyun || airpubConfigs.qiniu);
       // add class
       $(iElement).addClass('editor');
       // check if lepture's editor class exists
@@ -28,8 +29,10 @@ airpub.directive('editor', function($upyun) {
       editor.codemirror.on('change', onChange);
 
       // upyun configs
-      $upyun.set('bucket','upyun-form');
-      $upyun.set('form_api_secret', 'IRoTyNc75husfQD24cq0bNmRSDI=');
+      if (validUploadConfigs) {
+        $upyun.set('bucket', airpubConfigs.upyun.bucket);
+        $upyun.set('form_api_secret', airpubConfigs.upyun.form_api_secret);
+      }
 
       // model => view
       ctrl.$render = function() {
@@ -49,7 +52,7 @@ airpub.directive('editor', function($upyun) {
         var uploading = false;
         var cm = editor.codemirror;
         var stat = editor.getState(cm);
-        if (!$upyun) {
+        if (!validUploadConfigs) {
           return editor._replaceSelection(cm, stat.image, 
             '![', '](http://)' // uri to be filled.
           );

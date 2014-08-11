@@ -4,29 +4,7 @@ airpub.directive('meta', function($upyun) {
     require: 'ngModel',
     link: function(scope, iElement, iAttrs, ctrl) {
       var $ = angular.element;
-      // add class
-      $(iElement).addClass('editor');
-      // check if lepture's editor class exists
-      if (!window.Editor) return false;
-      // init editor instance
-      window.editor = new Editor({
-        toolbar: [
-          {name: 'bold', action: Editor.toggleBold},
-          {name: 'italic', action: Editor.toggleItalic},
-          '|',
-          {name: 'quote', action: Editor.toggleBlockquote},
-          {name: 'unordered-list', action: Editor.toggleUnOrderedList},
-          {name: 'ordered-list', action: Editor.toggleOrderedList},
-          '|',
-          {name: 'link', action: Editor.drawLink},
-          {name: 'image', action: Editor.drawImage},
-          {name: 'upload', action: uploadAndDrawImage},
-          {name: 'fullscreen', action: Editor.toggleFullScreen}
-        ]
-      });
-      editor.render();
-      editor.codemirror.on('change', onChange);
-
+      
       // upyun configs
       $upyun.set('bucket','upyun-form');
       $upyun.set('form_api_secret', 'IRoTyNc75husfQD24cq0bNmRSDI=');

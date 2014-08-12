@@ -7,7 +7,8 @@ airpub.controller('archive', function($scope, $state, $duoshuo) {
   // read fresh  
   $duoshuo.get('threads/list', {
     page: $scope.currentPage,
-    limit: $scope.itemsPerPage
+    limit: $scope.itemsPerPage,
+    with_content: 1
   }, function(err, result, res) {
     if (err)
       return $scope.addAlert('获取信息失败，请重试', 'danger');
@@ -21,14 +22,13 @@ airpub.controller('archive', function($scope, $state, $duoshuo) {
   // why the fucking event was trigged twice and return `1` the second time ?!
   $scope.pageChanged = function() {
     console.log($scope.currentPage);
-    // $state.go('pager', {
-    //   page: $scope.currentPage
-    // });
+    $state.go('pager', {
+      page: $scope.currentPage
+    });
   };
   function parseNumber(str) {
-    if (str && !isNaN(parseInt(str))) {
+    if (str && !isNaN(parseInt(str))) 
       return parseInt(str);
-    }
     return false;
   }
 });

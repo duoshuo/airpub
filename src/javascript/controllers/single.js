@@ -12,6 +12,9 @@ airpub.controller('single', function($scope, $state, $duoshuo) {
     if (err) 
       return $scope.addAlert('文章内容获取失败，请稍后再试...','danger');
     $scope.article = result;
+    if (result.meta && result.meta.background) {
+      $scope.updateBackground(result.meta.background);
+    }
     if (!result.author_id) return;
     // fetch authors' profile
     $duoshuo.get('users/profile', {

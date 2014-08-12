@@ -9,6 +9,9 @@ airpub.controller('base', function($scope, $state, $timeout, $location, $duoshuo
   $scope.addAlert = addAlert;
   $scope.closeAlert = closeAlert;
 
+  // update header backgroud
+  $scope.updateBackground = updateBackground;
+
   // signin status check
   $duoshuo.on('ready', function(err, data) {
     var isVisitor = (data.user_id === 0);
@@ -32,5 +35,15 @@ airpub.controller('base', function($scope, $state, $timeout, $location, $duoshuo
 
   function closeAlert(index) {
     $scope.alerts.splice(index, 1);
+  }
+
+  function updateBackground(uri) {
+    if (!uri) return;
+    if (uri.indexOf('http') !== 0) return;
+    var hd = document.getElementsByTagName('header')[0];
+    if (!hd) return;
+    angular.element(hd).css({
+      'background-image': 'url(' + uri + ')'
+    });
   }
 });

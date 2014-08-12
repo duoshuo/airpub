@@ -1,7 +1,11 @@
 <div id="articles" class="archive articles clearfix">
   <div class="article" ng-repeat="article in articles" ng-hide="article.title == ''">
     <h3 class="title container">
-      <a ui-sref="single({uri: article.thread_id })" ng-bind="article.title"></a>
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <a ui-sref="single({uri: article.thread_id })" ng-bind="article.title"></a>
+        </div>
+      </div>
     </h3>
   </div>
 </div>

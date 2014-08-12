@@ -10,13 +10,13 @@
           <div class="editor-wrapper">
             <textarea editor ng-model="article.content"></textarea>
             <button class="submit btn" type="submit">写好了</button>
-            <a class="remove btn btn-danger" ng-click="removeArticle(article.thread_id)">删除这篇文章</a>
+            <a class="remove btn btn-danger" ng-show="article.thread_id" ng-click="removeArticle(article.thread_id)" ng-cloak>删除这篇文章</a>
           </div>
         </form>
       </div>
       <!-- add-on directives -->
       <div class="col-lg-8 col-lg-offset-2">
-        <div id="add-on" class="add-on">
+        <div id="add-ons" class="add-ons">
           <div meta-background ng-model="article.meta.background"></div>
         </div>
       </div>

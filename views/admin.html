@@ -10,6 +10,7 @@
           <div class="editor-wrapper">
             <textarea editor ng-model="article.content"></textarea>
             <button class="submit btn" type="submit">写好了</button>
+            <a class="remove btn btn-danger" ng-click="removeArticle(article.thread_id)">删除这篇文章</a>
           </div>
         </form>
       </div>

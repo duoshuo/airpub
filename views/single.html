@@ -8,9 +8,8 @@
             <h2 class="title">
               <span class="title-entry" ng-bind="article.title"></span>
               <!-- admin options -->
-              <span class="options" ng-show="user.user_id === author.user_id" ng-cloak>
+              <span class="options" ng-show="article.title && (user.user_id === author.user_id)" ng-cloak>
                 <a class="edit option" ui-sref="update({uri: article.thread_id})">编辑</a>
-                <a class="remove option" ng-click="removeArticle(article.thread_id)">删除</a>
               </span>
               <span class="pubdate" ng-bind="article.created_at | date: 'yyyy/MM/dd h:mma'"></span>
             </h2>

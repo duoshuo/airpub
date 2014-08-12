@@ -6,13 +6,20 @@
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
             <h2 class="title">
-              <span class="title-entry" ng-bind="article.title"></span>
-              <!-- admin options -->
-              <span class="options" ng-show="article.title && (user.user_id === author.user_id)" ng-cloak>
-                <a class="edit option" ui-sref="update({uri: article.thread_id})">编辑</a>
-              </span>
-              <span class="pubdate" ng-bind="article.created_at | date: 'yyyy/MM/dd h:mma'"></span>
+              <span class="title-entry" ng-bind="article.title"></span>              
             </h2>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="meta-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <span class="pubdate" ng-bind="article.created_at | date: 'yyyy/MM/dd h:mma'"></span>
+            <span class="options" ng-show="article.title && (user.user_id === author.user_id)" ng-cloak>
+              <a class="edit option" ui-sref="update({uri: article.thread_id})">编辑</a>
+            </span>
           </div>
         </div>
       </div>

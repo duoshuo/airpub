@@ -67,11 +67,16 @@ airpub.controller('admin', function($scope, $state, $upyun, $duoshuo, $location)
     if (!id) return $scope.createArticle();
     if (!$scope.isAdmin) return false;
     // todo: missing update meta infomation
-    $duoshuo.post('threads/update', {
-      thread_id: id,
-      title: $scope.article.title,
-      content: $scope.article.content,
-    }, function(err, result) {
+    var baby = {};
+    baby.thread_id = id;
+    baby.title = $scope.article.title;
+    baby.content = $scope.article.content;
+    if ($scope.article.meta) {
+      angular.forEach($scope.article.meta, function(v, k){
+        baby['meta[' + k + ']'] = v;
+      });
+    }
+    $duoshuo.post('threads/update', baby, function(err, result) {
       if (err)
         return $scope.addAlert('更新失败，请稍后再试...','danger');
       $scope.addAlert('更新成功!');

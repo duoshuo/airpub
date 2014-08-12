@@ -1,6 +1,39 @@
 .meta-background {
   margin: 20px 0;
-  padding: 20px;
-  border: 2px solid #ddd;
   border-radius: 3px;
+  background-color: #BDC3C7;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 60px;
+  color: #fff;
+  .hidden-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    left: 0px;
+    top: 0px;
+    z-index: 99;
+    cursor: pointer;
+  }
+  .upload-background-btn {
+    box-shadow: none;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    position: absolute;
+    z-index: 98;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &:hover {
+    background-color: #7F8C8D;
+    cursor: pointer;
+  }
 }

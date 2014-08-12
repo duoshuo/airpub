@@ -37,7 +37,7 @@ $ bower install
 ```
 依赖安装完成后，即可访问你的站点，开始 Airpub 简洁流畅的书写体验。
 
-*** 提示 ***: 如您的多说 `short_name` 之前有在任何服务中使用过，请申请全新的多说站点以获得不同的 `short_name`，我们推荐你采用这样的方式来管理自己不同的多说站点之间的关系，例如 `myname-wordpress` 和 `myname-airpub`。
+**提示**: 如您的多说 `short_name` 之前有在任何服务中使用过，请申请全新的多说站点以获得不同的 `short_name`，我们推荐你采用这样的方式来管理自己不同的多说站点之间的关系，例如 `myname-wordpress` 和 `myname-airpub`。
 
 ### 开发指南
 ---

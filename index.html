@@ -33,7 +33,7 @@
           <a ui-sref="create" class="avatar" ng-show="user" ng-cloak>
             <img ng-src="{{user.avatar_url}}" alt="{{user.name}}" class="img-circle"/>
           </a>
-          <!-- why this funcking `ng-cloak` does not work ??? -->
+          <!-- why this funcking `ng-cloak` does not work ?! -->
           <a id="signin-btn" ng-href="http://duoshuo.com/login?redirect_uri={{location.$$absUrl}}" ng-show="!user" ng-cloak>
             <span class='glyphicon glyphicon-off'></span>
           </a>

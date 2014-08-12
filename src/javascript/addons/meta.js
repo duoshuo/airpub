@@ -7,11 +7,11 @@ airpub.directive('metaBackground', function($upyun) {
     replace: true,
     template: [
       '<div id="metaBackground" class="meta-background clearfix">',
-        '<form name="metaBackgroundForm" ng-submit="uploadBackground()">',
-          '<input type="file" name="file" id="uploadBackgroundBtn" class="pull-left"/>',
-          '<button type="submit" class="btn btn-default pull-right">',
-          '上传背景图片',
-          '</button>',
+        '<form name="metaBackgroundForm">',
+          '<input type="file" name="file" id="uploadBackgroundBtn" class="pull-left hidden-input"/>',
+          '<span class="upload-background-btn glyphicon glyphicon-cloud-upload">',
+            '上传背景图片',
+          '</span>',
         '</form>',
       '</div>'
     ].join('\n'),
@@ -23,13 +23,16 @@ airpub.directive('metaBackground', function($upyun) {
       $upyun.set('bucket', airpubConfigs.upyun.bucket);
       $upyun.set('form_api_secret', airpubConfigs.upyun.form_api_secret);
 
+      var inputButton = document.getElementById('uploadBackgroundBtn');
+      $(inputButton).on('change', bindUpload);
+
       // model => view
       ctrl.$render = function() {
         fillBackgroundImage(ctrl.$viewValue);
       };
 
       // upload images and fill uri
-      scope.uploadBackground = function() {
+      function bindUpload(eve) {
         // begin upload
         if (uploading) return;
         uploading = true;
@@ -49,10 +52,12 @@ airpub.directive('metaBackground', function($upyun) {
         if (!uri) return;
         if (uri.indexOf('http') !== 0) return;
         var hd = document.getElementsByTagName('header')[0];
+        var self = document.getElementById('metaBackground');
         if (!hd) return;
-        $(hd).css({
-          'background-image': 'url(' + uri + ')'
-        });
+        var style = {};
+        style['background-image'] = 'url(' + uri + ')';
+        $(hd).css(style);
+        $(self).css(style);
       }
     }
   }

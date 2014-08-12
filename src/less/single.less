@@ -1,27 +1,28 @@
 .single {
   .title-section {
-    margin-top: -100px;
+    margin-top: -110px;
+    @media @mobile {
+      margin-top: -100px;
+    }
     .title {
       font-size: 32px;
       margin-bottom: 20px;
       font-weight: bold;
       color: #fff;
+      @media @mobile {
+        font-size: 28px;
+      }
     }
-    .pubdate {
-      font-size: 14px;
-      color: #efefef;
-      float: right;
-      margin-top: 20px;
-      font-weight: normal;
-    }
+  }
+  .meta-section {
     .options {
       font-size: 12px;
       padding-left: 10px;
       a {
+        font-weight: normal;
         display: inline-block;
         padding: 3px 6px;
-        background-color: #ddd;
-        color: #000;
+        color: #999;
         margin-right: 8px;
         border-radius: 3px;
         text-decoration: none;
@@ -31,6 +32,15 @@
           color: #fff;
           cursor: pointer;
         }
+      }
+    }
+    .pubdate {
+      font-size: 14px;
+      color: #999;
+      font-weight: normal;
+      @media @mobile {
+        float: none;
+        margin-top: 10px;
       }
     }
   }
@@ -62,7 +72,7 @@
   .content {
     clear: both;
     font-size: 16px;
-    padding-top: 20px;
+    padding-top: 40px;
     p {
       font-size: 16px;
       line-height: 1.8;

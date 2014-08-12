@@ -1,28 +1,68 @@
 .single {
   .title-section {
-    margin-top: -80px;
+    margin-top: -100px;
     .title {
       font-size: 32px;
       margin-bottom: 20px;
       font-weight: bold;
       color: #fff;
     }
+    .pubdate {
+      font-size: 14px;
+      color: #efefef;
+      float: right;
+      margin-top: 20px;
+      font-weight: normal;
+    }
+    .options {
+      font-size: 12px;
+      padding-left: 10px;
+      a {
+        display: inline-block;
+        padding: 3px 6px;
+        background-color: #ddd;
+        color: #000;
+        margin-right: 8px;
+        border-radius: 3px;
+        text-decoration: none;
+        &:hover {
+          text-decoration: none;
+          background-color: #000;
+          color: #fff;
+          cursor: pointer;
+        }
+      }
+    }
   }
   .author-section {
-    padding: 10px 0 30px;
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+    padding: 20px 0 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    .author-avatar {
+      display: block;
+    }
     .mini-avatar {
       width: 45px;
       height: 45px;
-      margin-right: 10px;
+      float: right;
     }
-    span.pubdate {
-      font-size: 14px;
+    .author-name {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0px;
+    }
+    .author-description {
+      font-size: 12px;
       color: #999;
+      margin-bottom: 0px;
     }
   }
   .content {
     clear: both;
     font-size: 16px;
+    padding-top: 20px;
     p {
       font-size: 16px;
       line-height: 1.8;
@@ -80,23 +120,11 @@
       font-size: 14px;
     }
   }
-  .author-section .options {
-    font-size: 12px;
-    padding-left: 10px;
-    a {
-      display: inline-block;
-      padding: 3px 6px;
-      background-color: #ddd;
-      color: #000;
-      margin-right: 8px;
-      border-radius: 3px;
-      text-decoration: none;
-      &:hover {
-        text-decoration: none;
-        background-color: #000;
-        color: #fff;
-        cursor: pointer;
-      }
+  .comments-section {
+    .ds-post-self {
+      padding: 0px !important;
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
     }
   }
 }

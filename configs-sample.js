@@ -1,10 +1,10 @@
 var airpubConfigs = {
   // blog name
-  name: 'just another Airpub blog',
-  // for backend service
-  duoshuo: {
-    short_name: 'myDuoshuoShortname'
-  },
+  name: 'Airpub',
+  // just a little description
+  description: '轻如蝉翼的写作工具',
+  // blog uri
+  url: 'http://yourUri.com',
   // for images upload
   upyun: {
     bucket: 'mybucket',
@@ -13,3 +13,8 @@ var airpubConfigs = {
     form_api_secret: 'xxxxxx'
   }
 }
+
+// for backend service
+var duoshuoQuery = {
+  short_name: 'myDuoshuoShortname'
+};

@@ -2,7 +2,6 @@
 airpub.controller('archive', function($scope, $state, $duoshuo) {
   $scope.itemsPerPage = 10;
   $scope.currentPage = parseNumber($state.params.page) || 1;
-  console.log($scope.currentPage);
   // read from cache
   if ($scope.articles && $scope.articles.length > 0) return;
   // read fresh  

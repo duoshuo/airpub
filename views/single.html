@@ -1,31 +1,53 @@
 <div id="article" class="single clearfix">
   <div class="article">    
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-          <section class="title-section">
-            <h2 class="title" ng-bind="article.title"></h2>
-          </section>
+    <!-- title section -->
+    <section class="title-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <h2 class="title">
+              <span class="title-entry" ng-bind="article.title"></span>
+              <!-- admin options -->
+              <span class="options" ng-show="user.user_id === author.user_id" ng-cloak>
+                <a class="edit option" ui-sref="update({uri: article.thread_id})">编辑</a>
+                <a class="remove option" ng-click="removeArticle(article.thread_id)">删除</a>
+              </span>
+              <span class="pubdate" ng-bind="article.created_at | date: 'yyyy/MM/dd h:mma'"></span>
+            </h2>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-          <section class="author-section" ng-show="author" ng-cloak>
-            <a ng-href="author.url">
-              <img ng-src="{{author.avatar_url}}" class="img-circle mini-avatar" alt="{{author.name}}">
-            </a>
-            <span class="author-name" ng-bind="author.name"></span>
-            <span class="pubdate" ng-bind="article.created_at | date: 'yyyy/MM/dd h:mma'"></span>
-            <span class="options" ng-show="user.user_id === author.user_id" ng-cloak>
-              <a class="edit option" ui-sref="update({uri: article.thread_id})">编辑</a>
-              <a class="remove option" ng-click="removeArticle(article.thread_id)">删除</a>
-            </span>
-          </section>
-        </div>
-      </div>
-    </div>
+    </section>
+    <!-- article section -->
     <section class="content" ng-bind-html="article.content | marked"></section>
+    <!-- author section -->
+    <section class="author-section" ng-show="author" ng-cloak>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 clearfix">
+            <div class="row">
+              <a ng-href="{{author.url}}" class="author-avatar col-lg-2">
+                <img ng-src="{{author.avatar_url}}" class="img-circle mini-avatar" alt="{{author.name}}">
+              </a>
+              <!-- author meta -->
+              <div class="author-meta col-lg-10">
+                <p class="author-name" ng-bind="author.name"></p>
+                <p class="author-description" ng-bind="author.description"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- comments section -->
+    <section id="comments" class="comments-section" ng-show="article.title" ng-cloak>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 clearfix">
+            <div duoshuo data-thread-id="{{articleID}}"></div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </div>

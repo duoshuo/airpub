@@ -33,10 +33,6 @@ airpub.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: "views/single.html",
       controller: 'single'
     })
-    .state('404', {
-      url: "/404",
-      templateUrl: "views/404.html"
-    })
     .state('create', {
       url: "/create",
       templateUrl: "views/admin.html",
@@ -46,5 +42,9 @@ airpub.config(function($stateProvider, $urlRouterProvider) {
       url: "/article/:uri/update",
       templateUrl: "views/admin.html",
       controller: 'admin'
+    })
+    .state('404', {
+      url: "/404",
+      templateUrl: "views/404.html"
     })
 });

@@ -1,6 +1,6 @@
 // archive ctrler
 airpub.controller('archive', function($scope, $state, $duoshuo) {
-  $scope.itemsPerPage = 10;
+  $scope.itemsPerPage = 1;
   $scope.currentPage = parseNumber($state.params.page) || 1;
   // read from cache
   if ($scope.articles && $scope.articles.length > 0) return;
@@ -22,6 +22,7 @@ airpub.controller('archive', function($scope, $state, $duoshuo) {
   // why the fucking event was trigged twice and return `1` the second time ?!
   $scope.pageChanged = function() {
     console.log($scope.currentPage);
+    if ($state.params.page) return;
     $state.go('pager', {
       page: $scope.currentPage
     });

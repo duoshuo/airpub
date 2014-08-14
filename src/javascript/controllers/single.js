@@ -26,5 +26,7 @@ airpub.controller('single', function($scope, $state, $duoshuo) {
         result.connected_services.weibo.description : 
         null;
     })
+  }, function(err) {
+    return $state.go('404');
   });
 });

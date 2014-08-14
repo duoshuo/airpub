@@ -1,5 +1,5 @@
 <div id="articles" class="archive articles clearfix">
-  <div class="article" ng-repeat="article in articles" ng-hide="article.title == ''">
+  <div class="article" ng-repeat="article in articles" ng-hide="article.title == ''" ng-style="{'background-image': 'url(' + article.meta.background + ')'}" ng-class="{'has-thumbnail': article.meta.background}">
     <h3 class="title container">
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2">

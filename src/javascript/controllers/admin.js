@@ -18,6 +18,8 @@ airpub.controller('admin', function($scope, $state, $upyun, $duoshuo, $location)
         if (err) 
           return $scope.addAlert('文章内容获取失败，请稍后再试...','danger');
         $scope.article = result;
+      }, function(err){
+        return $scope.addAlert('文章内容获取失败，请稍后再试...','danger');
       });
       return;
     }
@@ -59,6 +61,8 @@ airpub.controller('admin', function($scope, $state, $upyun, $duoshuo, $location)
           uri: result.thread_id
         });
       });
+    }, function(err){
+      return $scope.addAlert('发布失败...', 'danger');
     });
   };
 
@@ -83,6 +87,8 @@ airpub.controller('admin', function($scope, $state, $upyun, $duoshuo, $location)
       $state.go('single', {
         uri: id
       });
+    }, function(err){
+      return $scope.addAlert('更新失败，请稍后再试...', 'danger');
     });
   };
 
@@ -98,6 +104,8 @@ airpub.controller('admin', function($scope, $state, $upyun, $duoshuo, $location)
         return $scope.addAlert('删除失败，请稍后再试...', 'danger');
       $scope.addAlert('删除成功!');
       $state.go('index');
+    }, function(err){
+      return $scope.addAlert('删除失败，请稍后再试...', 'danger');
     });
   };
 

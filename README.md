@@ -1,3 +1,5 @@
+[![Airpub logo](http://ww1.sinaimg.cn/large/61ff0de3gw1ejdogm8gyxj20pt0hamyc.jpg)](http://airpub.io)
+
 ## Airpub ![NPM version](https://img.shields.io/npm/v/airpub.svg?style=flat)
 
 [Airpub](http://airpub.io) 是基于 Angular.js 搭建，[多说](http://duoshuo.com) 数据驱动的纯前端写作工具。

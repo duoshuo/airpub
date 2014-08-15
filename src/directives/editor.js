@@ -72,7 +72,7 @@ airpub.directive('editor', function($upyun) {
         $(inputButton).on('change', function(eve) {
           if (uploading) return;
           uploading = true;
-          $upyun.upload(iAttrs.formName, function(err, response, image){
+          $upyun.upload(iAttrs.formName || 'articleForm', function(err, response, image){
             uploading = false;
             if (err) return console.error(err);
             var uploadOk = image.code === 200 && image.message === 'ok';

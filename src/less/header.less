@@ -1,19 +1,13 @@
 header {
-  background-color: #444;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(http://airpub.b0.upaiyun.com/2014/08/12/upload_bannerPicture.jpg);
   height: 350px;
   position: relative;
   margin-bottom: 1px;
-  -webkit-transition: height 0.5s;
-  -moz-transition: height 0.5s;
-  -o-transition: height 0.5s;
-  transition: height 0.5s;
-  -webkit-box-shadow: inset 0px -90px 120px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: inset 0px -90px 120px rgba(0, 0, 0, 0.5);
-  -o-box-shadow: inset 0px -90px 120px rgba(0, 0, 0, 0.5);
-  box-shadow: inset 0px -90px 120px rgba(0, 0, 0, 0.5);
+  background-color: #444;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(@background);
+  .transition(height 0.5s, background-image 0.5s ease-in-out);
+  .box-shadow(inset 0px -90px 120px rgba(0, 0, 0, 0.5));
   .logo {
     position: absolute;
     z-index: 90;
@@ -46,6 +40,6 @@ header.admin {
   height: 80px;
 }
 
-header.archive, header.admin, header.404 {
-  background-image: url(http://airpub.b0.upaiyun.com/2014/08/12/upload_bannerPicture.jpg) !important;
+header.archive, header.admin {
+  background-image: url(@background) !important;
 }

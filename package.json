@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "serve": "node_modules/.bin/serve --no-less .",
-    "less": "node_modules/.bin/lessc -x src/less/style.less dist/css/style.css",
+    "less": "node_modules/.bin/lessc -x src/less/airpub.less dist/css/airpub.min.css",
     "watch": "node_modules/.bin/rewatch src/less/*.less src/less/**/*.less -c 'npm run less'",
     "build": "node_modules/.bin/uglifyjs src/javascript/airpub.js src/javascript/directives/editor.js src/javascript/filters/marked.js src/javascript/controllers/global.js src/javascript/controllers/base.js src/javascript/controllers/archive.js src/javascript/controllers/single.js src/javascript/controllers/admin.js -o dist/javascript/airpub.min.js --source-map dist/javascript/airpub.min.js.map --source-map-url airpub.min.js.map",
     "dev": "npm run watch & npm run serve",

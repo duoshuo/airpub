@@ -31,6 +31,7 @@
     "upyun": "~0.2.2",
     "duoshuo": "~0.4.3",
     "marked": "~0.3.2",
-    "highlightjs": "~8.0.0"
+    "highlightjs": "~8.0.0",
+    "chill": "~0.1.0"
   }
 }

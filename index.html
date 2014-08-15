@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/nprogress/nprogress.css">
     <link rel="stylesheet" href="bower_components/highlightjs/styles/github.css">
-    <!-- stylesheets -->
-    <link rel="stylesheet" href="dist/css/airpub.min.css" />
+    <!-- default theme: chill -->
+    <link rel="stylesheet" href="bower_components/chill/css/chill.min.css" />
     <!-- dependencies scripts -->
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
@@ -24,7 +24,7 @@
     <script src="bower_components/marked/lib/marked.js"></script>
     <script src="bower_components/highlightjs/highlight.pack.js"></script>
     <!-- editor script -->
-    <script src="src/javascript/lib/editor.js"></script>
+    <script src="src/lib/editor.js"></script>
   </head>
   <body ng-controller="base" ng-class="state.current.controller">
     <header ng-class="state.current.controller">
@@ -57,7 +57,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-            &copy; 2014 powered by <a href="http://github.com/turingou/airpub">airpub</a>
+            &copy; 2014 powered by <a href="http://github.com/duoshuo/airpub">airpub</a>
           </div>
         </div>
       </div>
@@ -71,25 +71,25 @@
     <script src="http://static.duoshuo.com/embed.unstable.js"></script>
 
     <!-- for production: -->
-    <!-- <script src="dist/javascript/airpub.min.js"></script> -->
+    <!-- <script src="dist/airpub.min.js"></script> -->
 
     <!-- TODO: duoshuo CDN -->
     <!-- <script src="http://static.duoshuo.com/airpub/airpub-0.1.0.min.js"></script> -->
 
     <!-- for development: -->
     <!-- airpub angular.js app -->
-    <script src="src/javascript/airpub.js"></script>
+    <script src="src/airpub.js"></script>
     <!-- airpub directives -->
-    <script src="src/javascript/directives/editor.js"></script>
+    <script src="src/directives/editor.js"></script>
     <!-- airpub filters -->
-    <script src="src/javascript/filters/marked.js"></script>
-    <!-- airpub builtin addons -->
-    <script src="src/javascript/addons/meta.js"></script>
+    <script src="src/filters/marked.js"></script>
+    <!-- airpub addons -->
+    <script src="addons/meta/meta.js"></script>
     <!-- airpub controllers -->
-    <script src="src/javascript/controllers/global.js"></script>
-    <script src="src/javascript/controllers/base.js"></script>
-    <script src="src/javascript/controllers/archive.js"></script>
-    <script src="src/javascript/controllers/single.js"></script>
-    <script src="src/javascript/controllers/admin.js"></script>
+    <script src="src/controllers/global.js"></script>
+    <script src="src/controllers/base.js"></script>
+    <script src="src/controllers/archive.js"></script>
+    <script src="src/controllers/single.js"></script>
+    <script src="src/controllers/admin.js"></script>
   </body>
 </html>

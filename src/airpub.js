@@ -8,43 +8,44 @@ var airpub = angular.module('airpub', [
 
 // angular plugins configs
 airpub.config(function($stateProvider, $urlRouterProvider) {
-  // ui configs
-  // snapRemoteProvider.globalOptions.disable = 'right';
+  // theme configs
+  var theme = airpubConfigs.theme || 'chill';
+  var themePath = 'bower_components/' + theme;
   // routes configs
   $urlRouterProvider.otherwise("/404");
   $stateProvider
     .state('home', {
       url: "",
-      templateUrl: "views/archive.html",
+      templateUrl: themePath + "/archive.html",
       controller: 'archive'
     })
     .state('index', {
       url: "/",
-      templateUrl: "views/archive.html",
+      templateUrl: themePath + "/archive.html",
       controller: 'archive'
     })
     .state('pager', {
       url: "/page/:page",
-      templateUrl: "views/archive.html",
+      templateUrl: themePath + "/archive.html",
       controller: 'archive'
     })
     .state('single', {
       url: "/article/:uri",
-      templateUrl: "views/single.html",
+      templateUrl: themePath + "/single.html",
       controller: 'single'
     })
     .state('create', {
       url: "/create",
-      templateUrl: "views/admin.html",
+      templateUrl: themePath + "/admin.html",
       controller: 'admin'
     })
     .state('update', {
       url: "/article/:uri/update",
-      templateUrl: "views/admin.html",
+      templateUrl: themePath + "/admin.html",
       controller: 'admin'
     })
     .state('404', {
       url: "/404",
-      templateUrl: "views/404.html"
+      templateUrl: themePath + "/404.html"
     })
 });

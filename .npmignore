@@ -4,5 +4,4 @@ node_modules
 *.sublime*
 *.log
 bower_*
-images
 configs.js

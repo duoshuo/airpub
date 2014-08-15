@@ -9,7 +9,7 @@
 ### 快速开始
 
 - [如何安装](#%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85)
-- [配置指南](#)
+- [配置指南](#%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97)
 - [开发指南](#%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97)
 - [贡献代码](#%E8%B4%A1%E7%8C%AE%E4%BB%A3%E7%A0%81)
 
@@ -46,7 +46,7 @@ $ mkdir my-airpub-blog && cd my-airpub-blog
 ```
 $ airpub install
 ```
-airpub installer 将自动新建配置，仅需[简单编辑](#)：
+airpub installer 将自动新建配置，仅需[简单编辑](#%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97)：
 ```
 $ vi configs.js
 ```

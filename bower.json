@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "homepage": "https://github.com/turingou/airpub",
   "authors": [
-    "turing <o.u.turing@gmail.com>"
+    "Guo Yu <o.u.turing@gmail.com>"
   ],
-  "description": "a pure front-end blog platform built upon love.",
+  "description": "a pure front-end blog engine powered by duoshuo API",
   "main": "index.html",
   "keywords": [
     "blog",
@@ -13,7 +13,6 @@
     "angular"
   ],
   "license": "MIT",
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",

@@ -23,7 +23,28 @@
 ### 如何安装
 ---
 
-安装 Airpub **异常简单**，使用者并不需要再自己的服务器或虚拟主机中配置任何外部环境依赖，仅需使用 Git 拉取 master 分支下的代码，便可直接部署在支持静态资源服务器上：
+#### 自动安装
+
+使用 Airpub CLI Installer 来安装 Airpub 的稳定版本：
+```
+$ [sudo] npm install -g airpub-installer
+```
+然后执行：
+```
+$ mkdir my-airpub-blog && cd my-airpub-blog
+$ airpub install // 安装 airpub 稳定版本到当前工作目录
+$ cp configs-sample.js configs.js // 新建配置文件
+$ vi configs.js // 编辑配置文件
+```
+最后安装前端依赖：
+```
+$ bower install 
+```
+大功告成！即可访问你的站点，开始 Airpub 简洁流畅的书写体验。
+
+#### 手动安装
+
+手动安装 Airpub 也**异常简单**，使用者并不需要再自己的服务器或虚拟主机中配置任何外部环境依赖，仅需使用 Git 拉取 master 分支下的代码，便可直接部署在支持静态资源服务器上：
 ```
 $ git clone https://github.com/turingou/airpub.git // 拉取代码
 $ cd airpub
@@ -65,7 +86,7 @@ $ npm run dev
 - Open a pull request, and enjoy <3
 
 ### MIT license
-Copyright (c) 2013 turing &lt;o.u.turing@gmail.com&gt;
+Copyright (c) 2014 Guo Yu &lt;o.u.turing@gmail.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

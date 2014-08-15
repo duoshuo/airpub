@@ -2,43 +2,44 @@
 
 [Airpub](http://airpub.io) 是基于 Angular.js 搭建，[多说](http://duoshuo.com) 数据驱动的纯前端写作工具。
 
-基于多说社交评论的海量现有社交网络账户体系与健壮的 API，Airpub 能够被托管在任何静态资源服务器上，譬如 GitHub Pages、又拍云储存、七牛云储存或使用自定义的 ftp 工具上传到任何 VPS 或虚拟主机中使用，为最终用户提供便捷流畅，优质轻量的博客写作与阅读体验。
+基于多说现有社交网络账户体系与健壮 API，Airpub 能够托管在任何静态资源服务器上，例如 GitHub Pages、又拍云储存、七牛云储存或使用自定义的 FTP 工具上传到任何 VPS 或虚拟主机中使用，为最终用户提供便捷流畅，优质轻量的博客写作与阅读体验。访问[官方网站](http://airpub.io)
 
 ### Airpub 功能特色
 ---
 
 已实现或基本实现的特色：
 
-- 支持 markdown 写作
-- 支持表单图片上传
-- 支持插入代码以及代码高亮
-- 支持社交网络账户登录
+- [√] 支持 markdown 写作
+- [√] 支持图片上传，目前支持上传到又拍云
+- [√] 支持插入代码以及代码高亮
+- [√] 支持基于多说的社交网络账户登录
 
 即将实现或计划中的功能：
 
-- 基于 Angular directive 规范的插件模式
-- 从 WordPress 站点中一键迁移数据与评论
-- 基于 Airpub 的多 编辑/作者 实现
+- [ ] 基于 Angular directive 规范的插件模式
+- [ ] 从 WordPress 站点中一键迁移数据与评论
+- [ ] 基于 Airpub 的多 编辑/作者 实现
 
 ### 如何安装
 ---
 
 #### 自动安装
 
-使用 Airpub CLI Installer 来安装 Airpub 的稳定版本：
+使用 [Airpub CLI Installer](https://github.com/airpub/installer) 来安装 Airpub 的稳定版本：
 ```
 $ [sudo] npm install -g airpub-installer
 ```
-然后执行：
+新建站点目录：
 ```
 $ mkdir my-airpub-blog && cd my-airpub-blog
-$ airpub install // 安装 airpub 稳定版本到当前工作目录
-$ cp configs-sample.js configs.js // 新建配置文件
-$ vi configs.js // 编辑配置文件
 ```
-最后安装前端依赖：
+然后执行操作将相关的依赖全部安装完毕：
 ```
-$ bower install 
+$ airpub install
+```
+airpub installer 将自动新建配置，仅需简单编辑：
+```
+$ vi configs.js
 ```
 大功告成！即可访问你的站点，开始 Airpub 简洁流畅的书写体验。
 

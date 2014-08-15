@@ -6,6 +6,13 @@
 
 基于多说现有社交网络账户体系与健壮 API，Airpub 能够托管在任何静态资源服务器上，例如 GitHub Pages、又拍云储存、七牛云储存或使用自定义的 FTP 工具上传到任何 VPS 或虚拟主机中使用，为最终用户提供便捷流畅，优质轻量的博客写作与阅读体验。访问[官方网站](http://airpub.io)
 
+### 快速开始
+
+- [如何安装](#%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85)
+- [配置指南](#)
+- [开发指南](#%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97)
+- [贡献代码](#%E8%B4%A1%E7%8C%AE%E4%BB%A3%E7%A0%81)
+
 ### Airpub 功能特色
 ---
 
@@ -39,7 +46,7 @@ $ mkdir my-airpub-blog && cd my-airpub-blog
 ```
 $ airpub install
 ```
-airpub installer 将自动新建配置，仅需简单编辑：
+airpub installer 将自动新建配置，仅需[简单编辑](#)：
 ```
 $ vi configs.js
 ```
@@ -47,21 +54,49 @@ $ vi configs.js
 
 #### 手动安装
 
-手动安装 Airpub 也**异常简单**，使用者并不需要再自己的服务器或虚拟主机中配置任何外部环境依赖，仅需使用 Git 拉取 master 分支下的代码，便可直接部署在支持静态资源服务器上：
+手动安装 Airpub 也**异常简单**，仅需使用 Git 拉取主干代码，即可直接部署在静态资源服务器上：
 ```
-$ git clone https://github.com/turingou/airpub.git // 拉取代码
+// 拉取代码
+$ git clone https://github.com/turingou/airpub.git
+
+// 手动新建配置文件
 $ cd airpub
-$ cp configs-sample.js configs.js // 新建配置文件
-$ vi configs.js // 根据提示编辑配置文件，填入多说配置与站点信息
+$ cp configs-sample.js configs.js
+
+// 根据提示编辑配置文件，填入多说配置与站点信息
+$ vi configs.js
 ```
-配置填写完毕后，我们需要执行 `bower install` 用以安装 Airpub 依赖的前端资源文件，执行：
+配置填写完毕后，我们需要安装 Airpub 依赖的前端资源文件，执行：
 
 ```
 $ bower install 
 ```
 依赖安装完成后，即可访问你的站点，开始 Airpub 简洁流畅的书写体验。
 
-**提示**: 如您的多说 `short_name` 之前有在任何服务中使用过，请申请全新的多说站点以获得不同的 `short_name`，我们推荐你采用这样的方式来管理自己不同的多说站点之间的关系，例如 `myname-wordpress` 和 `myname-airpub`。
+### 配置指南
+---
+
+Airpub 仅需简单配置，即可达成不错的写作与阅读效果。在 `configs.js` 中，你应该会注意到存在两种配置项：
+
+- `airpubConfig`: Airpub 博客系统本身的配置，包括站点名称，描述，以及其他元数据。
+  * `name`: 站点名称
+  * `description`: 站点描述
+  * `url`: 线上访问地址，必须是绝对地址，用于分享
+  * `upyun` 又拍云配置（用于上传图片）
+    - `bucket`: 又拍云 bucket **名称**
+    - `form_api_secret`: 又拍云 form_api_secret **必选**
+    - `host`: 返回的图片的默认主机地址（可选
+    - `endpoint`: 默认 API 地址（可选）
+
+- `duoshuoQuery`: 你的多说站点信息，目前仅需要提供 `short_name`
+
+Airpub 鉴权基于多说用户系统，这意味着你不需要对 管理员 身份进行任何配置，仅需使用生成该 `short_name` 相应的多说用户登录即可进行文章的新建与管理操作。
+
+**重要提示**: 如你的多说 `short_name` 之前有在任何服务中使用过，请申请全新的多说站点以获得不同的 `short_name`，我们推荐你采用这样的方式来管理自己不同的多说站点之间的关系，例如 `myname-wordpress` 和 `myname-airpub`。
+
+**重要提示**: 建议你在多说管理后台（站点管理 => 设置 => 文章信息来源）开启 `只接受来自服务器的文章信息请求` 选项，防止非 API 请求造成的非法数据写入。
+
+**提示**: 由于表单上传会暴露您的 `form_api_secret`，建议开启防盗链模式，并经常性更换 `form_api_secret`。
 
 ### 开发指南
 ---
@@ -80,13 +115,8 @@ $ npm run dev
 ### 贡献代码
 ---
 
-- Fork this repo
-- Clone your repo
-- Install dependencies
-- Checkout a feature branch
-- Feel free to add your features
-- Make sure your features are fully tested
-- Open a pull request, and enjoy <3
+欢迎为 Airpub 贡献代码。如果你有兴趣为 Airpub 贡献代码，请先查阅本项目中的相关代码，fork 项目后，再提交 pull request。
+如果你对 Airpub 计划中的主题系统或 add-on 系统感兴趣，欢迎在 [issue](https://github.com/duoshuo/airpub/issues) 区提交新话题。
 
 ### MIT license
 Copyright (c) 2014 Guo Yu &lt;o.u.turing@gmail.com&gt;

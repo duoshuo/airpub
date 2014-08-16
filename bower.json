@@ -32,6 +32,6 @@
     "duoshuo": "~0.4.4",
     "marked": "~0.3.2",
     "highlightjs": "~8.0.0",
-    "chill": "~0.1.0"
+    "chill": "~0.1.3"
   }
 }

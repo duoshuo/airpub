@@ -1,8 +1,11 @@
-// Meta directive
-// todo: parse configs obejct to deps
-angular
-  .module('airpub')
-  .directive('metaBackground', function($upyun) {
+(function() {
+  // Meta directive
+  // todo: parse configs obejct to deps
+  angular
+    .module('airpub')
+    .directive('metaBackground', metaBackgroundDirective);
+
+  function metaBackgroundDirective($upyun) {
     return {
       restrict: 'AE',
       require: 'ngModel',
@@ -63,4 +66,5 @@ angular
         }
       }
     }
-  });
+  }
+})();

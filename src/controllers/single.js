@@ -1,7 +1,9 @@
-// single article ctrler
-angular
-  .module('airpub')
-  .controller('single', function($scope, $state, $duoshuo) {
+(function() {
+  angular
+    .module('airpub')
+    .controller('single', singleArticleCtrler);
+
+  function singleArticleCtrler($scope, $state, $duoshuo) {
     var uri = $state.params.uri;
     if (!uri) return $state.go('404');
     $scope.articleID = uri;
@@ -31,4 +33,5 @@ angular
     }, function(err) {
       return $state.go('404');
     });
-  });
+  }
+})();

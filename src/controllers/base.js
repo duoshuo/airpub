@@ -1,7 +1,9 @@
-// all basic behaviors
-angular
-  .module('airpub')
-  .controller('base', function($scope, $state, $timeout, $location, $duoshuo) {
+(function() {
+  angular
+    .module('airpub')
+    .controller('base', baseCtrler);
+
+  function baseCtrler($scope, $state, $timeout, $location, $duoshuo) {
     // inject locals to template
     $scope.location = $location;
     $scope.state = $state;
@@ -48,4 +50,5 @@ angular
         'background-image': 'url(' + uri + ')'
       });
     }
-  });
+  }
+})();

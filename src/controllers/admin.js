@@ -1,7 +1,9 @@
-// admin ctrler
-angular
-  .module('airpub')
-  .controller('admin', function($scope, $state, $upyun, $duoshuo, $location) {
+(function() {
+  angular
+    .module('airpub')
+    .controller('admin', adminCtrler);
+
+  function adminCtrler($scope, $state, $upyun, $duoshuo, $location) {
     $scope.isAdmin = false;
     var baseUri = $scope.configs.url || $location.host();
 
@@ -110,5 +112,5 @@ angular
         return $scope.addAlert('删除失败，请稍后再试...', 'danger');
       });
     };
-
-  });
+  }
+})();

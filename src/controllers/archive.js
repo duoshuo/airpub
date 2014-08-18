@@ -1,7 +1,9 @@
-// archive ctrler
-angular
-  .module('airpub')
-  .controller('archive', function($scope, $state, $duoshuo) {
+(function() {
+  angular
+    .module('airpub')
+    .controller('archive', archiveCtrler);
+
+  function archiveCtrler($scope, $state, $duoshuo) {
     $scope.itemsPerPage = 10;
     $scope.currentPage = parseNumber($state.params.page) || 1;
 
@@ -45,4 +47,5 @@ angular
         return parseInt(str);
       return false;
     }
-  });
+  }
+})();

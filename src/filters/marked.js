@@ -1,6 +1,9 @@
-angular
-  .module('airpub')
-  .filter('marked', function($sce) {
+(function() {
+  angular
+    .module('airpub')
+    .filter('marked', markedFilter);
+
+  function markedFilter($sce) {
     return function(raw) {
       if (!raw) return '';
       if (!marked) throw new Error('marked.js required!');
@@ -88,4 +91,5 @@ angular
 
       return $sce.trustAsHtml(marked(raw));
     }
-  });
+  }
+})();

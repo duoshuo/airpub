@@ -1,10 +1,13 @@
-angular
-  .module('airpub', [
-    'ui.bootstrap',
-    'ui.router',
-    'duoshuo',
-    'upyun'
-  ]).config(function($stateProvider, $urlRouterProvider) {
+(function() {
+  angular
+    .module('airpub', [
+      'ui.bootstrap',
+      'ui.router',
+      'duoshuo',
+      'upyun'
+    ]).config(initAirpub);
+
+  function initAirpub($stateProvider, $urlRouterProvider) {
     // theme configs
     var theme = airpubConfigs.theme || 'chill';
     var themePath = 'bower_components/' + theme;
@@ -44,5 +47,7 @@ angular
       .state('404', {
         url: "/404",
         templateUrl: themePath + "/404.html"
-      })
-  });
+      });
+  }
+
+})();

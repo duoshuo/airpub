@@ -1,6 +1,9 @@
-angular
-  .module('airpub')
-  .directive('editor', function($upyun) {
+(function() {
+  angular
+    .module('airpub')
+    .directive('editor', editorDirective);
+
+  function editorDirective($upyun) {
     return {
       restrict: 'A',
       require: 'ngModel',
@@ -105,4 +108,5 @@ angular
         }
       }
     }
-  });
+  }
+})();

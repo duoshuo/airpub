@@ -1,4 +1,4 @@
-(function() {
+;(function() {
   angular
     .module('airpub', [
       'ui.bootstrap',
@@ -49,5 +49,4 @@
         templateUrl: themePath + "/404.html"
       });
   }
-
 })();

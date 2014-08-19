@@ -1,4 +1,4 @@
-(function() {
+;(function() {
   angular
     .module('airpub')
     .directive('editor', editorDirective);

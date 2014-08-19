@@ -18,5 +18,5 @@ var airpubConfigs = {
 
 // for backend service
 var duoshuoQuery = {
-  short_name: 'myDuoshuoShortname'
+  short_name: '{{your_duoshuo_short_name}}'
 };

@@ -18,6 +18,9 @@
     // update header backgroud
     $scope.updateBackground = updateBackground;
 
+    // init copyright
+    $scope.copyrightYear = (new Date()).getFullYear();
+
     // signin status check
     $duoshuo.on('ready', function(err, data) {
       var isVisitor = (data.user_id === 0);

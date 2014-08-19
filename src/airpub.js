@@ -52,10 +52,11 @@
     // html5 mode should also be supported by server side
     // check this out: 
     // http://stackoverflow.com/questions/18452832/angular-route-with-html5mode-giving-not-found-page-after-reload
-    // $locationProvider.html5Mode(true)
+    if (airpubConfigs.html5Mode)
+      $locationProvider.html5Mode(true);
 
     // hashtag config
     $locationProvider
-      .hashPrefix('!');
+      .hashPrefix(airpubConfigs.hashPrefix || '!');
   }
 })();

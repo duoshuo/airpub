@@ -8,7 +8,7 @@
   function adminCtrler($scope, $state, $upyun, $duoshuo, $location) {
     $scope.isAdmin = false;
     var baseUri = $scope.configs.url || $location.host();
-    var hashPrefix = $scope.cofigs.hashPrefix || '!';
+    var hashPrefix = $scope.configs.hashPrefix || '!';
     var hashTag = '/#' + hashPrefix;
 
     initAdmin();

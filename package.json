@@ -8,7 +8,9 @@
   "scripts": {
     "build": "node_modules/.bin/uglifyjs src/lib/editor.js src/airpub.js src/directives/editor.js src/filters/marked.js src/controllers/global.js src/controllers/base.js src/controllers/archive.js src/controllers/single.js src/controllers/admin.js src/addons/meta.js -o dist/airpub.min.js --source-map dist/airpub.min.js.map --source-map-url airpub.min.js.map",
     "serve": "node_modules/.bin/serve --no-less .",
-    "start": "npm run serve"
+    "watch": "node_modules/.bin/rewatch src/*.js src/**/*.js -c 'npm run build'",
+    "dev": "npm run serve & npm run watch",
+    "start": "npm run dev"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,7 @@
   ],
   "devDependencies": {
     "serve": "~1.4.0",
-    "uglify-js": "^2.4.15"
+    "uglify-js": "^2.4.15",
+    "rewatch": "~0.2.2"
   }
 }

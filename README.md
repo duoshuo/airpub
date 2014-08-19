@@ -108,10 +108,10 @@ Airpub 的前端依赖基于 bower 构建，工作流基于 NPM 构建。在进�
 $ cd airpub
 $ bower install 
 $ npm install
-$ npm run serve
+$ npm run dev
 ```
 
-命令 `$ npm run serve` 将再 `localhost:3000` 运行一个静态资源服务器，需要确保这个端口没有被占用。
+命令 `$ npm run dev` 将再 `localhost:3000` 运行一个静态资源服务器，并实时压缩 dist 文件。需要确保这个端口没有被占用后再执行此操作。
 
 ### 贡献代码
 ---

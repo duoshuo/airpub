@@ -7,9 +7,9 @@
 
   function adminCtrler($scope, $state, $upyun, $duoshuo, $location) {
     $scope.isAdmin = false;
-    console.log($location.search());
     var baseUri = $scope.configs.url || $location.host();
-    var fromUri = $location.search().from;
+    var hashPrefix = $scope.cofigs.hashPrefix || '!';
+    var hashTag = '/#' + hashPrefix;
 
     initAdmin();
     $scope.createArticle = createArticle;
@@ -20,9 +20,7 @@
     function initAdmin() {
       // check current user if `admin`
       $duoshuo.get('sites/membership', {}, function(err, result) {
-        if (err || result.role !== 'administrator')
-          if (fromUri)
-            return $location.path(fromUri);
+        if (err || result.role !== 'administrator') 
           return $state.go('index');
         var isUpdatePage = $state.current.name === 'update' && $state.params.uri;
         if (!isUpdatePage) {
@@ -44,8 +42,6 @@
       }, function(err) {
         // error callback
         $scope.addAlert(err.errorMessage, 'danger');
-        if (fromUri)
-          return $location.path(fromUri);
         $state.go('index');
       });
     }
@@ -76,7 +72,7 @@
         // update uri 
         $duoshuo.post('threads/update', {
           thread_id: result.thread_id,
-          url: baseUri + '/#!/article/' + result.thread_id
+          url: baseUri + hashTag + '/article/' + result.thread_id
         }, function(err, res) {
           if (err) console.log(err);
           $state.go('single', {
@@ -99,7 +95,7 @@
       baby.thread_id = id;
       baby.title = $scope.article.title;
       baby.content = $scope.article.content;
-      baby.url = baseUri + '/#!/article/' + id;
+      baby.url = baseUri + hashTag + '/article/' + id;
       if ($scope.article.meta) {
         angular.forEach($scope.article.meta, function(v, k) {
           baby['meta[' + k + ']'] = v;

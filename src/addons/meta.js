@@ -1,6 +1,6 @@
-(function() {
+;(function() {
   'use strict';
-  
+
   // Meta directive
   // todo: parse configs obejct to deps
   angular

@@ -7,10 +7,10 @@
       'upyun'
     ]).config(initAirpub);
 
-  function initAirpub($stateProvider, $urlRouterProvider) {
+  function initAirpub($stateProvider, $urlRouterProvider, $locationProvider) {
     // theme configs
     var theme = airpubConfigs.theme || 'chill';
-    var themePath = 'bower_components/' + theme;
+    var themePath = (airpubConfigs.themePath || 'bower_components/') + theme;
     // routes configs
     $urlRouterProvider.otherwise("/404");
     $stateProvider
@@ -48,5 +48,9 @@
         url: "/404",
         templateUrl: themePath + "/404.html"
       });
+    // hashtag config
+    $locationProvider
+      .html5Mode(true)
+      .hashPrefix('!');
   }
 })();

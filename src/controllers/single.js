@@ -5,7 +5,7 @@
     .module('airpub')
     .controller('single', singleArticleCtrler);
 
-  function singleArticleCtrler($scope, $state, $duoshuo) {
+  function singleArticleCtrler($scope, $state, $duoshuo, $rootScope) {
     var uri = $state.params.uri;
     if (!uri) return $state.go('404');
     $scope.articleID = uri;
@@ -18,6 +18,10 @@
       if (err)
         return $scope.addAlert('文章内容获取失败，请稍后再试...', 'danger');
       $scope.article = result;
+      $rootScope.$emit('updateMeta', {
+        title: result.title,
+        description: fetchDesciption(result.content)
+      });
       if (result.meta && result.meta.background) {
         $scope.updateBackground(result.meta.background);
       }
@@ -35,5 +39,12 @@
     }, function(err) {
       return $state.go('404');
     });
+  }
+
+  function fetchDesciption(text) {
+    var maxLength = 80;
+    if (!text) return '';
+    if (text.length <= maxLength) return text;
+    return text.substr(0, maxLength) + '...';
   }
 })();

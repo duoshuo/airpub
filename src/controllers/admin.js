@@ -5,7 +5,7 @@
     .module('airpub')
     .controller('admin', adminCtrler);
 
-  function adminCtrler($scope, $state, $upyun, $duoshuo, $location) {
+  function adminCtrler($scope, $state, $upyun, $duoshuo, $location, $rootScope) {
     $scope.isAdmin = false;
     var baseUri = $scope.configs.url || $location.host();
     var hashPrefix = $scope.configs.hashPrefix || '!';
@@ -18,6 +18,7 @@
 
     // init admin page
     function initAdmin() {
+      $rootScope.$emit('updateMeta', $state.current.data.title);
       // check current user if `admin`
       $duoshuo.get('sites/membership', {}, function(err, result) {
         if (err || result.role !== 'administrator') 

@@ -5,9 +5,10 @@
     .module('airpub')
     .controller('archive', archiveCtrler);
 
-  function archiveCtrler($scope, $state, $duoshuo) {
+  function archiveCtrler($scope, $state, $duoshuo, $rootScope) {
     $scope.itemsPerPage = 10;
     $scope.currentPage = parseNumber($state.params.page) || 1;
+    $rootScope.$emit('updateMeta', $scope.configs.name);
 
     // read from cache
     if ($scope.articles && $scope.articles.length > 0) return;

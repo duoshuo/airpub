@@ -1,4 +1,6 @@
 ;(function() {
+  'use strict';
+  
   angular
     .module('airpub')
     .controller('global', globalCtrler);

@@ -1,4 +1,6 @@
 ;(function() {
+  'use strict';
+  
   angular
     .module('airpub')
     .controller('archive', archiveCtrler);

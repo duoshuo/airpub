@@ -8,13 +8,19 @@
     <meta name="description" content="{{description}}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- dependencies stylesheets -->
+    <!-- for development: -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/nprogress/nprogress.css">
     <link rel="stylesheet" href="bower_components/highlightjs/styles/github.css">
+    <!-- for production: -->
+    <!-- <script src="dist/airpub-dependencies.min.css"></script> -->
+
     <!-- default theme: chill -->
     <link rel="shortcut icon" type="image/x-icon" href="bower_components/chill/favicon.ico" />
     <link rel="stylesheet" href="bower_components/chill/css/chill.min.css" />
+
     <!-- dependencies scripts -->
+    <!-- for development: -->
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
@@ -27,6 +33,8 @@
     <script src="bower_components/node-uuid/uuid.js"></script>
     <script src="bower_components/marked/lib/marked.js"></script>
     <script src="bower_components/highlightjs/highlight.pack.js"></script>
+    <!-- for production: -->
+    <!-- <script src="dist/airpub-dependencies.min.js"></script> -->
   </head>
   <body ng-controller="base" ng-class="state.current.controller">
     <header ng-class="state.current.controller">

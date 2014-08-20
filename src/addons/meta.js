@@ -5,13 +5,15 @@
   // todo: parse configs obejct to deps
   angular
     .module('airpub')
-    .directive('metaBackground', metaBackgroundDirective);
+    .directive('metaBackground', metaBackgroundDirective)
+    .directive('metaShare', metaShareDirective);
 
   function metaBackgroundDirective($upyun) {
     var directive = {
       restrict: 'AE',
       require: 'ngModel',
       replace: true,
+      link: link,
       template: [
         '<div id="metaBackground" class="meta-background clearfix">',
           '<form name="metaBackgroundForm">',
@@ -21,8 +23,7 @@
             '</span>',
           '</form>',
         '</div>'
-      ].join('\n'),
-      link: link
+      ].join('\n')
     };
     return directive;
 
@@ -69,6 +70,48 @@
         style['background-image'] = 'url(' + uri + ')';
         $(hd).css(style);
         $(self).css(style);
+      }
+    }
+  }
+
+  function metaShareDirective($duoshuo) {
+    var directive = {
+      restrict: 'AE',
+      require: 'ngModel',
+      replace: true,
+      link: link,
+      template: [
+        '<div id="metaShare" class="meta-share clearfix"">',
+          '<input type="checkbox" ng-model="checkToShare" ng-change="updateCheckStatus()" />',
+          '<span>分享到微博</span>',
+        '</div>'
+      ].join('\n')
+    };
+    return directive;
+
+    function link(scope, element, attrs, ctrl) {
+      scope.checkToShare = false;
+      scope.updateCheckStatus = updateCheckingStatus;
+
+      // bind events 
+      scope.on('afterCreate', shareArticle());
+      scope.on('afterUpdate', shareArticle());
+
+      // view => model
+      function updateCheckingStatus() {
+        ctrl.$setViewValue(scope.checkToShare);
+      }
+
+      // share article
+      function shareArticle(type) {
+        return function(article) {
+          if (!scope.checkToShare) return;
+          var query = article;
+          query.sync_to = type || 'weibo';
+          query.short_name = duoshuoQuery.short_name;
+          if (query.meta) delete query.meta;
+          return $duoshuo.post('threads/sync', query, function(){});
+        };
       }
     }
   }

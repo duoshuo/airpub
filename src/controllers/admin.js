@@ -15,6 +15,7 @@
     $scope.createArticle = createArticle;
     $scope.updateArticle = updateArticle;
     $scope.removeArticle = removeArticle;
+    $scope.on = eventBinder;
 
     // init admin page
     function initAdmin() {
@@ -61,11 +62,10 @@
       baby.title = $scope.article.title;
       baby.content = $scope.article.content;
       baby.thread_key = uuid.v1();
-      if ($scope.article.meta) {
-        angular.forEach($scope.article.meta, function(v, k) {
-          baby['meta[' + k + ']'] = v;
-        });
-      }
+      baby = insertMeta(baby);
+      // events bind
+      eventTrigger('beforeCreate', baby);
+
       $duoshuo.post('threads/create', baby, function(err, result) {
         if (err) 
           return $scope.addAlert('发布失败...', 'danger');
@@ -80,6 +80,8 @@
             uri: result.thread_id
           });
         });
+        // events bind
+        eventTrigger('afterCreate', result);
       }, function(err) {
         return $scope.addAlert('发布失败...', 'danger');
       });
@@ -97,15 +99,16 @@
       baby.title = $scope.article.title;
       baby.content = $scope.article.content;
       baby.url = baseUri + hashTag + '/article/' + id;
-      if ($scope.article.meta) {
-        angular.forEach($scope.article.meta, function(v, k) {
-          baby['meta[' + k + ']'] = v;
-        });
-      }
+      baby = insertMeta(baby);
+      eventTrigger('beforeUpdate', baby);
+
       $duoshuo.post('threads/update', baby, function(err, result) {
         if (err)
           return $scope.addAlert('更新失败，请稍后再试...', 'danger');
         $scope.addAlert('更新成功!');
+        // events bind
+        eventTrigger('afterUpdate', result);
+        // goto article details
         $state.go('single', {
           uri: id
         });
@@ -120,17 +123,46 @@
         return false;
       if (!$scope.isAdmin) 
         return false;
-      // todo: confirm delete action
+      // events bind
+      eventTrigger('beforeRemove', id);
+      // TODO: confirm delete action
       $duoshuo.post('threads/remove', {
         thread_id: id
       }, function(err, result) {
         if (err)
           return $scope.addAlert('删除失败，请稍后再试...', 'danger');
+        // events bind
+        eventTrigger('afterRemove', id);
         $scope.addAlert('删除成功!');
         $state.go('index');
       }, function(err) {
         return $scope.addAlert('删除失败，请稍后再试...', 'danger');
       });
     };
+
+    // insert meta to plain text query string.
+    function insertMeta(qs) {
+      if (!$scope.article.meta) return qs;
+      angular.forEach($scope.article.meta, function(v, k) {
+        qs['meta[' + k + ']'] = v;
+      });
+      return qs;
+    }
+
+    // bind events
+    function eventBinder(eventName, func) {
+      if (!eventName || !func || typeof(func) !== 'function')
+        return false;
+      if (!$scope.bindedEvents) $scope.bindedEvents = {};
+      $scope.bindedEvents[eventName] = func;
+      return $scope.bindedEvents;
+    }
+
+    // event trigger
+    function eventTrigger(eventName, data) {
+      if (!$scope.bindedEvents || !$scope.bindedEvents[eventName]) 
+        return;
+      return $scope.bindedEvents[eventName](data || $scope.article, eventName);
+    }
   }
 })();

@@ -8,9 +8,22 @@
     <meta name="description" content="{{description}}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- dependencies stylesheets and scripts -->
-    <!-- for production: -->
-    <script src="dist/airpub-dependencies.min.css"></script>
-    <script src="dist/airpub-dependencies.min.js"></script>
+    <!-- for development: -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/nprogress/nprogress.css">
+    <link rel="stylesheet" href="bower_components/highlightjs/styles/github.css">
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/nprogress/nprogress.js"></script>
+    <script src="bower_components/angular-base64/angular-base64.min.js"></script>
+    <script src="bower_components/angular-md5/angular-md5.min.js"></script>
+    <script src="bower_components/duoshuo/dist/duoshuo.min.js"></script>
+    <script src="bower_components/upyun/dist/upyun.min.js"></script>
+    <script src="bower_components/node-uuid/uuid.js"></script>
+    <script src="bower_components/marked/lib/marked.js"></script>
+    <script src="bower_components/highlightjs/highlight.pack.js"></script>
     <!-- default theme: chill -->
     <link rel="shortcut icon" type="image/x-icon" href="bower_components/chill/favicon.ico" />
     <link rel="stylesheet" href="bower_components/chill/css/chill.min.css" />
@@ -62,14 +75,23 @@
     <script src="http://static.duoshuo.com/embed.unstable.js"></script>
     
     <!-- airpub angular app -->
-    <!-- for production: -->
-    <script src="dist/airpub.min.js"></script>
-
-    <!-- TODO: CDNs -->
-    <!-- duoshuo CDN -->
-    <!-- <script src="http://static.duoshuo.com/airpub/airpub-x.x.x.min.js"></script> -->
-    <!-- upyun CDN -->
-    <!-- qiniu CDN -->
-    <!-- staticfile CDN -->
+    <!-- for development: -->
+    <!-- core editor -->
+    <script src="src/lib/editor.js"></script>
+    <!-- airpub angular.js app -->
+    <script src="src/airpub.js"></script>
+    <!-- airpub directives -->
+    <script src="src/directives/editor.js"></script>
+    <!-- airpub filters -->
+    <script src="src/filters/marked.js"></script>
+    <!-- airpub built-in addons -->
+    <script src="src/addons/meta.js"></script>
+    <!-- airpub controllers -->
+    <script src="src/controllers/global.js"></script>
+    <script src="src/controllers/meta.js"></script>
+    <script src="src/controllers/base.js"></script>
+    <script src="src/controllers/archive.js"></script>
+    <script src="src/controllers/single.js"></script>
+    <script src="src/controllers/admin.js"></script>
   </body>
 </html>

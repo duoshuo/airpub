@@ -9,27 +9,35 @@
     // inject locals to template
     $scope.location = $location;
     $scope.state = $state;
-
+    // signin section
+    $scope.hiddenSigninSection = true;
+    $scope.toggleSigninSection = toggleSigninSection;
     // alerts module
     $scope.alerts = [];
     $scope.addAlert = addAlert;
     $scope.closeAlert = closeAlert;
-
     // update header backgroud
     $scope.updateBackground = updateBackground;
-
     // init copyright
     $scope.copyrightYear = (new Date()).getFullYear();
 
-    // signin status check
-    $duoshuo.on('ready', function(err, data) {
+    // init account infomation
+    $duoshuo.on('ready', initAccount);
+
+    function initAccount(err, data) {
       var isVisitor = (data.user_id === 0);
-      if (err || isVisitor) return;
+      if (err || isVisitor) {
+        $scope.isVisitor = true;
+        return;
+      };
       // fullfill user data
       $scope.user = data;
-    });
+    }
 
-    // ui utils
+    function toggleSigninSection() {
+      $scope.hiddenSigninSection = !$scope.hiddenSigninSection;
+    }
+
     function addAlert(msg, type, dismiss) {
       $scope.alerts.push({
         msg: msg,

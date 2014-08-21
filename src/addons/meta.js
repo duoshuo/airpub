@@ -105,11 +105,13 @@
       // share article
       function shareArticle(type) {
         return function(article) {
+          return; // disable for temp
           if (!scope.checkToShare) return;
           var query = article;
           query.sync_to = type || 'weibo';
           query.short_name = duoshuoQuery.short_name;
           if (query.meta) delete query.meta;
+          // todo: update this API
           return $duoshuo.post('threads/sync', query, function(){});
         };
       }

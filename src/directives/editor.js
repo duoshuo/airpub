@@ -5,7 +5,7 @@
     .module('airpub')
     .directive('editor', editorDirective);
 
-  function editorDirective($upyun) {
+  function editorDirective($upyun, $timeout) {
     var directive = {
       restrict: 'A',
       require: 'ngModel',
@@ -69,6 +69,10 @@
         editor.codemirror.setValue(
           ctrl.$isEmpty(ctrl.$viewValue) ? '' : ctrl.$viewValue
         );
+        // refesh content by force
+        $timeout(function(){
+          editor.codemirror.refresh();
+        }, 0);
       };
 
       // view => model

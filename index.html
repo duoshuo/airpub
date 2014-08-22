@@ -16,79 +16,15 @@
     <link rel="stylesheet" href="bower_components/chill/css/chill.min.css" />
   </head>
   <body ng-controller="base" ng-class="state.current.controller">
-    <section collapse="hiddenSigninSection" class="signin-section clearfix" ng-cloak>
-      <div class="container">
-        <div class="signin-buttons clearfix">
-          <a ng-href="http://duoshuo.com/login/weibo?redirect_uri={{location.$$absUrl}}" class="weibo">
-            <i class="fa fa-weibo"></i>
-            <span>微博登录</span>
-          </a>
-          <a ng-href="http://duoshuo.com/login/qq?redirect_uri={{location.$$absUrl}}" class="qq">
-            <i class="fa fa-qq"></i>
-            <span>QQ 登录</span>
-          </a>
-          <a ng-href="http://duoshuo.com/login/baidu?redirect_uri={{location.$$absUrl}}" class="baidu">
-            <i class="fa fa-paw"></i>
-            <span>百度登录</span>
-          </a>
-          <a ng-href="http://duoshuo.com/login/renren?redirect_uri={{location.$$absUrl}}" class="renren">
-            <i class="fa fa-renren"></i>
-            <span>人人登录</span>
-          </a>
-          <a ng-href="http://duoshuo.com/login/douban?redirect_uri={{location.$$absUrl}}" class="douban">豆瓣登录</a>
-          <a ng-href="http://duoshuo.com/login?redirect_uri={{location.$$absUrl}}">更多...</a>
-        </div>
-      </div>
-    </section>
-    <header ng-class="state.current.controller">
-      <nav>
-        <div class="options pull-right">
-          <a ui-sref="create" class="avatar" ng-show="user" tooltip-placement="left" tooltip="{{user.name}}" ng-cloak>
-            <img ng-src="{{user.avatar_url}}" alt="{{user.name}}" class="img-circle"/>
-          </a>
-          <a id="signin-btn" ng-show="isVisitor" ng-click="toggleSigninSection();" tooltip-placement="left" tooltip="通过社交网络登录" href="javascript:void(0);" ng-cloak>
-            <span class='glyphicon glyphicon-off'></span>
-          </a>
-        </div>
-      </nav>
-      <div class="container">
-        <div class="logo">
-          <h1>
-            <a ui-sref="index" ng-bind="configs.name"></a>
-            <span class="description" ng-bind="configs.description"></span>
-          </h1>
-        </div>
-      </div>
-    </header>
-    <section id="content" class="content">
-      <div ui-view>
-        <div class="loading container">loading...</div>
-      </div>
-    </section>
-    <footer>
-      <div class="container">
-        &copy; <span class="copyright-year" ng-bind="copyrightYear"></span> <a ng-href="{{configs.url}}"><span class="copyright-name" ng-bind="configs.name"></span></a>. Powered by <a href="http://github.com/duoshuo/airpub">Airpub</a>
-      </div>
-    </footer>
-    <!-- ui modules -->
-    <div class="alert-module">
-      <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" ng-bind="alert.msg"></alert>
-    </div>
-
+    <div ui-view="layout"></div>
     <!-- airpub config file -->
     <script src="configs.js"></script>
     <!-- duoshuo embed js -->
-    <script src="http://static.duoshuo.com/embed.unstable.js"></script>
-    
+    <script src="http://static.duoshuo.com/embed.unstable.js"></script> 
     <!-- airpub angular app -->
     <!-- for production: -->
     <script src="dist/airpub.min.js"></script>
-
-    <!-- TODO: CDNs -->
-    <!-- duoshuo CDN -->
+    <!-- TODO: duoshuo CDN -->
     <!-- <script src="http://static.duoshuo.com/airpub/airpub-x.x.x.min.js"></script> -->
-    <!-- upyun CDN -->
-    <!-- qiniu CDN -->
-    <!-- staticfile CDN -->
   </body>
 </html>

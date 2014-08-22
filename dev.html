@@ -29,30 +29,6 @@
     <link rel="stylesheet" href="bower_components/chill/css/chill.min.css" />
   </head>
   <body ng-controller="base" ng-class="state.current.controller">
-    <section collapse="hiddenSigninSection" class="signin-section clearfix" ng-cloak>
-      <div class="container">
-        <div class="signin-buttons clearfix">
-          <a ng-href="http://duoshuo.com/login/weibo?redirect_uri={{location.$$absUrl}}" class="weibo">
-            <i class="fa fa-weibo"></i>
-            <span>微博登录</span>
-          </a>
-          <a ng-href="http://duoshuo.com/login/qq?redirect_uri={{location.$$absUrl}}" class="qq">
-            <i class="fa fa-qq"></i>
-            <span>QQ 登录</span>
-          </a>
-          <a ng-href="http://duoshuo.com/login/baidu?redirect_uri={{location.$$absUrl}}" class="baidu">
-            <i class="fa fa-paw"></i>
-            <span>百度登录</span>
-          </a>
-          <a ng-href="http://duoshuo.com/login/renren?redirect_uri={{location.$$absUrl}}" class="renren">
-            <i class="fa fa-renren"></i>
-            <span>人人登录</span>
-          </a>
-          <a ng-href="http://duoshuo.com/login/douban?redirect_uri={{location.$$absUrl}}" class="douban">豆瓣登录</a>
-          <a ng-href="http://duoshuo.com/login?redirect_uri={{location.$$absUrl}}">更多...</a>
-        </div>
-      </div>
-    </section>
     <div ui-view="layout"></div>
     <!-- airpub config file -->
     <script src="configs.js"></script>

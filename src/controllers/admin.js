@@ -23,7 +23,7 @@
       // check current user if `admin`
       $duoshuo.get('sites/membership', {}, function(err, result) {
         if (err || result.role !== 'administrator') 
-          return $state.go('index');
+          return $state.go('layout.home');
         var isUpdatePage = $state.current.name === 'layout.update' && $state.params.uri;
         if (!isUpdatePage) {
           $scope.isAdmin = true;
@@ -44,7 +44,7 @@
       }, function(err) {
         // error callback
         $scope.addAlert(err.errorMessage, 'danger');
-        $state.go('index');
+        $state.go('layout.home');
       });
     }
 
@@ -134,7 +134,7 @@
         // events bind
         eventTrigger('afterRemove', id);
         $scope.addAlert('删除成功!');
-        $state.go('index');
+        $state.go('layout.home');
       }, function(err) {
         return $scope.addAlert('删除失败，请稍后再试...', 'danger');
       });

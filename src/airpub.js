@@ -18,7 +18,7 @@
     // signup routes uri
     $stateProvider
       .state('layout',        routerMaker('', routers.layout))
-      .state('index',         routerMaker('/', routers.layout)) // alias router for layout
+      .state('layout.home',   routerMaker('/', routers.layout)) // alias router for layout
       .state('layout.pager',  routerMaker('/page/:page', routers.archive))
       .state('layout.single', routerMaker('/article/:uri', routers.single))
       .state('layout.create', routerMaker('/create', routers.admin, appendTitleToRouter('新建文章')))
@@ -39,7 +39,7 @@
       angular.forEach(routes, function(route) {
         routers[route] = {};
         routers[route].templateUrl = themePath + '/' + route + '.html';
-        if (route !== '404' && route !== 'layout')
+        if (route !== '404')
           routers[route].controller = route;
         // define the LAYOUT router
         if (route === 'layout') {

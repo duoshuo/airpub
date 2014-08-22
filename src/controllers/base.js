@@ -3,7 +3,8 @@
   
   angular
     .module('airpub')
-    .controller('base', baseCtrler);
+    .controller('base', baseCtrler)
+    .controller('layout', layoutCtrler);
 
   function baseCtrler($scope, $state, $timeout, $location, $duoshuo) {
     // inject locals to template
@@ -63,5 +64,9 @@
         'background-image': 'url(' + uri + ')'
       });
     }
+  }
+
+  function layoutCtrler() {
+    
   }
 })();

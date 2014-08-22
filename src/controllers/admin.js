@@ -76,7 +76,7 @@
           url: baseUri + hashTag + '/article/' + result.thread_id
         }, function(err, res) {
           if (err) console.log(err);
-          $state.go('single', {
+          $state.go('layout.single', {
             uri: result.thread_id
           });
         });
@@ -109,7 +109,7 @@
         // events bind
         eventTrigger('afterUpdate', result);
         // goto article details
-        $state.go('single', {
+        $state.go('layout.single', {
           uri: id
         });
       }, function(err) {

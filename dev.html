@@ -53,41 +53,7 @@
         </div>
       </div>
     </section>
-    <header ng-class="state.current.controller">
-      <nav>
-        <div class="options pull-right">
-          <a ui-sref="create" class="avatar" ng-show="user" tooltip-placement="left" tooltip="{{user.name}}" ng-cloak>
-            <img ng-src="{{user.avatar_url}}" alt="{{user.name}}" class="img-circle"/>
-          </a>
-          <a id="signin-btn" ng-show="isVisitor" ng-click="toggleSigninSection();" tooltip-placement="left" tooltip="通过社交网络登录" href="javascript:void(0);" ng-cloak>
-            <span class='glyphicon glyphicon-off'></span>
-          </a>
-        </div>
-      </nav>
-      <div class="container">
-        <div class="logo">
-          <h1>
-            <a ui-sref="index" ng-bind="configs.name"></a>
-            <span class="description" ng-bind="configs.description"></span>
-          </h1>
-        </div>
-      </div>
-    </header>
-    <section id="content" class="content">
-      <div ui-view>
-        <div class="loading container">loading...</div>
-      </div>
-    </section>
-    <footer>
-      <div class="container">
-        &copy; <span class="copyright-year" ng-bind="copyrightYear"></span> <a ng-href="{{configs.url}}"><span class="copyright-name" ng-bind="configs.name"></span></a>. Powered by <a href="http://github.com/duoshuo/airpub">Airpub</a>
-      </div>
-    </footer>
-    <!-- ui modules -->
-    <div class="alert-module">
-      <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" ng-bind="alert.msg"></alert>
-    </div>
-
+    <div ui-view="layout"></div>
     <!-- airpub config file -->
     <script src="configs.js"></script>
     <!-- duoshuo embed js -->

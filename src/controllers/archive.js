@@ -28,13 +28,13 @@
       if (err)
         return $scope.addAlert('获取信息失败，请重试', 'danger');
       if (result.length === 0)
-        return $state.go('404');
+        return $state.go('layout.404');
       $scope.articles = result || [];
       $scope.totalItems = res.cursor.total;
       if ($state.params.page) $scope.currentPage = currentPage;
       return;
     }, function(err) {
-      return $state.go('404');
+      return $state.go('layout.404');
     });
     // when page changed, go => /#/page/currentPage
     // why the fucking event was trigged twice and return `1` the second time ?!

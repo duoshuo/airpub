@@ -11,57 +11,63 @@
     // theme configs
     var theme = airpubConfigs.theme || 'chill';
     var themePath = (airpubConfigs.themePath || 'bower_components/') + theme;
+    // init router objects
+    var routers = defineRoutes(['archive', 'single', 'admin', '404', 'layout']);
     // routes configs
     $urlRouterProvider.otherwise("/404");
+    // signup routes uri
     $stateProvider
-      .state('home', {
-        url: "",
-        templateUrl: themePath + "/archive.html",
-        controller: 'archive'
-      })
-      .state('index', {
-        url: "/",
-        templateUrl: themePath + "/archive.html",
-        controller: 'archive'
-      })
-      .state('pager', {
-        url: "/page/:page",
-        templateUrl: themePath + "/archive.html",
-        controller: 'archive'
-      })
-      .state('single', {
-        url: "/article/:uri",
-        templateUrl: themePath + "/single.html",
-        controller: 'single'
-      })
-      .state('create', {
-        url: "/create",
-        templateUrl: themePath + "/admin.html",
-        controller: 'admin',
-        data: {
-          title: '新建文章'
-        }
-      })
-      .state('update', {
-        url: "/article/:uri/update",
-        templateUrl: themePath + "/admin.html",
-        controller: 'admin',
-        data: {
-          title: '更新文章'
-        }
-      })
-      .state('404', {
-        url: "/404",
-        templateUrl: themePath + "/404.html"
-      });
+      .state('layout',        routerMaker('', routers.layout))
+      .state('index',         routerMaker('/', routers.layout)) // alisa router for layout
+      .state('layout.pager',  routerMaker('/page/:page', routers.archive))
+      .state('layout.single', routerMaker('/article/:uri', routers.single))
+      .state('layout.create', routerMaker('/create', routers.admin, appendTitleToRouter('新建文章')))
+      .state('layout.update', routerMaker('/article/:uri/update', routers.admin, appendTitleToRouter('更新文章')))
+      .state('layout.404',    routerMaker('/404', routers['404']));
     
+    // hashtag config
+    $locationProvider
+      .hashPrefix(airpubConfigs.hashPrefix || '!');
+
     // html5 mode should also be supported by server side, check this out: 
     // http://stackoverflow.com/questions/18452832/angular-route-with-html5mode-giving-not-found-page-after-reload
     if (airpubConfigs.html5Mode)
       $locationProvider.html5Mode(true);
 
-    // hashtag config
-    $locationProvider
-      .hashPrefix(airpubConfigs.hashPrefix || '!');
+    function defineRoutes(routes) {
+      var routers = {};
+      angular.forEach(routes, function(route) {
+        routers[route] = {};
+        routers[route].templateUrl = themePath + '/' + route + '.html';
+        if (route !== '404' && route !== 'layout')
+          routers[route].controller = route;
+        // define the LAYOUT router
+        if (route === 'layout') {
+          // define default sub-views of layout
+          routers[route].views = {
+            'layout': routers.layout,
+            '@layout': routers.archive,
+            '@index': routers.archive
+          }
+        }
+      });
+      return routers;
+    }
+
+    function routerMaker(url, router, data) {
+      var obj = angular.copy(router);
+      obj.url = url;
+      if (data && typeof(data) === 'object') 
+        obj = angular.extend(obj, data);
+      return obj;
+    }
+
+    function appendTitleToRouter(title) {
+      return {
+        data: {
+          title: title
+        }
+      }
+    }
   }
 })();

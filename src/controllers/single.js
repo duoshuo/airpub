@@ -7,7 +7,7 @@
 
   function singleArticleCtrler($scope, $state, $duoshuo, $rootScope) {
     var uri = $state.params.uri;
-    if (!uri) return $state.go('404');
+    if (!uri) return $state.go('layout.404');
     $scope.articleID = uri;
     // read from cache
     if ($scope.article) return;
@@ -37,7 +37,7 @@
           null;
       })
     }, function(err) {
-      return $state.go('404');
+      return $state.go('layout.404');
     });
   }
 

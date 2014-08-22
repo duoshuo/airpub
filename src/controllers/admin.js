@@ -24,7 +24,7 @@
       $duoshuo.get('sites/membership', {}, function(err, result) {
         if (err || result.role !== 'administrator') 
           return $state.go('index');
-        var isUpdatePage = $state.current.name === 'update' && $state.params.uri;
+        var isUpdatePage = $state.current.name === 'layout.update' && $state.params.uri;
         if (!isUpdatePage) {
           $scope.isAdmin = true;
           return;

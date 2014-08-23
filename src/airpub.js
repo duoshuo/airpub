@@ -47,7 +47,7 @@
           routers[route].views = {
             'layout': routers.layout,
             '@layout': routers.archive,
-            '@index': routers.archive
+            '@layout.home': routers.archive
           }
         }
       });

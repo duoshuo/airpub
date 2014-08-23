@@ -10,7 +10,7 @@
   function initAirpub($stateProvider, $urlRouterProvider, $locationProvider) {
     // theme configs
     var theme = airpubConfigs.theme || 'chill';
-    var themePath = (airpubConfigs.themePath || 'bower_components/') + theme;
+    var themePath = (airpubConfigs.themePath || 'bower_components') + '/' + theme;
     // init router objects
     var routers = defineRoutes(['archive', 'single', 'admin', '404', 'layout']);
     // routes configs

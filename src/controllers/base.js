@@ -55,10 +55,10 @@
       $scope.alerts.splice(index, 1);
     }
 
-    function updateBackground(uri) {
+    function updateBackground(uri, dom) {
       if (!uri) return;
-      if (uri.indexOf('http') !== 0) return;
-      var hd = document.getElementsByTagName('header')[0];
+      if (uri.indexOf('http') !== 0 && uri.indexOf('https') !== 0) return;
+      var hd = dom || document.getElementsByTagName('header')[0];
       if (!hd) return;
       angular.element(hd).css({
         'background-image': 'url(' + uri + ')'

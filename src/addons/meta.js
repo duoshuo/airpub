@@ -82,8 +82,8 @@
       link: link,
       template: [
         '<div id="metaShare" class="meta-share clearfix"">',
-          '<input type="checkbox" ng-model="checkToShare" ng-change="updateCheckStatus()" />',
-          '<span>分享到微博</span>',
+          '<input type="checkbox" id="checkToShare" ng-model="checkToShare" ng-change="updateCheckStatus()" />',
+          '<label for="checkToShare">分享到微博</label>',
         '</div>'
       ].join('\n')
     };

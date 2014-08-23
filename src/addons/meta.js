@@ -18,7 +18,7 @@
         '<div id="metaBackground" class="meta-background clearfix">',
           '<form name="metaBackgroundForm">',
             '<input type="file" name="file" id="uploadBackgroundBtn" class="pull-left hidden-input"/>',
-              '<span class="upload-background-btn glyphicon glyphicon-cloud-upload">',
+              '<span class="upload-background-btn fa fa-cloud-upload">',
             '上传背景图片',
             '</span>',
           '</form>',

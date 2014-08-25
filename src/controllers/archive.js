@@ -1,9 +1,12 @@
-;(function() {
+;(function(angular) {
   'use strict';
   
   angular
     .module('airpub')
-    .controller('archive', archiveCtrler);
+    .controller('archive', [
+      '$scope', '$state', '$duoshuo', '$rootScope', 
+      archiveCtrler
+    ]);
 
   function archiveCtrler($scope, $state, $duoshuo, $rootScope) {
     $scope.itemsPerPage = 10;
@@ -51,4 +54,4 @@
       return false;
     }
   }
-})();
+})(window.angular);

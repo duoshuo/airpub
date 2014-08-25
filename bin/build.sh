@@ -12,6 +12,8 @@ node_modules/.bin/uglifyjs \
   src/controllers/single.js \
   src/controllers/admin.js \
   src/addons/meta.js \
+  --mangle \
+  --compress \
   -o dist/airpub.min.js \
   --source-map dist/airpub.min.js.map \
   --source-map-url airpub.min.js.map 

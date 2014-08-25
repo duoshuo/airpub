@@ -1,11 +1,14 @@
-;(function() {
+;(function(angular) {
   angular
     .module('airpub', [
       'ui.bootstrap',
       'ui.router',
       'duoshuo',
       'upyun'
-    ]).config(initAirpub);
+    ]).config([
+      '$stateProvider','$urlRouterProvider','$locationProvider', 
+      initAirpub
+    ]);
 
   function initAirpub($stateProvider, $urlRouterProvider, $locationProvider) {
     // theme configs
@@ -70,4 +73,4 @@
       }
     }
   }
-})();
+})(window.angular);

@@ -1,9 +1,12 @@
-;(function() {
+;(function(angular) {
   'use strict';
   
   angular
     .module('airpub')
-    .controller('single', singleArticleCtrler);
+    .controller('single', [
+      '$scope', '$state', '$duoshuo', '$rootScope', 
+      singleArticleCtrler
+    ]);
 
   function singleArticleCtrler($scope, $state, $duoshuo, $rootScope) {
     var uri = $state.params.uri;
@@ -47,4 +50,4 @@
     if (text.length <= maxLength) return text;
     return text.substr(0, maxLength) + '...';
   }
-})();
+})(window.angular);

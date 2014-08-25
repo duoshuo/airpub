@@ -1,9 +1,9 @@
-;(function() {
+;(function(angular) {
   'use strict';
   
   angular
     .module('airpub')
-    .filter('marked', markedFilter);
+    .filter('marked', ['$sce', markedFilter]);
 
   function markedFilter($sce) {
     return function(raw) {
@@ -94,4 +94,4 @@
       return $sce.trustAsHtml(marked(raw));
     }
   }
-})();
+})(window.angular);

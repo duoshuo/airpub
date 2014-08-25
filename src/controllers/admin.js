@@ -1,9 +1,12 @@
-;(function() {
+;(function(angular) {
   'use strict';
   
   angular
     .module('airpub')
-    .controller('admin', adminCtrler);
+    .controller('admin', [
+      '$scope','$state', '$upyun', '$duoshuo', '$location', '$rootScope', 
+      adminCtrler
+    ]);
 
   function adminCtrler($scope, $state, $upyun, $duoshuo, $location, $rootScope) {
     $scope.isAdmin = false;
@@ -165,4 +168,4 @@
       return $scope.bindedEvents[eventName](data || $scope.article, eventName);
     }
   }
-})();
+})(window.angular);

@@ -1,9 +1,9 @@
-;(function() {
+;(function(angular) {
   'use strict';
   
   angular
     .module('airpub')
-    .controller('meta', metaCtrler);
+    .controller('meta', ['$scope', '$rootScope', metaCtrler]);
 
   function metaCtrler($scope, $rootScope) {
     $scope.title = $scope.configs.name || 'Airpub';
@@ -17,4 +17,4 @@
       });
     });
   }
-})();
+})(window.angular);

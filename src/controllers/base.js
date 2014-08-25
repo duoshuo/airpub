@@ -1,11 +1,14 @@
-;(function() {
+;(function(angular) {
   'use strict';
   
   angular
     .module('airpub')
-    .controller('base', baseCtrler)
-    .controller('layout', layoutCtrler);
-
+    .controller('layout', ['$scope', layoutCtrler])
+    .controller('base', [
+      '$scope', '$state', '$timeout', '$location', '$duoshuo',
+      baseCtrler
+    ]);
+  
   function baseCtrler($scope, $state, $timeout, $location, $duoshuo) {
     // inject locals to template
     $scope.location = $location;
@@ -66,7 +69,6 @@
     }
   }
 
-  function layoutCtrler() {
-    
-  }
-})();
+  function layoutCtrler() {}
+
+})(window.angular);

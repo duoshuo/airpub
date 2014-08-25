@@ -1,9 +1,9 @@
-;(function() {
+;(function(angular) {
   'use strict';
   
   angular
     .module('airpub')
-    .directive('editor', editorDirective);
+    .directive('editor', ['$upyun', '$timeout', editorDirective]);
 
   function editorDirective($upyun, $timeout) {
     var directive = {
@@ -118,4 +118,4 @@
       }
     }
   }
-})();
+})(window.angular);

@@ -13,6 +13,8 @@ node_modules/.bin/uglifyjs \
   bower_components/node-uuid/uuid.js \
   bower_components/marked/lib/marked.js \
   bower_components/highlightjs/highlight.pack.js \
+  --mangle \
+  --compress \
   -o dist/airpub-dependencies.min.js \
   --source-map dist/airpub-dependencies.min.js.map \
   --source-map-url airpub-dependencies.min.js.map

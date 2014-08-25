@@ -1,6 +1,6 @@
 {
   "name": "airpub",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "homepage": "https://github.com/duoshuo/airpub",
   "authors": [
     "Guo Yu <o.u.turing@gmail.com>"
@@ -25,7 +25,6 @@
     "angular-bootstrap": "~0.11.0",
     "angular-ui-router": "~0.2.10",
     "bootstrap": "~3.2.0",
-    "angular-snap": "~1.5.4",
     "nprogress": "~0.1.6",
     "node-uuid": "~1.4.1",
     "upyun": "~0.2.5",

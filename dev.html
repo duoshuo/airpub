@@ -12,7 +12,11 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/nprogress/nprogress.css">
     <link rel="stylesheet" href="bower_components/highlightjs/styles/github.css">
-    <script src="bower_components/angular/angular.min.js"></script>
+    <!-- editor style -->
+    <link rel="stylesheet" href="bower_components/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="bower_components/ninja/dist/ninja.min.css">
+    <!-- editor style end -->
+    <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
@@ -24,6 +28,20 @@
     <script src="bower_components/node-uuid/uuid.js"></script>
     <script src="bower_components/marked/lib/marked.js"></script>
     <script src="bower_components/highlightjs/highlight.pack.js"></script>
+    <!-- ninja editor -->
+    <!-- codemirror deps -->
+    <script src="bower_components/codemirror/lib/codemirror.js"></script>
+    <script src="bower_components/codemirror/mode/markdown/markdown.js"></script>
+    <script src="bower_components/codemirror/mode/xml/xml.js"></script>
+    <script src="bower_components/codemirror/mode/css/css.js"></script>
+    <script src="bower_components/codemirror/mode/javascript/javascript.js"></script>
+    <script src="bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+    <script src="bower_components/codemirror/addon/edit/continuelist.js"></script>
+    <script src="bower_components/codemirror/addon/edit/closebrackets.js"></script>
+    <!-- core editor -->
+    <script src="bower_components/ninja/src/javascript/ninja.js"></script>
+    <!-- ninja shuriken (addons) -->
+    <script src="bower_components/ninja/shuriken/upload.js"></script>
     <!-- default theme: chill -->
     <link rel="stylesheet" href="bower_components/chill/css/chill.min.css" />
     <link rel="shortcut icon" type="image/x-icon" href="bower_components/chill/favicon.ico" />
@@ -37,12 +55,8 @@
     
     <!-- airpub angular app -->
     <!-- for development: -->
-    <!-- core editor -->
-    <script src="src/lib/editor.js"></script>
     <!-- airpub angular.js app -->
-    <script src="src/airpub.js"></script>
-    <!-- airpub directives -->
-    <script src="src/directives/editor.js"></script>
+    <script src="src/airpub.js"></script>    
     <!-- airpub filters -->
     <script src="src/filters/marked.js"></script>
     <!-- airpub built-in addons -->

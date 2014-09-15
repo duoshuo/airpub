@@ -5,7 +5,7 @@
   // todo: parse configs obejct to deps
   angular
     .module('airpub')
-    .directive('metaBackground', ['$upyun', metaBackgroundDirective])
+    .directive('metaBackground', ['upyun', metaBackgroundDirective])
     .directive('metaShare', ['$duoshuo', metaShareDirective]);
 
   function metaBackgroundDirective($upyun) {

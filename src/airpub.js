@@ -1,16 +1,21 @@
 ;(function(angular) {
   angular
     .module('airpub', [
-      'ui.bootstrap',
-      'ui.router',
+      'upyun',
       'duoshuo',
-      'upyun'
+      'ui.router',
+      'ui.bootstrap',
+      'EditorNinja',
+      'EditorNinja.upload'
     ]).config([
-      '$stateProvider','$urlRouterProvider','$locationProvider', 
+      '$stateProvider',
+      '$urlRouterProvider',
+      '$locationProvider',
+      'upyunProvider',
       initAirpub
     ]);
 
-  function initAirpub($stateProvider, $urlRouterProvider, $locationProvider) {
+  function initAirpub($stateProvider, $urlRouterProvider, $locationProvider, upyunProvider) {
     // theme configs
     var theme = airpubConfigs.theme || 'chill';
     var themePath = (airpubConfigs.themePath || 'bower_components') + '/' + theme;

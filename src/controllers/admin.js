@@ -4,11 +4,11 @@
   angular
     .module('airpub')
     .controller('admin', [
-      '$scope','$state', '$upyun', '$duoshuo', '$location', '$rootScope', 
+      '$scope', '$state', '$duoshuo', '$location', '$rootScope', 
       adminCtrler
     ]);
 
-  function adminCtrler($scope, $state, $upyun, $duoshuo, $location, $rootScope) {
+  function adminCtrler($scope, $state, $duoshuo, $location, $rootScope) {
     $scope.isAdmin = false;
     var baseUri = $scope.configs.url || $location.host();
     var hashPrefix = $scope.configs.hashPrefix || '!';

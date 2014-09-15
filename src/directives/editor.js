@@ -3,7 +3,7 @@
   
   angular
     .module('airpub')
-    .directive('editor', ['$upyun', '$timeout', editorDirective]);
+    .directive('editor', ['upyun', '$timeout', editorDirective]);
 
   function editorDirective($upyun, $timeout) {
     var directive = {

@@ -8,8 +8,8 @@
   "scripts": {
     "build": "bin/build.sh",
     "build-deps": "npm run build-dependency-js && npm run build-dependency-css",
-    "build-dependency-js": "bin/build-dependency-js.sh",
-    "build-dependency-css": "bin/build-dependency-css.sh",
+    "build-deps-js": "bin/build-dependency-js.sh",
+    "build-deps-css": "bin/build-dependency-css.sh",
     "serve": "node_modules/.bin/serve --no-less .",
     "watch": "node_modules/.bin/rewatch src/*.js src/**/*.js -c 'npm run build'",
     "dev": "npm run serve & npm run watch",

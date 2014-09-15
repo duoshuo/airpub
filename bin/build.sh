@@ -1,9 +1,7 @@
 #!/bin/bash
 
 node_modules/.bin/uglifyjs \
-  src/lib/editor.js \
   src/airpub.js \
-  src/directives/editor.js \
   src/filters/marked.js \
   src/controllers/global.js \
   src/controllers/meta.js \

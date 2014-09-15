@@ -18,7 +18,9 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "editor",
+    "thumb"
   ],
   "dependencies": {
     "angular": "~1.2.20",
@@ -32,6 +34,6 @@
     "marked": "~0.3.2",
     "highlightjs": "~8.0.0",
     "chill": "~0.2.0",
-    "ninja": "0.0.9"
+    "ninja": "0.1.0"
   }
 }

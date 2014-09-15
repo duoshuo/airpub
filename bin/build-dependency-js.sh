@@ -13,6 +13,7 @@ node_modules/.bin/uglifyjs \
   bower_components/node-uuid/uuid.js \
   bower_components/marked/lib/marked.js \
   bower_components/highlightjs/highlight.pack.js \
+  bower_components/ninja/dist/ninja.min.js \
   --mangle \
   --compress \
   -o dist/airpub-dependencies.min.js \

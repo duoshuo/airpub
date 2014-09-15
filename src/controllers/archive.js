@@ -43,7 +43,7 @@
     // why the fucking event was trigged twice and return `1` the second time ?!
     $scope.pageChanged = function() {
       if (lock) return;
-      $state.go('pager', {
+      $state.go('layout.pager', {
         page: $scope.currentPage
       });
     };

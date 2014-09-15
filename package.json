@@ -1,6 +1,6 @@
 {
   "name": "airpub",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "a pure front-end blog engine powered by duoshuo API",
   "main": "index.html",
   "author": "turing <o.u.turing@gmail.com>",

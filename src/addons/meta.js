@@ -8,7 +8,7 @@
     .directive('metaBackground', ['upyun', metaBackgroundDirective])
     .directive('metaShare', ['$duoshuo', metaShareDirective]);
 
-  function metaBackgroundDirective($upyun) {
+  function metaBackgroundDirective(upyun) {
     var directive = {
       restrict: 'AE',
       require: 'ngModel',
@@ -31,10 +31,6 @@
       var $ = angular.element;
       var uploading = false;
 
-      // upyun configs
-      $upyun.set('bucket', airpubConfigs.upyun.bucket);
-      $upyun.set('form_api_secret', airpubConfigs.upyun.form_api_secret);
-
       var inputButton = document.getElementById('uploadBackgroundBtn');
       $(inputButton).on('change', bindUpload);
 
@@ -48,7 +44,7 @@
         // begin upload
         if (uploading) return;
         uploading = true;
-        $upyun.upload('metaBackgroundForm', function(err, response, image) {
+        upyun.upload('metaBackgroundForm', function(err, response, image) {
           uploading = false;
           if (err) return console.error(err);
           var uploadOk = image.code === 200 && image.message === 'ok';

@@ -42,6 +42,14 @@
     if (airpubConfigs.html5Mode)
       $locationProvider.html5Mode(true);
 
+    // upload plugin configs
+    if (airpubConfigs.upyun) {
+      upyunProvider.config({
+        bucket: airpubConfigs.upyun.bucket,
+        form_api_secret: airpubConfigs.upyun.form_api_secret
+      });
+    }
+
     function defineRoutes(routes) {
       var routers = {};
       angular.forEach(routes, function(route) {

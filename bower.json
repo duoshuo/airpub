@@ -1,6 +1,6 @@
 {
   "name": "airpub",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "homepage": "https://github.com/duoshuo/airpub",
   "authors": [
     "Guo Yu <o.u.turing@gmail.com>"
@@ -40,6 +40,6 @@
     "marked": "~0.3.2",
     "highlightjs": "~8.0.0",
     "chill": "~0.3.0",
-    "ninja": "0.1.0"
+    "ninja": "0.1.1"
   }
 }

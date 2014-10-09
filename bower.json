@@ -40,6 +40,7 @@
     "marked": "~0.3.2",
     "highlightjs": "~8.0.0",
     "chill": "~0.3.0",
-    "ninja": "0.1.1"
+    "ninja": "0.1.1",
+    "wechat.js": "~0.1.0"
   }
 }

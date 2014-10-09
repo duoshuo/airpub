@@ -6,3 +6,4 @@ node_modules
 bower_*
 configs.js
 editor
+csrf*

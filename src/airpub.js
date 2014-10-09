@@ -29,8 +29,8 @@
       .state('layout.home',   routerMaker('/', routers.layout)) // alias router for layout
       .state('layout.pager',  routerMaker('/page/:page', routers.archive))
       .state('layout.single', routerMaker('/article/:uri', routers.single))
-      .state('layout.create', routerMaker('/create', routers.admin, appendTitleToRouter('新建文章')))
-      .state('layout.update', routerMaker('/article/:uri/update', routers.admin, appendTitleToRouter('更新文章')))
+      // .state('layout.create', routerMaker('/create', routers.admin, appendTitleToRouter('新建文章')))
+      // .state('layout.update', routerMaker('/article/:uri/update', routers.admin, appendTitleToRouter('更新文章')))
       .state('layout.404',    routerMaker('/404', routers['404']));
     
     // hashtag config

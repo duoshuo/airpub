@@ -41,6 +41,7 @@
     "highlightjs": "~8.0.0",
     "chill": "~0.3.0",
     "ninja": "0.1.1",
-    "wechat.js": "~0.1.0"
+    "wechat.js": "~0.1.0",
+    "oclazyload": "~0.3.8"
   }
 }

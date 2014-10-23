@@ -46,7 +46,10 @@
         uploading = true;
         upyun.upload('metaBackgroundForm', function(err, response, image) {
           uploading = false;
-          if (err) return console.error(err);
+          if (err) {
+            console.error(err);
+            return alert('上传失败，请稍后再试...');
+          }
           var uploadOk = image.code === 200 && image.message === 'ok';
           if (!uploadOk) return;
           // fill image

@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "bin/build.sh",
-    "build-deps": "npm run build-dependency-js && npm run build-dependency-css",
+    "build-deps": "npm run build-deps-js && npm run build-deps-css",
     "build-deps-js": "bin/build-dependency-js.sh",
     "build-deps-css": "bin/build-dependency-css.sh",
     "serve": "node_modules/.bin/serve --no-less .",

@@ -63,7 +63,6 @@
     if (!window.wechat)
       return;
 
-    var wechat = window.wechat;
     var limit = 42;
     var data = {};
 
@@ -81,8 +80,8 @@
     if (airpubConfigs.wechat && airpubConfigs.wechat.appId)
       data.app = airpubConfigs.wechat.appId;
 
-    wechat('friend', data);
-    wechat('timeline', data);
-    wechat('weibo', data);
+    window.wechat('friend', data);
+    window.wechat('timeline', data);
+    window.wechat('weibo', data);
   }
 })(window.angular);

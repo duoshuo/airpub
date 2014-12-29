@@ -13,14 +13,17 @@
     $scope.currentPage = parseNumber($state.params.page) || 1;
     $rootScope.$emit('updateMeta', $scope.configs.name);
 
-    // read from cache
-    if ($scope.articles && $scope.articles.length > 0) return;
+    // Read articles from cache
+    if ($scope.articles && $scope.articles.length > 0) 
+      return;
+
     // TODO: remove this ugly hack
     if ($state.params.page) {
       var lock = true;
       var currentPage = $scope.currentPage;
     }
-    // read fresh  
+
+    // Read data from fresh  
     $duoshuo.get('threads/list', {
       page: $scope.currentPage,
       limit: $scope.itemsPerPage,
@@ -32,21 +35,38 @@
         return $scope.addAlert('获取信息失败，请重试', 'danger');
       if (result.length === 0)
         return $state.go('layout.404');
+
       $scope.articles = result || [];
       $scope.totalItems = res.cursor.total;
-      if ($state.params.page) $scope.currentPage = currentPage;
+
+      if ($state.params.page) 
+        $scope.currentPage = currentPage;
+
       return;
     }, function(err) {
       return $state.go('layout.404');
     });
-    // when page changed, go => /#/page/currentPage
-    // why the fucking event was trigged twice and return `1` the second time ?!
+
+    // When page changed, go => /#/page/currentPage
+    // Why the fucking event was trigged twice and return `1` the second time ?!
     $scope.pageChanged = function() {
       if (lock) return;
       $state.go('layout.pager', {
         page: $scope.currentPage
       });
     };
+
+    function initWeixinShare() {
+      if (!window.wechat)
+        return;
+
+      // Update share's link when page changes.
+      data.link = window.location.href;
+
+      window.wechat('friend', data);
+      window.wechat('timeline', data);
+      window.wechat('weibo', data);
+    }
 
     function parseNumber(str) {
       if (str && !isNaN(parseInt(str)))

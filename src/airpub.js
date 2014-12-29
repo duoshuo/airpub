@@ -66,6 +66,8 @@
     if (airpubConfigs.upyun)
       upyunProvider.config(airpubConfigs.upyun);
 
+    initWeixinShare();
+
     function defineRoutes(routes) {
       var routers = {};
       angular.forEach(routes, function(route) {
@@ -114,6 +116,24 @@
           title: title
         }
       }
+    }
+
+    function initWeixinShare() {
+      if (!window.wechat)
+        return;
+
+      var data = {};
+
+      if (airpubConfigs.url)
+        data.link = airpubConfigs.url;
+      if (airpubConfigs.description)
+        data.desc = airpubConfigs.description;
+      if (airpubConfigs.name)
+        data.title = airpubConfigs.name;
+
+      window.wechat('friend', data);
+      window.wechat('timeline', data);
+      window.wechat('weibo', data);
     }
   }
 })(window.angular);

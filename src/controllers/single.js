@@ -10,7 +10,10 @@
 
   function singleArticleCtrler($scope, $state, $duoshuo, $rootScope) {
     var uri = $state.params.uri;
-    if (!uri) return $state.go('layout.404');
+
+    if (!uri) 
+      return $state.go('layout.404');
+
     $scope.articleID = uri;
     // Read from cache
     if ($scope.article) return;
@@ -66,10 +69,17 @@
 
     data.link = article.url;
     data.title = article.title;
-    data.desc = article.content.substr(0, limit) + ( article.content.length > limit ? '...' : '');
+    data.desc = article.content.substr(0, limit) + (article.content.length > limit ? '...' : '');
 
     if (article.meta && article.meta.background)
       data.img = article.meta.background;
+
+    // TODO: Remove hardcode here, replace key `wechatSharePic` with a anchor
+    if (article.meta && article.meta.wechatSharePic)
+      data.img = article.meta.wechatSharePic;
+
+    if (airpubConfigs.wechat && airpubConfigs.wechat.appId)
+      data.app = airpubConfigs.wechat.appId;
 
     wechat('friend', data);
     wechat('timeline', data);

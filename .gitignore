@@ -7,3 +7,4 @@ bower_*
 configs.js
 editor
 csrf*
+dist/*-bootstrap.min.css

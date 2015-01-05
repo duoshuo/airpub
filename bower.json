@@ -35,7 +35,7 @@
     "bootstrap": "3.3.1",
     "nprogress": "~0.1.6",
     "node-uuid": "~1.4.1",
-    "upyun": "~0.3.0",
+    "upyun": "0.4.0",
     "duoshuo": "~0.4.7",
     "marked": "~0.3.2",
     "highlightjs": "~8.0.0",

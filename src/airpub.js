@@ -112,7 +112,10 @@
         $ocLazyLoad.load('EditorNinja.upload');
         // Load other deps in `admin.html`
         $ocLazyLoad.load({
-          files: [staticPath + 'bower_components/node-uuid/uuid.js']
+          files: [
+            staticPath + 'bower_components/node-uuid/uuid.js',
+            staticPath + 'bower_components/upyun/dist/upyun.min.js'
+          ]
         });
       });
     }

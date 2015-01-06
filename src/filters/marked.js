@@ -1,4 +1,4 @@
-;(function(angular) {
+;(function(angular, debug) {
   'use strict';
   
   angular
@@ -104,4 +104,4 @@
       return $sce.trustAsHtml(marked(raw));
     }
   }
-})(window.angular);
+})(window.angular, window.debug);

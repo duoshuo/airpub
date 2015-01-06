@@ -1,10 +1,14 @@
-;(function(angular) {
+;(function(angular, debug) {
   'use strict';
   
   angular
     .module('airpub')
     .controller('admin', [
-      '$scope', '$state', '$duoshuo', '$location', '$rootScope', 
+      '$scope', 
+      '$state', 
+      '$duoshuo', 
+      '$location', 
+      '$rootScope', 
       adminCtrler
     ]);
 
@@ -168,4 +172,4 @@
       return $scope.bindedEvents[eventName](data || $scope.article, eventName);
     }
   }
-})(window.angular);
+})(window.angular, window.debug);

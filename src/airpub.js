@@ -1,4 +1,4 @@
-;(function(angular) {
+;(function(angular, debug) {
   'use strict';
 
   angular
@@ -58,7 +58,7 @@
           staticPath + 'bower_components/node-uuid/uuid.js'
         ]
       },{
-        name: 'hightlightJS',
+        name: 'hljs',
         files: [
           staticPath + 'bower_components/highlightjs/highlight.pack.js'
         ]
@@ -81,6 +81,7 @@
 
     function defineRoutes(routes) {
       var routers = {};
+
       angular.forEach(routes, function(route) {
         routers[route] = {};
         routers[route].templateUrl = themePath + '/' + route + '.html';
@@ -101,6 +102,12 @@
             loadEditor: ['$ocLazyLoad', loadEditor]
           }
         }
+
+        if (route === 'single') {
+          routers[route].resolve = {
+            loadHljs: ['$ocLazyLoad', loadHljs]
+          }
+        }
       });
 
       return routers;
@@ -109,14 +116,14 @@
     // Load EditorNinja async
     function loadEditor($ocLazyLoad) {
       return $ocLazyLoad.load('EditorNinja').then(function(){
-        // Load ninja addon
+        // Load ninja addons
         $ocLazyLoad.load('EditorNinja.upload');
         $ocLazyLoad.load('EditorNinja.utils');
       });
     }
 
-    function loadHightLight($ocLazyLoad) {
-      return $ocLazyLoad.load('hightlightJS');
+    function loadHljs($ocLazyLoad) {
+      return $ocLazyLoad.load('hljs');
     }
 
     function routerMaker(url, router, data) {
@@ -153,4 +160,4 @@
       window.wechat('weibo', data);
     }
   }
-})(window.angular);
+})(window.angular, window.debug);

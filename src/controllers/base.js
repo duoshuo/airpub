@@ -1,4 +1,4 @@
-;(function(angular) {
+;(function(angular, debug) {
   'use strict';
   
   angular
@@ -71,4 +71,4 @@
 
   function layoutCtrler() {}
 
-})(window.angular);
+})(window.angular, window.debug);

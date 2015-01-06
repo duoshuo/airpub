@@ -1,4 +1,4 @@
-;(function(angular) {
+;(function(angular, debug) {
   'use strict';
   
   angular
@@ -87,4 +87,4 @@
     window.wechat('timeline', data);
     window.wechat('weibo', data);
   }
-})(window.angular);
+})(window.angular, window.debug);

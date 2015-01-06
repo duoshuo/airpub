@@ -7,7 +7,8 @@
       'duoshuo',
       'ui.router',
       'ui.bootstrap',
-      'oc.lazyLoad'
+      'oc.lazyLoad',
+      'ngSanitize'
     ]).config([
       '$stateProvider',
       '$urlRouterProvider',

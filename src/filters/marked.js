@@ -3,9 +3,9 @@
   
   angular
     .module('airpub')
-    .filter('marked', ['$sce', markedFilter]);
+    .filter('marked', ['$sce', '$sanitize', markedFilter]);
 
-  function markedFilter($sce) {
+  function markedFilter($sce, $sanitize) {
     return function(raw) {
       if (!raw) 
         return '';
@@ -22,7 +22,7 @@
       var render = new marked.Renderer();
 
       render.code = function(code, lang, escaped) {
-        // todo: unescape `raw-html` tag support.
+        // TODO: unescape `raw-html` tag support.
         if (this.options.highlight) {
           var out = this.options.highlight(code, lang);
           if (out != null && out !== code) {
@@ -33,7 +33,11 @@
 
         return wrapwith(
           'code-section',
-          '<pre><code class="' + lang + '">' + code + '</code></pre>'
+          '<pre>' +
+            '<code class="' + lang + '">' + 
+              lang === 'raw-html' ? code : $sanitize(code) + 
+            '</code>' +
+          '</pre>'
         );
       };
       render.html = function(html) {
@@ -72,7 +76,8 @@
       markedOptions.renderer = render;
       marked.setOptions(markedOptions);
 
-      // helpers
+      // Helpers
+      // TODO: Remove hard code DOM here.
       function wrapwith(wrapperClass, dom) {
         wrapperClass =
           typeof(wrapperClass) === 'object' ?

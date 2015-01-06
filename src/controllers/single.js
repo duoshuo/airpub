@@ -4,7 +4,10 @@
   angular
     .module('airpub')
     .controller('single', [
-      '$scope', '$state', '$duoshuo', '$rootScope', 
+      '$scope', 
+      '$state', 
+      '$duoshuo', 
+      '$rootScope', 
       singleArticleCtrler
     ]);
 

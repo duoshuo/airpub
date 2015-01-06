@@ -7,17 +7,20 @@
 
   function markedFilter($sce) {
     return function(raw) {
-      if (!raw) return '';
-      if (!marked) throw new Error('marked.js required!');
+      if (!raw) 
+        return '';
+      if (!marked) 
+        throw new Error('marked.js required!');
 
-      // setting marked options
       var markedOptions = {};
 
-      // setting: highlight
-      if (hljs) markedOptions.highlight = highlightCode;
+      // Setting: highlight
+      if (window.hljs) 
+        markedOptions.highlight = highlightCode;
 
-      // setting: custom renderer
+      // Setting: custom renderer
       var render = new marked.Renderer();
+
       render.code = function(code, lang, escaped) {
         // todo: unescape `raw-html` tag support.
         if (this.options.highlight) {
@@ -27,6 +30,7 @@
             code = out;
           }
         }
+
         return wrapwith(
           'code-section',
           '<pre><code class="' + lang + '">' + code + '</code></pre>'
@@ -88,7 +92,7 @@
       }
 
       function highlightCode(code) {
-        return hljs.highlightAuto(code).value;
+        return window.hljs.highlightAuto(code).value;
       }
 
       return $sce.trustAsHtml(marked(raw));

@@ -51,6 +51,16 @@
         files: [
           staticPath + 'bower_components/ninja/dist/ninja.min.js'
         ]
+      },{
+        name: 'EditorNinja.utils',
+        files: [
+          staticPath + 'bower_components/node-uuid/uuid.js'
+        ]
+      },{
+        name: 'hightlightJS',
+        files: [
+          staticPath + 'bower_components/highlightjs/highlight.pack.js'
+        ]
       }]
     });
     
@@ -84,22 +94,29 @@
             '@layout.home': routers.archive
           }
         }
-        // Lazy loading EditorNinja and its deps
+        // Lazy loading EditorNinja and its dependencies
         if (route === 'admin') {
           routers[route].resolve = {
             loadEditor: ['$ocLazyLoad', loadEditor]
           }
         }
       });
+
+      console.log(routers)
       return routers;
     }
 
+    // Load EditorNinja async
     function loadEditor($ocLazyLoad) {
-      // Load EditorNinja async
       return $ocLazyLoad.load('EditorNinja').then(function(){
         // Load ninja addon
         $ocLazyLoad.load('EditorNinja.upload');
+        $ocLazyLoad.load('EditorNinja.utils');
       });
+    }
+
+    function loadHightLight($ocLazyLoad) {
+      return $ocLazyLoad.load('hightlightJS');
     }
 
     function routerMaker(url, router, data) {

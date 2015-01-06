@@ -52,16 +52,6 @@
         files: [
           staticPath + 'bower_components/ninja/dist/ninja.min.js'
         ]
-      },{
-        name: 'EditorNinja.utils',
-        files: [
-          staticPath + 'bower_components/node-uuid/uuid.js'
-        ]
-      },{
-        name: 'hljs',
-        files: [
-          staticPath + 'bower_components/highlightjs/highlight.pack.js'
-        ]
       }]
     });
     
@@ -118,12 +108,17 @@
       return $ocLazyLoad.load('EditorNinja').then(function(){
         // Load ninja addons
         $ocLazyLoad.load('EditorNinja.upload');
-        $ocLazyLoad.load('EditorNinja.utils');
+        // Load other deps in `admin.html`
+        $ocLazyLoad.load({
+          files: [staticPath + 'bower_components/node-uuid/uuid.js']
+        });
       });
     }
 
     function loadHljs($ocLazyLoad) {
-      return $ocLazyLoad.load('hljs');
+      return $ocLazyLoad.load({
+        files: [staticPath + 'bower_components/highlightjs/highlight.pack.js']
+      });
     }
 
     function routerMaker(url, router, data) {

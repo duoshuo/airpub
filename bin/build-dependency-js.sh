@@ -10,7 +10,6 @@ node_modules/.bin/uglifyjs \
   bower_components/nprogress/nprogress.js \
   bower_components/duoshuo/dist/duoshuo.min.js \
   bower_components/upyun/dist/upyun.min.js \
-  bower_components/marked/lib/marked.js \
   bower_components/wechat.js/wechat.js \
   --mangle \
   --compress \

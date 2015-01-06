@@ -86,21 +86,23 @@
             '@layout.home': routers.archive
           }
         }
-        // Lazy loading EditorNinja and its dependencies
-        if (route === 'admin') {
-          routers[route].resolve = {
-            loadEditor: ['$ocLazyLoad', loadEditor]
-          }
-        }
 
-        if (route === 'single') {
-          routers[route].resolve = {
-            loadHljs: ['$ocLazyLoad', loadHljs]
-          }
-        }
+        if (['admin', 'single'].indexOf(route) > -1)
+          routers[route].resolve = lazyloadResources(route);
       });
 
       return routers;
+    }
+
+    function lazyloadResources(route) {
+      var map = {
+        admin: loadEditor,
+        single: loadSingle
+      };
+
+      return {
+        lazyload: ['$ocLazyLoad', map[route]]
+      }
     }
 
     // Load EditorNinja async
@@ -115,9 +117,12 @@
       });
     }
 
-    function loadHljs($ocLazyLoad) {
+    function loadSingle($ocLazyLoad) {
       return $ocLazyLoad.load({
-        files: [staticPath + 'bower_components/highlightjs/highlight.pack.js']
+        files: [
+          staticPath + 'bower_components/marked/lib/marked.js',
+          staticPath + 'bower_components/highlightjs/highlight.pack.js',
+        ]
       });
     }
 

@@ -22,7 +22,8 @@
       var render = new marked.Renderer();
 
       render.code = function(code, lang, escaped) {
-        // TODO: unescape `raw-html` tag support.
+        var outputRaw = (lang === 'raw-html' || this.options.highlight);
+
         if (this.options.highlight) {
           var out = this.options.highlight(code, lang);
           if (out != null && out !== code) {
@@ -34,8 +35,8 @@
         return wrapwith(
           'code-section',
           '<pre>' +
-            '<code class="' + lang + '">' + 
-              lang === 'raw-html' ? code : $sanitize(code) + 
+            '<code class="' + lang + '" ng-bind="sqwswqsw">' + 
+              (outputRaw ? code : $sanitize(code)) + 
             '</code>' +
           '</pre>'
         );

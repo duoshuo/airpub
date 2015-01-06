@@ -89,9 +89,11 @@ Airpub 仅需简单配置，即可达成不错的写作与阅读效果。在 `co
   * `description`: 站点描述
   * `url`: 线上访问地址，必须是绝对地址，用于分享
   * `upyun` 又拍云配置（用于上传图片）
-    - `bucket`: 又拍云 bucket **名称**
-    - `form_api_secret`: 又拍云 form_api_secret **必选**
-    - `host`: 返回的图片的默认主机地址（可选
+    - `bucket`: 又拍云 bucket **名称**，在提供 `policy` 与 `signature` 时不需要提供
+    - `policy`: 又拍云 policy，可通过 upyun-sign 命令行工具生成
+    - `signature`: 又拍云 signature，可通过 upyun-sign 命令行工具生成
+    - `form_api_secret`: 又拍云 `form_api_secret`，不推荐直接暴露在前端
+    - `host`: 返回的图片的默认主机地址（可选）
     - `endpoint`: 默认 API 地址（可选）
 
 - `duoshuoQuery`: 你的多说站点信息，目前仅需要提供 `short_name`
@@ -102,7 +104,7 @@ Airpub 鉴权基于多说用户系统，这意味着你不需要对 管理员 �
 
 **重要提示**: 建议你在多说管理后台（站点管理 => 设置 => 文章信息来源）开启 `只接受来自服务器的文章信息请求` 选项，防止非 API 请求造成的非法数据写入。
 
-**提示**: 由于表单上传会暴露您的 `form_api_secret`，建议开启防盗链模式，并经常性更换 `form_api_secret`。
+**提示**: 由于表单上传会暴露您的 `form_api_secret`，建议开启防盗链模式，并经常性更换 `form_api_secret`。如果你选择这种方式在前端进行摘要计算，记得在自己的页面上额外引入 `js-base64` 与 `js-md5` 的代码库。
 
 ### 开发指南
 ---

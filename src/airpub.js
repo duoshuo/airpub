@@ -103,7 +103,6 @@
         }
       });
 
-      console.log(routers)
       return routers;
     }
 

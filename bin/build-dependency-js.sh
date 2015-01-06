@@ -3,8 +3,8 @@
 node_modules/.bin/uglifyjs \
   bower_components/angular/angular.min.js \
   bower_components/angular-sanitize/angular-sanitize.min.js \
-  bower_components/angular-bootstrap/ui-bootstrap.min.js \
-  bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js \
+  libs/ui-bootstrap-custom-0.12.0.min.js \
+  libs/ui-bootstrap-custom-tpls-0.12.0.min.js \
   bower_components/angular-ui-router/release/angular-ui-router.min.js \
   bower_components/oclazyload/dist/ocLazyLoad.min.js \
   bower_components/nprogress/nprogress.js \

@@ -4,11 +4,11 @@
   angular
     .module('airpub')
     .controller('archive', [
-      '$scope', '$state', '$duoshuo', '$rootScope', 
+      '$scope', '$state', 'duoshuo', '$rootScope', 
       archiveCtrler
     ]);
 
-  function archiveCtrler($scope, $state, $duoshuo, $rootScope) {
+  function archiveCtrler($scope, $state, duoshuo, $rootScope) {
     $scope.itemsPerPage = 10;
     $scope.currentPage = parseNumber($state.params.page) || 1;
     $rootScope.$emit('updateMeta', $scope.configs.name);
@@ -24,7 +24,7 @@
     }
 
     // Read data from fresh  
-    $duoshuo.get('threads/list', {
+    duoshuo.get('threads/list', {
       page: $scope.currentPage,
       limit: $scope.itemsPerPage,
       with_content: 1

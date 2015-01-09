@@ -6,12 +6,12 @@
     .controller('single', [
       '$scope', 
       '$state', 
-      '$duoshuo', 
+      'duoshuo', 
       '$rootScope', 
       singleArticleCtrler
     ]);
 
-  function singleArticleCtrler($scope, $state, $duoshuo, $rootScope) {
+  function singleArticleCtrler($scope, $state, duoshuo, $rootScope) {
     var uri = $state.params.uri;
 
     if (!uri) 
@@ -21,7 +21,7 @@
     // Read from cache
     if ($scope.article) return;
     // Fetch article details
-    $duoshuo.get('threads/details', {
+    duoshuo.get('threads/details', {
       thread_id: uri
     }, function(err, result) {
       if (err)
@@ -41,7 +41,7 @@
 
       if (!result.author_id) return;
       // Fetch authors' profile
-      $duoshuo.get('users/profile', {
+      duoshuo.get('users/profile', {
         user_id: result.author_id
       }, function(err, result) {
         if (err) return; // ignore null profile

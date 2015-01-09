@@ -6,7 +6,7 @@
   angular
     .module('airpub')
     .directive('metaBackground', ['upyun', metaBackgroundDirective])
-    .directive('metaShare', ['$duoshuo', metaShareDirective]);
+    .directive('metaShare', ['duoshuo', metaShareDirective]);
 
   function metaBackgroundDirective(upyun) {
     var directive = {
@@ -73,7 +73,7 @@
     }
   }
 
-  function metaShareDirective($duoshuo) {
+  function metaShareDirective(duoshuo) {
     var directive = {
       restrict: 'AE',
       require: 'ngModel',
@@ -111,7 +111,7 @@
           query.short_name = duoshuoQuery.short_name;
           if (query.meta) delete query.meta;
           // todo: update this API
-          return $duoshuo.post('threads/sync', query, function(){});
+          return duoshuo.post('threads/sync', query, function(){});
         };
       }
     }

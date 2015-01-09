@@ -5,11 +5,15 @@
     .module('airpub')
     .controller('layout', ['$scope', layoutCtrler])
     .controller('base', [
-      '$scope', '$state', '$timeout', '$location', '$duoshuo',
+      '$scope', 
+      '$state', 
+      '$timeout', 
+      '$location', 
+      'duoshuo',
       baseCtrler
     ]);
   
-  function baseCtrler($scope, $state, $timeout, $location, $duoshuo) {
+  function baseCtrler($scope, $state, $timeout, $location, duoshuo) {
     // inject locals to template
     $scope.location = $location;
     $scope.state = $state;
@@ -26,7 +30,7 @@
     $scope.copyrightYear = (new Date()).getFullYear();
 
     // init account infomation
-    $duoshuo.on('ready', initAccount);
+    duoshuo.on('ready', initAccount);
 
     function initAccount(err, data) {
       var isVisitor = (data.user_id === 0);

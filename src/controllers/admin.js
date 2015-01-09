@@ -6,13 +6,13 @@
     .controller('admin', [
       '$scope', 
       '$state', 
-      '$duoshuo', 
+      'duoshuo', 
       '$location', 
       '$rootScope', 
       adminCtrler
     ]);
 
-  function adminCtrler($scope, $state, $duoshuo, $location, $rootScope) {
+  function adminCtrler($scope, $state, duoshuo, $location, $rootScope) {
     $scope.isAdmin = false;
     var baseUri = $scope.configs.url || $location.host();
     var hashPrefix = $scope.configs.hashPrefix || '!';
@@ -28,7 +28,7 @@
     function initAdmin() {
       $rootScope.$emit('updateMeta', $state.current.data.title);
       // check current user if `admin`
-      $duoshuo.get('sites/membership', {}, function(err, result) {
+      duoshuo.get('sites/membership', {}, function(err, result) {
         if (err || result.role !== 'administrator') 
           return $state.go('layout.home');
         var isUpdatePage = $state.current.name === 'layout.update' && $state.params.uri;
@@ -37,7 +37,7 @@
           return;
         }
         // if status is `update`, fetch data
-        $duoshuo.get('threads/details', {
+        duoshuo.get('threads/details', {
           thread_id: $state.params.uri
         }, function(err, result) {
           // showing the page
@@ -73,12 +73,12 @@
       // events bind
       eventTrigger('beforeCreate', baby);
 
-      $duoshuo.post('threads/create', baby, function(err, result) {
+      duoshuo.post('threads/create', baby, function(err, result) {
         if (err) 
           return $scope.addAlert('发布失败...', 'danger');
         $scope.addAlert('发布成功');
         // update uri 
-        $duoshuo.post('threads/update', {
+        duoshuo.post('threads/update', {
           thread_id: result.thread_id,
           url: baseUri + hashTag + '/article/' + result.thread_id
         }, function(err, res) {
@@ -109,7 +109,7 @@
       baby = insertMeta(baby);
       eventTrigger('beforeUpdate', baby);
 
-      $duoshuo.post('threads/update', baby, function(err, result) {
+      duoshuo.post('threads/update', baby, function(err, result) {
         if (err)
           return $scope.addAlert('更新失败，请稍后再试...', 'danger');
         $scope.addAlert('更新成功!');
@@ -133,7 +133,7 @@
       // events bind
       eventTrigger('beforeRemove', id);
       // TODO: confirm delete action
-      $duoshuo.post('threads/remove', {
+      duoshuo.post('threads/remove', {
         thread_id: id
       }, function(err, result) {
         if (err)

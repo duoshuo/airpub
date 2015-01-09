@@ -36,7 +36,7 @@
     "nprogress": "~0.1.6",
     "node-uuid": "~1.4.1",
     "upyun": "0.4.0",
-    "duoshuo": "~0.4.7",
+    "duoshuo": "0.5.0",
     "marked": "~0.3.2",
     "highlightjs": "~8.0.0",
     "chill": "0.3.1",

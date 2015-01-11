@@ -1,5 +1,4 @@
-;
-(function(angular, debug) {
+;(function(angular, debug) {
   'use strict';
 
   angular

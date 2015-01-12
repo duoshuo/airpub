@@ -2,11 +2,28 @@
 <html ng-app="airpub" ng-controller="global">
   <head ng-controller="meta">
     <base href="/" />
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title ng-bind="title"></title>
     <meta name="fragment" content="!" />
     <meta name="description" content="{{description}}">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="{{title}}">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="apple-touch-icon-precomposed" href="bower_components/chill/images/apple-touch-icon-57x57-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="bower_components/chill/images/apple-touch-icon-72x72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="bower_components/chill/images/apple-touch-icon-114x114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="bower_components/chill/images/apple-touch-icon-144x144-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="bower_components/chill/images/apple-touch-icon-180x180-precomposed.png">
+    <link rel="apple-touch-startup-image" sizes="768x1004" href="bower_components/chill/images/splash-screen-768x1004.png" /> <!-- iPad 竖屏 768 x 1004（标准分辨率） -->
+    <link rel="apple-touch-startup-image" sizes="1536x2008" href="bower_components/chill/images/splash-screen-1536x2008.png" /> <!-- iPad 竖屏 1536x2008（Retina） -->
+    <link rel="apple-touch-startup-image" sizes="1024x748" href="bower_components/chill/images/Default-Portrait-1024x748.png" /> <!-- iPad 横屏 1024x748（标准分辨率） -->
+    <link rel="apple-touch-startup-image" sizes="2048x1496" href="bower_components/chill/images/splash-screen-2048x1496.png" /> <!-- iPad 横屏 2048x1496（Retina） -->
+    <link rel="apple-touch-startup-image" href="bower_components/chill/images/splash-screen-320x480.png" /> <!-- iPhone/iPod Touch 竖屏 320x480 (标准分辨率) -->
+    <link rel="apple-touch-startup-image" sizes="640x960" href="bower_components/chill/images/splash-screen-640x960.png" /> <!-- iPhone/iPod Touch 竖屏 640x960 (Retina) -->
+    <link rel="apple-touch-startup-image" sizes="640x1136" href="bower_components/chill/images/splash-screen-640x1136.png" /> <!-- iPhone 5/iPod Touch 5 竖屏 640x1136 (Retina) -->
+    <link rel="apple-touch-startup-image" href="bower_components/chill/images/launch6.png" media="(device-width: 375px)">
+    <link rel="apple-touch-startup-image" href="bower_components/chill/images/launch6plus.png" media="(device-width: 414px)">
     <!-- Dependencies stylesheets and scripts -->
     <!-- For development: -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">

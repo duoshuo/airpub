@@ -13,49 +13,70 @@
     ]);
 
   function adminCtrler($scope, $state, duoshuo, $location, $rootScope) {
+    // Reset isAdmin status
     $scope.isAdmin = false;
+
     var baseUri = $scope.configs.url || $location.host();
     var hashPrefix = $scope.configs.hashPrefix || '!';
     var hashTag = '/#' + hashPrefix;
 
     initAdmin();
+
+    // Expose functions to templates
     $scope.createArticle = createArticle;
     $scope.updateArticle = updateArticle;
     $scope.removeArticle = removeArticle;
     $scope.on = eventBinder;
 
-    // init admin page
+    // Init admin page
     function initAdmin() {
       $rootScope.$emit('updateMeta', $state.current.data.title);
-      // check current user if `admin`
-      duoshuo.get('sites/membership', {}, function(err, result) {
+
+      // Open a request
+      duoshuo.get('sites/membership', {}, onSuccess, onError);
+
+      function onSuccess(err, result) {
         if (err || result.role !== 'administrator') 
           return $state.go('layout.home');
+
         var isUpdatePage = $state.current.name === 'layout.update' && $state.params.uri;
+
+        // If status is `update`, fetch data
         if (!isUpdatePage) {
           $scope.isAdmin = true;
           return;
         }
-        // if status is `update`, fetch data
-        duoshuo.get('threads/details', {
-          thread_id: $state.params.uri
-        }, function(err, result) {
-          // showing the page
+
+        var query = {};
+        query.thread_id = $state.params.uri;
+
+        // Fetch article details in edit mode.
+        duoshuo.get('threads/details', query, response, fail);
+
+        function response(err, result) {
+          // Now show the page
           $scope.isAdmin = true;
+
           if (err)
-            return $scope.addAlert('文章内容获取失败，请稍后再试...', 'danger');
+            return fail(err);
+
+          // Expose article locals to template
           $scope.article = result;
-        }, function(err) {
+        }
+
+        function fail(err) {
           return $scope.addAlert('文章内容获取失败，请稍后再试...', 'danger');
-        });
-      }, function(err) {
-        // error callback
+        }
+      }
+
+      // Error callback
+      function onError(err) {
         $scope.addAlert(err.errorMessage, 'danger');
         $state.go('layout.home');
-      });
+      }
     }
 
-    // create new article
+    // Create a new article
     function createArticle() {
       if (!$scope.isAdmin) 
         return false;
@@ -70,31 +91,47 @@
       baby.content = $scope.article.content;
       baby.thread_key = uuid.v1();
       baby = insertMeta(baby);
-      // events bind
+
+      // Trigger events
       eventTrigger('beforeCreate', baby);
 
-      duoshuo.post('threads/create', baby, function(err, result) {
+      // Open a request
+      duoshuo.post('threads/create', baby, onSuccess, onError);
+
+      function onSuccess(err, result) {
         if (err) 
           return $scope.addAlert('发布失败...', 'danger');
+
         $scope.addAlert('发布成功');
-        // update uri 
-        duoshuo.post('threads/update', {
-          thread_id: result.thread_id,
-          url: baseUri + hashTag + '/article/' + result.thread_id
-        }, function(err, res) {
-          if (err) console.log(err);
+
+        // Update article URI 
+        // TODO: Merge this two request in one.
+        var query = {};
+        query.thread_id = result.thread_id;
+        query.url = baseUri + hashTag + '/article/' + result.thread_id;
+
+        // Open a request
+        duoshuo.post('threads/update', query, response);
+
+        // Trigger events
+        eventTrigger('afterCreate', result);
+
+        function response(err, res) {
+          if (err) 
+            console.log(err);
+
           $state.go('layout.single', {
             uri: result.thread_id
           });
-        });
-        // events bind
-        eventTrigger('afterCreate', result);
-      }, function(err) {
+        }
+      }
+
+      function onError(err) {
         return $scope.addAlert('发布失败...', 'danger');
-      });
+      }
     };
 
-    // update exist article
+    // Update a exist article
     function updateArticle(id) {
       if (!id) 
         return $scope.createArticle();
@@ -107,65 +144,92 @@
       baby.content = $scope.article.content;
       baby.url = baseUri + hashTag + '/article/' + id;
       baby = insertMeta(baby);
+
+      // Trigger events
       eventTrigger('beforeUpdate', baby);
 
-      duoshuo.post('threads/update', baby, function(err, result) {
+      // Open a request
+      duoshuo.post('threads/update', baby, onSuccess, onError);
+
+      function onSuccess(err, result) {
         if (err)
           return $scope.addAlert('更新失败，请稍后再试...', 'danger');
+
         $scope.addAlert('更新成功!');
-        // events bind
+
+        // Trigger events
         eventTrigger('afterUpdate', result);
-        // goto article details
+
+        // Goto article details page
         $state.go('layout.single', {
           uri: id
         });
-      }, function(err) {
+      }
+
+      function(err) {
         return $scope.addAlert('更新失败，请稍后再试...', 'danger');
-      });
+      }
     };
 
-    // remove article
+    // Remove a exist article
     function removeArticle(id) {
       if (!id) 
         return false;
       if (!$scope.isAdmin) 
         return false;
-      // events bind
+
+      // Trigger events
       eventTrigger('beforeRemove', id);
-      // TODO: confirm delete action
-      duoshuo.post('threads/remove', {
-        thread_id: id
-      }, function(err, result) {
+
+      // TODO: Confirm delete action
+      var query = {};
+      query.thread_id = id;
+
+      // Open a request
+      duoshuo.post('threads/remove', query, onSuccess, onError);
+
+      function onSuccess(err, result) {
         if (err)
           return $scope.addAlert('删除失败，请稍后再试...', 'danger');
-        // events bind
+
+        // Trigger events
         eventTrigger('afterRemove', id);
+
         $scope.addAlert('删除成功!');
         $state.go('layout.home');
-      }, function(err) {
+      }
+
+      function onError(err) {
         return $scope.addAlert('删除失败，请稍后再试...', 'danger');
-      });
+      }
     };
 
-    // insert meta to plain text query string.
+    // Insert meta to plain text query string.
     function insertMeta(qs) {
-      if (!$scope.article.meta) return qs;
+      if (!$scope.article.meta) 
+        return qs;
+
       angular.forEach($scope.article.meta, function(v, k) {
         qs['meta[' + k + ']'] = v;
       });
+
       return qs;
     }
 
-    // bind events
+    // Bind events
     function eventBinder(eventName, func) {
       if (!eventName || !func || typeof(func) !== 'function')
         return false;
-      if (!$scope.bindedEvents) $scope.bindedEvents = {};
+
+      if (!$scope.bindedEvents) 
+        $scope.bindedEvents = {};
+
       $scope.bindedEvents[eventName] = func;
+
       return $scope.bindedEvents;
     }
 
-    // event trigger
+    // Events trigger
     function eventTrigger(eventName, data) {
       if (!$scope.bindedEvents || !$scope.bindedEvents[eventName]) 
         return;

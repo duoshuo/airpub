@@ -3,6 +3,7 @@
 node_modules/.bin/uglifyjs \
   src/airpub.js \
   src/filters/marked.js \
+  src/services/share.js \
   src/controllers/global.js \
   src/controllers/meta.js \
   src/controllers/base.js \

@@ -87,9 +87,9 @@
     query.user_id = result.author_id;
 
     // Open a request
-    duoshuo.get('users/profile', query, response);
+    duoshuo.get('users/profile', query, onSuccess);
 
-    function response(err, result) {
+    function onSuccess(err, result) {
       // Ignore null profile
       if (err) return; 
 

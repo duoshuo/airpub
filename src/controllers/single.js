@@ -16,7 +16,7 @@
       return $state.go('layout.404');
 
     // Expose locals to templates
-    $scope.articleID = $state.params.uri;
+    $scope.threadId = $state.params.uri;
 
     // Read from cache
     if ($scope.article) 
@@ -42,6 +42,7 @@
       if (err)
         return $scope.addAlert('文章内容获取失败，请稍后再试...', 'danger');
 
+      // Expose locals to templates
       $scope.article = result;
 
       // Update title and desciption

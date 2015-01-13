@@ -12,54 +12,91 @@
     ]);
 
   function singleArticleCtrler($scope, $state, duoshuo, $rootScope) {
-    var uri = $state.params.uri;
-
-    if (!uri) 
+    if (!$state.params.uri) 
       return $state.go('layout.404');
 
-    $scope.articleID = uri;
+    // Expose locals to templates
+    $scope.articleID = $state.params.uri;
+
     // Read from cache
-    if ($scope.article) return;
+    if ($scope.article) 
+      return;
+
     // Fetch article details
-    duoshuo.get('threads/details', {
-      thread_id: uri
-    }, function(err, result) {
+    fetchFreshDetail($state.params.uri);
+  }
+
+  function fetchFreshDetail(thread_id) {
+    var query = {};
+    query.thread_id = thread_id;
+
+    // Open a request
+    duoshuo.get(
+      'threads/details', 
+      query, 
+      onSuccess, 
+      onError
+    );
+
+    function onSuccess(err, result) {
       if (err)
         return $scope.addAlert('文章内容获取失败，请稍后再试...', 'danger');
+
       $scope.article = result;
 
+      // Update title and desciption
       $rootScope.$emit('updateMeta', {
         title: result.title,
         description: fetchDesciption(result.content)
       });
 
+      // Update background if required.
       if (result.meta && result.meta.background)
         $scope.updateBackground(result.meta.background);
 
+      // Init wechat share
       if ($scope.article)
         initWeixinShare($scope.article)
 
-      if (!result.author_id) return;
       // Fetch authors' profile
-      duoshuo.get('users/profile', {
-        user_id: result.author_id
-      }, function(err, result) {
-        if (err) return; // ignore null profile
-        $scope.author = result;
-        $scope.author.description = result.connected_services.weibo ?
-          result.connected_services.weibo.description :
-          null;
-      });
-    }, function(err) {
+      if (!result.author_id) 
+        return;
+
+      fetchUserProfile(result);
+    }
+
+    function onError(err) {
       return $state.go('layout.404');
-    });
+    }
+
+    function fetchDesciption(text) {
+      var maxLength = 80;
+      if (!text) 
+        return '';
+
+      if (text.length <= maxLength) 
+        return text;
+
+      return text.substr(0, maxLength) + '...';
+    }
   }
 
-  function fetchDesciption(text) {
-    var maxLength = 80;
-    if (!text) return '';
-    if (text.length <= maxLength) return text;
-    return text.substr(0, maxLength) + '...';
+  function fetchUserProfile(result) {
+    var query = {};
+    query.user_id = result.author_id;
+
+    // Open a request
+    duoshuo.get('users/profile', query, response);
+
+    function response(err, result) {
+      // Ignore null profile
+      if (err) return; 
+
+      $scope.author = result;
+      $scope.author.description = result.connected_services.weibo ?
+        result.connected_services.weibo.description :
+        null;
+    }
   }
 
   function initWeixinShare(article) {

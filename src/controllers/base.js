@@ -14,31 +14,37 @@
     ]);
   
   function baseCtrler($scope, $state, $timeout, $location, duoshuo) {
-    // inject locals to template
+    // Exporse locals to template
     $scope.location = $location;
     $scope.state = $state;
-    // signin section
+
+    // Signin section
     $scope.hiddenSigninSection = true;
     $scope.toggleSigninSection = toggleSigninSection;
-    // alerts module
+
+    // Alerts module
     $scope.alerts = [];
     $scope.addAlert = addAlert;
     $scope.closeAlert = closeAlert;
-    // update header backgroud
+
+    // Update header backgroud
     $scope.updateBackground = updateBackground;
-    // init copyright
+
+    // Expose copyright year
     $scope.copyrightYear = (new Date()).getFullYear();
 
-    // init account infomation
+    // Init account infomation
     duoshuo.on('ready', initAccount);
 
     function initAccount(err, data) {
       var isVisitor = (data.user_id === 0);
+
       if (err || isVisitor) {
         $scope.isVisitor = true;
         return;
-      };
-      // fullfill user data
+      }
+
+      // Expose user data
       $scope.user = data;
     }
 
@@ -63,10 +69,16 @@
     }
 
     function updateBackground(uri, dom) {
-      if (!uri) return;
-      if (uri.indexOf('http') !== 0 && uri.indexOf('https') !== 0) return;
+      if (!uri) 
+        return;
+      if (uri.indexOf('http') !== 0 && uri.indexOf('https') !== 0) 
+        return;
+
       var hd = dom || document.getElementsByTagName('header')[0];
-      if (!hd) return;
+      
+      if (!hd) 
+        return;
+
       angular.element(hd).css({
         'background-image': 'url(' + uri + ')'
       });

@@ -38,7 +38,7 @@
     function fetchFreshArticles() {
       var query = {};
       query.page = $scope.currentPage;
-      query.limit = scope.itemsPerPage;
+      query.limit = $scope.itemsPerPage;
       query.with_content = 1;
 
       // Open a request

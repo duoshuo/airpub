@@ -166,7 +166,7 @@
         });
       }
 
-      function(err) {
+      function onError(err) {
         return $scope.addAlert('更新失败，请稍后再试...', 'danger');
       }
     };

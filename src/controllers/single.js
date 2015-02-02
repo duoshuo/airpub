@@ -1,102 +1,103 @@
-;(function(angular, debug) {
+;
+(function(angular, debug) {
   'use strict';
-  
+
   angular
     .module('airpub')
     .controller('single', [
-      '$scope', 
-      '$state', 
-      'duoshuo', 
-      '$rootScope', 
+      '$scope',
+      '$state',
+      'duoshuo',
+      '$rootScope',
       singleArticleCtrler
     ]);
 
   function singleArticleCtrler($scope, $state, duoshuo, $rootScope) {
-    if (!$state.params.uri) 
+    if (!$state.params.uri)
       return $state.go('layout.404');
 
     // Expose locals to templates
     $scope.threadId = $state.params.uri;
 
     // Read from cache
-    if ($scope.article) 
+    if ($scope.article)
       return;
 
     // Fetch article details
     fetchFreshDetail($state.params.uri);
-  }
 
-  function fetchFreshDetail(thread_id) {
-    var query = {};
-    query.thread_id = thread_id;
+    function fetchFreshDetail(thread_id) {
+      var query = {};
+      query.thread_id = thread_id;
 
-    // Open a request
-    duoshuo.get(
-      'threads/details', 
-      query, 
-      onSuccess, 
-      onError
-    );
+      // Open a request
+      duoshuo.get(
+        'threads/details',
+        query,
+        onSuccess,
+        onError
+      );
 
-    function onSuccess(err, result) {
-      if (err)
-        return $scope.addAlert('文章内容获取失败，请稍后再试...', 'danger');
+      function onSuccess(err, result) {
+        if (err)
+          return $scope.addAlert('文章内容获取失败，请稍后再试...', 'danger');
 
-      // Expose locals to templates
-      $scope.article = result;
+        // Expose locals to templates
+        $scope.article = result;
 
-      // Update title and desciption
-      $rootScope.$emit('updateMeta', {
-        title: result.title,
-        description: fetchDesciption(result.content)
-      });
+        // Update title and desciption
+        $rootScope.$emit('updateMeta', {
+          title: result.title,
+          description: fetchDesciption(result.content)
+        });
 
-      // Update background if required.
-      if (result.meta && result.meta.background)
-        $scope.updateBackground(result.meta.background);
+        // Update background if required.
+        if (result.meta && result.meta.background)
+          $scope.updateBackground(result.meta.background);
 
-      // Init wechat share
-      if ($scope.article)
-        initWeixinShare($scope.article)
+        // Init wechat share
+        // if ($scope.article)
+        //   initWeixinShare($scope.article)
 
-      // Fetch authors' profile
-      if (!result.author_id) 
-        return;
+        // Fetch authors' profile
+        if (!result.author_id)
+          return;
 
-      fetchUserProfile(result);
+        fetchUserProfile(result);
+      }
+
+      function onError(err) {
+        return $state.go('layout.404');
+      }
+
+      function fetchDesciption(text) {
+        var maxLength = 80;
+        if (!text)
+          return '';
+
+        if (text.length <= maxLength)
+          return text;
+
+        return text.substr(0, maxLength) + '...';
+      }
     }
 
-    function onError(err) {
-      return $state.go('layout.404');
-    }
+    function fetchUserProfile(result) {
+      var query = {};
+      query.user_id = result.author_id;
 
-    function fetchDesciption(text) {
-      var maxLength = 80;
-      if (!text) 
-        return '';
+      // Open a request
+      duoshuo.get('users/profile', query, onSuccess);
 
-      if (text.length <= maxLength) 
-        return text;
+      function onSuccess(err, result) {
+        // Ignore null profile
+        if (err) return;
 
-      return text.substr(0, maxLength) + '...';
-    }
-  }
-
-  function fetchUserProfile(result) {
-    var query = {};
-    query.user_id = result.author_id;
-
-    // Open a request
-    duoshuo.get('users/profile', query, onSuccess);
-
-    function onSuccess(err, result) {
-      // Ignore null profile
-      if (err) return; 
-
-      $scope.author = result;
-      $scope.author.description = result.connected_services.weibo ?
-        result.connected_services.weibo.description :
-        null;
+        $scope.author = result;
+        $scope.author.description = result.connected_services.weibo ?
+          result.connected_services.weibo.description :
+          null;
+      }
     }
   }
 
